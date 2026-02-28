@@ -1,0 +1,28 @@
+name: Discord PR notification
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review]
+
+jobs:
+  notify-discord:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord Notification
+        run: |
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d '{
+              "embeds": [{
+                "title": "🚀 PR ${{ github.event.action }}: ${{ github.event.pull_request.title }}",
+                "description": "Перейдите по ссылке, чтобы проверить изменения.",
+                "url": "${{ github.event.pull_request.html_url }}",
+                "color": 5814783,
+                "author": {
+                  "name": "${{ github.event.pull_request.user.login }}",
+                  "icon_url": "${{ github.event.pull_request.user.avatar_url }}"
+                }
+              }]
+            }' \
+            "${{ secrets.PR_DISCORD_NOTIFIER_WEBHOOK }}"
