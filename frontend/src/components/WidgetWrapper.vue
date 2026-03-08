@@ -1,0 +1,86 @@
+<script setup lang="ts">
+import Button from 'primevue/button';
+import Card from 'primevue/card';
+import { computed, ref } from 'vue';
+
+import type { WidgetConfig } from '../types/widget';
+
+import { widgetRegistry } from '../widgets/widgetRegistry';
+
+const props = defineProps<{
+  widgets: WidgetConfig[];
+}>();
+
+const currentIndex = ref(0);
+const loading = ref(false);
+const error = ref<null | string>(null);
+
+const currentWidget = computed(() => props.widgets[currentIndex.value]);
+
+const currentComponent = computed(() => {
+  const widget = currentWidget.value;
+
+  if (widget) {
+    const component = widgetRegistry[widget.type];
+    return component;
+  }
+
+  return null;
+});
+
+const questionCount = computed(() => props.widgets.length);
+
+function goToNextWidget() {
+  currentIndex.value = (currentIndex.value + 1) % questionCount.value;
+}
+</script>
+
+<template>
+  <div class="flex min-h-screen items-center justify-center">
+    <Card class="w-full max-w-lg rounded-2xl shadow-xl">
+      <template #title>
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl font-semibold">Question #{{ currentIndex + 1 }}</h2>
+          <span class="text-sm text-gray-500"> {{ currentIndex + 1 }}/{{ questionCount }} </span>
+        </div>
+      </template>
+
+      <template #content>
+        <div class="relative min-h-50">
+          <div v-if="error" class="text-red-500">Failed to load a question: {{ error }}</div>
+
+          <div v-else-if="loading" class="flex justify-center p-10">Loading question...</div>
+
+          <Transition name="fade" mode="out-in">
+            <component :is="currentComponent" v-bind="currentWidget?.props" :key="currentIndex" />
+          </Transition>
+        </div>
+      </template>
+
+      <template #footer>
+        <div class="justify mt-4 flex justify-center">
+          <Button icon="pi pi-arrow-right" iconPos="right" label="Next question" @click="goToNextWidget" />
+        </div>
+      </template>
+    </Card>
+  </div>
+</template>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.fade-enter-from {
+  opacity: 0;
+  transform: translateX(15px);
+}
+
+.fade-leave-to {
+  opacity: 0;
+  transform: translateX(-15px);
+}
+</style>
