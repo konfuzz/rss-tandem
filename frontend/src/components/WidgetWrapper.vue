@@ -37,7 +37,7 @@ function goToNextWidget() {
 
 <template>
   <div class="flex min-h-screen items-center justify-center">
-    <Card class="w-full max-w-lg rounded-2xl shadow-xl">
+    <Card class="mx-10! w-full rounded-2xl shadow-xl">
       <template #title>
         <div class="flex items-center justify-between">
           <h2 class="text-xl font-semibold">Question #{{ currentIndex + 1 }}</h2>
