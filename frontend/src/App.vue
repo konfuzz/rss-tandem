@@ -3,7 +3,7 @@ import type { WidgetConfig } from './types/widget';
 
 import WidgetWrapper from './components/WidgetWrapper.vue';
 
-const widgets: WidgetConfig[] = [
+const questions: WidgetConfig[] = [
   { type: 'example' },
   {
     type: 'basic-poll',
@@ -19,7 +19,7 @@ const widgets: WidgetConfig[] = [
 
 <template>
   <div>
-    <WidgetWrapper :widgets="widgets" />
+    <WidgetWrapper :questions="questions" />
   </div>
 </template>
 

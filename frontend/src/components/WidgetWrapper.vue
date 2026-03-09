@@ -8,27 +8,27 @@ import type { WidgetConfig } from '../types/widget';
 import { widgetRegistry } from '../widgets/widgetRegistry';
 
 const props = defineProps<{
-  widgets: WidgetConfig[];
+  questions: WidgetConfig[];
 }>();
 
 const currentIndex = ref(0);
 const loading = ref(false);
 const error = ref<null | string>(null);
 
-const currentWidget = computed(() => props.widgets[currentIndex.value]);
+const currentQuestion = computed(() => props.questions[currentIndex.value]);
 
-const currentComponent = computed(() => {
-  const widget = currentWidget.value;
+const currentWidget = computed(() => {
+  const question = currentQuestion.value;
 
-  if (widget) {
-    const component = widgetRegistry[widget.type];
+  if (question) {
+    const component = widgetRegistry[question.type];
     return component;
   }
 
   return null;
 });
 
-const questionCount = computed(() => props.widgets.length);
+const questionCount = computed(() => props.questions.length);
 
 function goToNextWidget() {
   currentIndex.value = (currentIndex.value + 1) % questionCount.value;
@@ -52,7 +52,7 @@ function goToNextWidget() {
           <div v-else-if="loading" class="flex justify-center p-10">Loading question...</div>
 
           <Transition name="fade" mode="out-in">
-            <component :is="currentComponent" v-bind="currentWidget?.props" :key="currentIndex" />
+            <component :is="currentWidget" v-bind="currentQuestion?.props" :key="currentIndex" />
           </Transition>
         </div>
       </template>
