@@ -10,10 +10,11 @@ export async function aiReview(req: Request, res: Response) {
   const { studentAnswer, question } = req.body;
 
   try {
-    const stream = await openai.chat.completions.create({
+    const stream = await openai.responses.create({
       model: "qwen/qwen3.5-flash-02-23",
       stream: true,
-      messages: [
+      reasoning: { effort: 'none' },
+      input: [
         {
           role: "system",
           content: `Ты профессиональный интервьюер. Ты задал кандидату вопрос: ${question.question}.
@@ -32,17 +33,21 @@ export async function aiReview(req: Request, res: Response) {
       ],
       tools: [{
         type: "function",
-        function: {
-          name: "rate_answer",
-          description: "Rate the candidate answer from 0 to 10.",
-          parameters: {
-            type: "object",
-            properties: {
-              score: { type: "integer", minimum: 0, maximum: 10 }
-            },
-            required: ["score"]
-          }
-        }
+        name: "rate_answer",
+        description: "Rate the candidate answer from 0 to 10.",
+        parameters: {
+          type: "object",
+          properties: {
+            score: {
+              type: "integer",
+              minimum: 0,
+              maximum: 10,
+              description: "Integer score from 0 to 10"
+            }
+          },
+          required: ["score"]
+        },
+        strict: true
       }],
       tool_choice: "auto"
     });
