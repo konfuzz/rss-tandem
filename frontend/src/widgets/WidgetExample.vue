@@ -1,22 +1,20 @@
 <script setup lang="ts">
+import Button from 'primevue/button';
 import Card from 'primevue/card';
-import { watch } from 'vue';
-
-const props = defineProps<{
-  validateTrigger: number;
-}>();
+import { ref } from 'vue';
 
 const emit = defineEmits<{
   validated: [boolean];
 }>();
 
-// функция валидации запускается при изменения пропса validateTrigger из родителя-обертки, когда происходит 1-й клик по кнопке "Ответить"
+const answer = ref('');
+
 function validate() {
-  const valid = true;
-  emit('validated', valid); // если valid = true, то кнопка в родителе меняется на "Следующий вопрос"
+  // Здесь будет происходить валидация ответа
+  emit('validated', true);
 }
 
-watch(() => props.validateTrigger, validate);
+defineExpose({ validate });
 </script>
 
 <template>
@@ -24,6 +22,8 @@ watch(() => props.validateTrigger, validate);
     <template #content>
       <div class="text-center">
         <p class="text-3xl font-bold">Example</p>
+        <p>{{ answer }}</p>
+        <Button label="Проверить удачу" @click="validate" />
       </div>
     </template>
   </Card>
