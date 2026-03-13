@@ -13,46 +13,33 @@ const props = defineProps<{
 
 const currentIndex = ref(0);
 const isAnswered = ref(false);
-const validateTrigger = ref(0);
 const loading = ref(false);
 const error = ref<null | string>(null);
+const widgetRef = ref();
 
 const currentQuestion = computed(() => props.questions[currentIndex.value]);
 
 const currentWidget = computed(() => {
   const question = currentQuestion.value;
-
-  if (question) {
-    const component = widgetRegistry[question.type];
-    return component;
-  }
-
-  return null;
+  return question ? widgetRegistry[question.type] : null;
 });
 
 const questionCount = computed(() => props.questions.length);
 
 const buttonLabel = computed(() => {
   if (!isAnswered.value) return 'Ответить';
-
-  if (currentIndex.value === questionCount.value - 1) {
-    return 'Завершить';
-  }
-
-  return 'Следующий вопрос';
+  return currentIndex.value === questionCount.value - 1 ? 'Завершить' : 'Следующий вопрос';
 });
 
-function emitValidate() {
-  validateTrigger.value++;
-}
-
 function goToNextWidget() {
-  currentIndex.value = (currentIndex.value + 1) % questionCount.value;
+  if (currentIndex.value < questionCount.value - 1) {
+    currentIndex.value++;
+  }
 }
 
 function handleButtonClick() {
   if (!isAnswered.value) {
-    emitValidate();
+    widgetRef.value?.validate();
     return;
   }
 
@@ -91,9 +78,9 @@ function onValidated(valid: boolean) {
             <component
               :is="currentWidget"
               v-bind="currentQuestion?.props"
-              :validate-trigger="validateTrigger"
               @validated="onValidated"
               :key="currentIndex"
+              ref="widgetRef"
             />
           </Transition>
         </div>
