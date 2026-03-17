@@ -23,7 +23,7 @@ interface TaskNode {
 
 const props = defineProps<{ task: TaskData }>();
 const emit = defineEmits<{
-  (e: 'result', payload: { success: boolean; timeSpent: number }): void;
+  (e: 'result', payload: { success: boolean }): void;
 }>();
 
 const uid = () => Math.random().toString(36).slice(2, 11);
@@ -33,14 +33,12 @@ const status = ref<'fail' | 'playing' | 'showing_answer' | 'success'>('playing')
 const bank = ref<NodeItem[]>([]);
 const root = ref<NodeItem | null>(null);
 const selectedId = ref<null | string>(null);
-const draggedId = ref<null | string>(null);
 const caret = ref<CaretPosition | null>(null);
 
 // ─── Init ───
 const initTask = () => {
   status.value = 'playing';
   selectedId.value = null;
-  draggedId.value = null;
   caret.value = null;
   bank.value = props.task.answers.map((a) => ({
     children: a.isContainer ? [] : undefined,
@@ -217,7 +215,6 @@ const onZoneMouseMove = (payload: { containerId: string; event: MouseEvent }) =>
 const onChipDragStart = (payload: { event: DragEvent; id: string }) => {
   if (isFinished.value) return;
   selectedId.value = null;
-  draggedId.value = payload.id;
   if (payload.event.dataTransfer) {
     // Only pass id, so other text is not dragged by default
     payload.event.dataTransfer.setData('text/plain', payload.id);
@@ -226,7 +223,6 @@ const onChipDragStart = (payload: { event: DragEvent; id: string }) => {
 };
 
 const onChipDragEnd = () => {
-  draggedId.value = null;
   caret.value = null;
 };
 
@@ -299,7 +295,7 @@ const emitResult = () => {
   const ok = compareStructure(root.value, props.task.correctStructure);
   if (ok) status.value = 'success';
   else status.value = 'fail';
-  emit('result', { success: ok, timeSpent: 0 });
+  emit('result', { success: ok });
 };
 
 const checkResult = () => {
