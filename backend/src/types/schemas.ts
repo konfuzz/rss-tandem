@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { Request } from 'express';
 
 const PollKeySchema = z.object({
   correctAnswer: z.number(),
@@ -20,3 +21,22 @@ export const QuestionSchema = z.discriminatedUnion('type', [
 ]);
 
 export type ValidatedQuestion = z.infer<typeof QuestionSchema>;
+
+export const FinishQuizSchema = z.object({
+  complexity: z.string(),
+  totalScore: z.number(),
+  totalDuration: z.number(),
+  answers: z.array(z.object({
+    id: z.number(),
+    category: z.string(),
+    score: z.number(),
+    time: z.number()
+  }))
+});
+
+export interface AuthRequest extends Request {
+  user?: {
+    userId: number;
+    username: string;
+  } | any;
+}
