@@ -1,0 +1,701 @@
+[
+  {
+    "id": 1,
+    "type": "basic-poll",
+    "category": "JavaScript",
+    "complexity": "trainee",
+    "time": 1,
+    "content": {
+      "question": "Какой метод массива используется для создания нового массива с результатами вызова функции для каждого элемента?",
+      "answers": [
+        "forEach()",
+        "filter()",
+        "map()",
+        "reduce()"
+      ]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 2,
+    "type": "multiple-choice",
+    "category": "Web API",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие из перечисленных технологий относятся к методам хранения данных в браузере?",
+      "answers": [
+        "localStorage",
+        "Redux",
+        "IndexedDB",
+        "HTTP Cookies",
+        "Docker"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [
+        0,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "type": "ai-interviewer",
+    "category": "JavaScript Basics",
+    "complexity": "junior",
+    "time": 5,
+    "content": {
+      "question": "Что такое замыкание (closure) в JavaScript и приведите пример его использования?"
+    },
+    "answerKey": {
+      "idealKeywords": [
+        "лексическое окружение",
+        "внешние переменные",
+        "scope"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "type": "code-analysis",
+    "category": "JavaScript Basics",
+    "complexity": "trainee",
+    "time": 3,
+    "content": {
+      "question": "В какой строке кода содержится ошибка, приводящая к TypeError?",
+      "answers": [
+        "const user = { id: 1 };",
+        "let isAdmin = true;",
+        "user.id = 2;",
+        "user = { id: 3 };",
+        "console.log(user.id);"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [
+        3
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "type": "drag-n-drop",
+    "category": "JavaScript",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод Array.prototype.reduce правильно",
+      "initialCode": {
+        "label": "reduce",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "callbackFn",
+          "isContainer": true
+        },
+        {
+          "label": "initialValue",
+          "isContainer": false
+        },
+        {
+          "label": "accumulator",
+          "isContainer": false
+        },
+        {
+          "label": "currentValue",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "reduce",
+        "children": [
+          {
+            "label": "callbackFn",
+            "children": [
+              {
+                "label": "accumulator"
+              },
+              {
+                "label": "currentValue"
+              }
+            ]
+          },
+          {
+            "label": "initialValue"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 6,
+    "type": "basic-poll",
+    "category": "CSS",
+    "complexity": "trainee",
+    "time": 1,
+    "content": {
+      "question": "Какое свойство CSS отвечает за внутренние отступы элемента?",
+      "answers": [
+        "margin",
+        "padding",
+        "border",
+        "spacing"
+      ]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 7,
+    "type": "ai-interviewer",
+    "category": "Event Loop",
+    "complexity": "middle",
+    "time": 5,
+    "content": {
+      "question": "Объясните разницу между микрозадачами (microtasks) и макрозадачами (macrotasks) в контексте Event Loop."
+    },
+    "answerKey": {
+      "checkFocus": [
+        "Promise",
+        "setTimeout",
+        "очередь"
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "type": "multiple-choice",
+    "category": "React",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие из этих хуков являются встроенными в React?",
+      "answers": [
+        "useState",
+        "useFetch",
+        "useEffect",
+        "useContext",
+        "useRouter"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [
+        0,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "type": "basic-poll",
+    "category": "Node.js",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой модуль в Node.js используется для работы с путями файловой системы?",
+      "answers": [
+        "fs",
+        "path",
+        "http",
+        "os"
+      ]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 10,
+    "type": "code-analysis",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какая строка вызовет ошибку компиляции TypeScript?",
+      "answers": [
+        "let x: number = 10;",
+        "const y: string = 'hello';",
+        "x = 'string';",
+        "let z: any = true;"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [
+        2
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "type": "basic-poll",
+    "category": "React",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Для чего используется хук `useMemo`?",
+      "answers": [
+        "Для хранения состояния",
+        "Для кэширования результата вычислений",
+        "Для выполнения побочных эффектов",
+        "Для прямого доступа к DOM-узлу"
+      ]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 12,
+    "type": "ai-interviewer",
+    "category": "Computer Science",
+    "complexity": "middle",
+    "time": 5,
+    "content": {
+      "question": "Объясните разницу между процессами и потоками (Threads vs Processes)."
+    },
+    "answerKey": {
+      "idealKeywords": [
+        "память",
+        "изоляция",
+        "параллелизм"
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "type": "multiple-choice",
+    "category": "CSS",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие значения свойства `position` вырывают элемент из нормального потока документа?",
+      "answers": [
+        "static",
+        "relative",
+        "absolute",
+        "fixed",
+        "sticky"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "type": "drag-n-drop",
+    "category": "JavaScript",
+    "complexity": "middle",
+    "time": 4,
+    "content": {
+      "question": "Соберите цепочку Promise правильно для обработки ошибки",
+      "initialCode": {
+        "label": "fetchData()",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": ".then()",
+          "isContainer": true
+        },
+        {
+          "label": ".catch()",
+          "isContainer": true
+        },
+        {
+          "label": "handleSuccess",
+          "isContainer": false
+        },
+        {
+          "label": "handleError",
+          "isContainer": false
+        },
+        {
+          "label": ".finally()",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "fetchData()",
+        "children": [
+          {
+            "label": ".then()",
+            "children": [
+              {
+                "label": "handleSuccess"
+              }
+            ]
+          },
+          {
+            "label": ".catch()",
+            "children": [
+              {
+                "label": "handleError"
+              }
+            ]
+          },
+          {
+            "label": ".finally()"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 15,
+    "type": "code-analysis",
+    "category": "JavaScript",
+    "complexity": "middle",
+    "time": 3,
+    "content": {
+      "question": "Что выведет `console.log(typeof NaN)`?",
+      "answers": [
+        "'NaN'",
+        "'number'",
+        "'undefined'",
+        "'object'"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [
+        1
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "type": "basic-poll",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Как в TypeScript описать массив строк?",
+      "answers": [
+        "Array<string>",
+        "string[]",
+        "Both A and B",
+        "string?[]"
+      ]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 17,
+    "type": "ai-interviewer",
+    "category": "Web Security",
+    "complexity": "middle",
+    "time": 5,
+    "content": {
+      "question": "Что такое CORS и зачем он нужен?"
+    },
+    "answerKey": {
+      "keywords": [
+        "Origin",
+        "браузер",
+        "безопасность"
+      ]
+    }
+  },
+  {
+    "id": 18,
+    "type": "multiple-choice",
+    "category": "Node.js",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие из этих инструментов являются пакетными менеджерами?",
+      "answers": [
+        "npm",
+        "pnpm",
+        "yarn",
+        "vite",
+        "webpack"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [
+        0,
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "type": "basic-poll",
+    "category": "Git",
+    "complexity": "trainee",
+    "time": 1,
+    "content": {
+      "question": "Какая команда используется для создания новой ветки и перехода в неё?",
+      "answers": [
+        "git branch new-branch",
+        "git checkout -b new-branch",
+        "git commit -m 'new'",
+        "git push origin"
+      ]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 20,
+    "type": "code-analysis",
+    "category": "React",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Почему этот код вызовет бесконечный ререндер? `useEffect(() => { setCount(count + 1) })`",
+      "answers": [
+        "Отсутствует массив зависимостей",
+        "Функция setCount не определена",
+        "useEffect нельзя использовать для изменения стейта",
+        "Нужно использовать useLayoutEffect"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [
+        0
+      ]
+    }
+  },
+  {
+    "id": 21,
+    "type": "basic-poll",
+    "category": "JavaScript",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какое ключевое слово используется для объявления переменной с областью видимости блока, которую нельзя переопределить?",
+      "answers": [
+        "var",
+        "let",
+        "const",
+        "static"
+      ]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 22,
+    "type": "ai-interviewer",
+    "category": "Architecture",
+    "complexity": "middle",
+    "time": 6,
+    "content": {
+      "question": "В чем разница между REST и GraphQL? Когда лучше выбрать один вместо другого?"
+    },
+    "answerKey": {
+      "idealKeywords": [
+        "эндпоинт",
+        "query",
+        "overfetching"
+      ]
+    }
+  },
+  {
+    "id": 23,
+    "type": "multiple-choice",
+    "category": "HTML",
+    "complexity": "trainee",
+    "time": 2,
+    "content": {
+      "question": "Какие теги являются семантическими в HTML5?",
+      "answers": [
+        "<div>",
+        "<header>",
+        "<span>",
+        "<article>",
+        "<section>"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [
+        1,
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "id": 24,
+    "type": "drag-n-drop",
+    "category": "CSS",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите центрирование элемента через Flexbox",
+      "initialCode": {
+        "label": "display: flex",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "justify-content: center",
+          "isContainer": false
+        },
+        {
+          "label": "align-items: center",
+          "isContainer": false
+        },
+        {
+          "label": "flex-direction: column",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "display: flex",
+        "children": [
+          {
+            "label": "justify-content: center"
+          },
+          {
+            "label": "align-items: center"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 25,
+    "type": "code-analysis",
+    "category": "JavaScript",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что выведет код `console.log(0.1 + 0.2 === 0.3)`?",
+      "answers": [
+        "true",
+        "false",
+        "undefined",
+        "TypeError"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [
+        1
+      ]
+    }
+  },
+  {
+    "id": 26,
+    "type": "basic-poll",
+    "category": "Testing",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что проверяет Unit-тест?",
+      "answers": [
+        "Взаимодействие между всеми модулями системы",
+        "Отдельную минимальную единицу кода (функцию, метод)",
+        "Производительность приложения под нагрузкой",
+        "Удобство интерфейса для пользователя"
+      ]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 27,
+    "type": "ai-interviewer",
+    "category": "Performance",
+    "complexity": "middle",
+    "time": 5,
+    "content": {
+      "question": "Что такое Virtual DOM в React и как он помогает оптимизировать производительность?"
+    },
+    "answerKey": {
+      "idealKeywords": [
+        "diffing",
+        "reconciliation",
+        "отрисовка"
+      ]
+    }
+  },
+  {
+    "id": 28,
+    "type": "multiple-choice",
+    "category": "JavaScript",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие методы используются для работы с асинхронным кодом в JS?",
+      "answers": [
+        "Callbacks",
+        "Promises",
+        "Async/Await",
+        "Loops",
+        "Recursion"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [
+        0,
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "id": 29,
+    "type": "basic-poll",
+    "category": "Algorithms",
+    "complexity": "middle",
+    "time": 4,
+    "content": {
+      "question": "Какова временная сложность (Big O) поиска в сбалансированном бинарном дереве поиска?",
+      "answers": [
+        "O(1)",
+        "O(n)",
+        "O(log n)",
+        "O(n^2)"
+      ]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 30,
+    "type": "code-analysis",
+    "category": "TypeScript",
+    "complexity": "middle",
+    "time": 3,
+    "content": {
+      "question": "Для чего используется оператор `keyof`?",
+      "answers": [
+        "Для получения типа всех ключей объекта",
+        "Для проверки наличия ключа в объекте",
+        "Для создания нового интерфейса",
+        "Для удаления ключа из объекта"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [
+        0
+      ]
+    }
+  }
+]
