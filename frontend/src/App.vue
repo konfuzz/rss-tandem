@@ -1,26 +1,33 @@
 <script setup lang="ts">
-import type { WidgetConfig } from './types/widget';
+import { useRouter } from 'vue-router';
 
-import WidgetWrapper from './components/WidgetWrapper.vue';
+import { useAuthStore } from './stores/auth';
 
-const questions: WidgetConfig[] = [
-  { type: 'example' },
-  {
-    type: 'basic-poll',
-  },
-  {
-    type: 'drag-n-drop',
-  },
-  {
-    type: 'ai-interviewer',
-  },
-];
+const router = useRouter();
+
+const auth = useAuthStore();
+
+const handleLogout = () => {
+  auth.logout();
+  router.push({ name: 'login' });
+};
 </script>
 
 <template>
-  <div>
-    <WidgetWrapper :questions="questions" />
-  </div>
-</template>
+  <nav>
+    <RouterLink to="/">Главная</RouterLink>
+    <template v-if="!auth.isAuthenticated">
+      <RouterLink to="/login">Логин</RouterLink>
+      <RouterLink to="/register">Регистрация</RouterLink>
+    </template>
+    <template v-else>
+      <RouterLink to="/dashboard">Кабинет</RouterLink>
+      <RouterLink to="/quiz">Quiz</RouterLink>
+      <button @click="handleLogout">Выйти</button>
+    </template>
+  </nav>
 
-<style scoped></style>
+  <main>
+    <RouterView />
+  </main>
+</template>
