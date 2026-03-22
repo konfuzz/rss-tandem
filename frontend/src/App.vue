@@ -14,11 +14,10 @@ const handleLogout = () => {
 </script>
 
 <template>
-  <nav>
+  <nav class="flex flex-row items-center justify-center gap-2 py-5!">
     <RouterLink to="/">Главная</RouterLink>
     <template v-if="!auth.isAuthenticated">
-      <RouterLink to="/login">Логин</RouterLink>
-      <RouterLink to="/register">Регистрация</RouterLink>
+      <RouterLink to="/login">Вход</RouterLink>
     </template>
     <template v-else>
       <RouterLink to="/dashboard">Кабинет</RouterLink>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Button from 'primevue/button';
+import InputText from 'primevue/inputtext';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -43,13 +45,14 @@ const handleLogin = async () => {
 </script>
 
 <template>
-  <div class="login-form">
+  <div class="flex min-h-screen flex-col items-center justify-center">
     <h2>Вход</h2>
-    <form @submit.prevent="handleLogin">
-      <input v-model="username" type="text" placeholder="Логин" required />
-      <input v-model="password" type="password" placeholder="Пароль" required />
-      <button type="submit" :disabled="loading">Войти</button>
+    <form @submit.prevent="handleLogin" class="flex max-w-sm flex-col gap-1">
+      <InputText v-model="username" type="text" placeholder="Логин" required />
+      <InputText v-model="password" type="password" placeholder="Пароль" required />
+      <Button type="submit" :disabled="loading" :label="loading ? 'Загрузка...' : 'Войти'" />
       <p v-if="error" style="color: red">{{ error }}</p>
     </form>
+    <RouterLink to="/register">Регистрация</RouterLink>
   </div>
 </template>

@@ -4,7 +4,7 @@ import { useAuthStore } from '../stores/auth';
 const auth = useAuthStore();
 </script>
 <template>
-  <div style="text-align: center; margin-top: 50px">
+  <div flex flex-col min-h-screen items-center justify-center>
     <h1>Dashboard</h1>
     <p>Привет, {{ auth.userName }}</p>
   </div>
