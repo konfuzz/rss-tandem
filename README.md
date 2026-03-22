@@ -14,4 +14,4 @@ An app for preparing for technical interviews and/or training hard skills in an 
 [2026-03-06](/meeting-notes/meeting-2026-03-06.md)
 
 ## Video for Week 5 Checkpoint
-[Checkpoint](https://link.storjshare.io/raw/jvfvlz4gh3e3mec62us7qxmepn5a/screenshots/chrome_2026-03-22_19-51-41.mp4)
+[Week 5 Checkpoint Video](https://link.storjshare.io/raw/jvfvlz4gh3e3mec62us7qxmepn5a/screenshots/chrome_2026-03-22_19-51-41.mp4)
