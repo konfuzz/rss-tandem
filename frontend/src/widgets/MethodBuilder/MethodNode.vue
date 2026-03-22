@@ -52,7 +52,7 @@ const emit = defineEmits<{
       :label="node.label"
       class="inline-flex cursor-grab items-center rounded-lg! border! border-slate-200! bg-slate-100! px-3! py-1! font-mono! text-[13px]! font-semibold! text-slate-800! transition-all duration-200 active:cursor-grabbing dark:border-slate-700! dark:bg-slate-800! dark:text-slate-200!"
       :class="{
-        'scale-105 ring-2 ring-sky-500/40': selectedId === node.id,
+        'scale-105 ring-2 ring-emerald-500/40': selectedId === node.id,
         'cursor-default opacity-60': disabled,
       }"
       :draggable="!disabled"
@@ -63,7 +63,10 @@ const emit = defineEmits<{
 
     <!-- Container: ( children ) -->
     <template v-if="node.isContainer">
-      <span class="mx-0.5 font-mono text-lg leading-none font-bold text-slate-800 dark:text-slate-200">(</span>
+      <span 
+        class="mx-0.5 font-mono text-lg leading-none font-bold text-slate-800 transition-colors duration-200 dark:text-slate-200"
+        :class="{ 'text-emerald-500! dark:text-emerald-400!': selectedId }"
+      >(</span>
 
       <span
         class="drop-zone relative inline-flex min-h-9 min-w-14 flex-wrap items-center gap-1 rounded-lg border border-transparent px-1.5 py-1 transition-colors"
@@ -110,7 +113,10 @@ const emit = defineEmits<{
         </span>
       </span>
 
-      <span class="mx-0.5 font-mono text-lg leading-none font-bold text-slate-800 dark:text-slate-200">)</span>
+      <span 
+        class="mx-0.5 font-mono text-lg leading-none font-bold text-slate-800 transition-colors duration-200 dark:text-slate-200"
+        :class="{ 'text-emerald-500! dark:text-emerald-400!': selectedId }"
+      >)</span>
     </template>
   </span>
 </template>
@@ -120,7 +126,7 @@ const emit = defineEmits<{
   display: inline-block;
   width: 2px;
   height: 1.25rem;
-  background: rgba(14, 165, 233, 0.5); /* sky-500 with opacity */
+  background: rgba(16, 185, 129, 0.5); /* emerald-500 with opacity */
   border-radius: 999px;
   margin: 0 1px;
   flex-shrink: 0;

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Button from 'primevue/button';
-import Card from 'primevue/card';
 import Chip from 'primevue/chip';
 import Message from 'primevue/message';
 import { computed, onMounted, ref } from 'vue';
@@ -11,7 +10,7 @@ import MethodNode from './MethodNode.vue';
 
 interface TaskData {
   answers: { isContainer: boolean; label: string }[];
-  correctStructure: TaskNode;
+  correctStructure?: TaskNode;
   initialCode: { isContainer: boolean; label: string };
   question: string;
 }
@@ -21,8 +20,9 @@ interface TaskNode {
   label: string;
 }
 
-const props = defineProps<{ task: TaskData }>();
+const props = defineProps<{ questionId?: number; task: TaskData }>();
 const emit = defineEmits<{
+  (e: 'validated', valid: boolean): void;
   (e: 'result', payload: { success: boolean }): void;
 }>();
 
@@ -32,6 +32,7 @@ const uid = () => Math.random().toString(36).slice(2, 11);
 const status = ref<'fail' | 'playing' | 'showing_answer' | 'success'>('playing');
 const bank = ref<NodeItem[]>([]);
 const root = ref<NodeItem | null>(null);
+const correctStructure = ref<null | TaskNode>(props.task.correctStructure ?? null);
 const selectedId = ref<null | string>(null);
 const caret = ref<CaretPosition | null>(null);
 
@@ -274,35 +275,64 @@ const onBankClick = () => {
 };
 
 // ─── Results ───
-const compareStructure = (actual: NodeItem, expected: TaskNode): boolean => {
-  if (actual.label !== expected.label) return false;
-  const kids = expected.children;
-  if (kids) {
-    if (!actual.children || actual.children.length !== kids.length) return false;
-    for (let i = 0; i < kids.length; i++) {
-      const actualChild = actual.children[i];
-      const expectedChild = kids[i];
-      if (!actualChild || !expectedChild || !compareStructure(actualChild, expectedChild)) return false;
-    }
-  } else {
-    if (actual.children && actual.children.length > 0) return false;
+
+const buildCleanAnswer = (node: NodeItem): Record<string, unknown> => {
+  const result: Record<string, unknown> = { label: node.label };
+  if (node.children && node.children.length > 0) {
+    result.children = node.children.map(buildCleanAnswer);
   }
-  return true;
+  return result;
 };
 
-const emitResult = () => {
+const validate = async () => {
   if (!root.value) return;
-  const ok = compareStructure(root.value, props.task.correctStructure);
-  if (ok) status.value = 'success';
-  else status.value = 'fail';
-  emit('result', { success: ok });
+
+  if (status.value === 'showing_answer') {
+    emit('validated', true);
+    return;
+  }
+
+  const answerPayload = buildCleanAnswer(root.value);
+
+  try {
+    const response = await fetch('http://localhost:3000/quiz/submit', {
+      body: JSON.stringify({ answer: answerPayload, questionId: props.questionId }),
+      headers: { 'Content-Type': 'application/json' },
+      method: 'POST',
+    });
+    
+    if (!response.ok) throw new Error('API error');
+    
+    const data = await response.json();
+    
+    if (data.score === 10) {
+      status.value = 'success';
+      correctStructure.value = data.correctAnswer || correctStructure.value;
+      emit('validated', true);
+    } else {
+      status.value = 'fail';
+      if (data.correctAnswer) {
+        correctStructure.value = data.correctAnswer;
+      }
+      emit('validated', true);
+    }
+    emit('result', { success: data.score === 10 });
+  } catch (err) {
+    console.error('Validation failed', err);
+    status.value = 'fail';
+    emit('validated', true);
+    emit('result', { success: false });
+  }
 };
 
-const checkResult = () => {
-  emitResult();
-};
+defineExpose({ validate });
 
 const showAnswer = () => {
+  if (!correctStructure.value) {
+    console.warn('Cannot show answer: correctStructure is missing.');
+    return;
+  }
+
   // Create a pool of all available answers to track what's left
   const pool = [...props.task.answers];
 
@@ -322,7 +352,7 @@ const showAnswer = () => {
     };
   };
 
-  root.value = build(props.task.correctStructure);
+  root.value = build(correctStructure.value);
 
   // The remaining items in the pool are distractors
   bank.value = pool.map((p) => ({
@@ -333,20 +363,18 @@ const showAnswer = () => {
   }));
 
   status.value = 'showing_answer';
+  emit('validated', true);
 };
 </script>
 
 <template>
-  <div class="mx-auto w-full max-w-3xl p-4">
-    <!-- Catch dragover on empty areas to clear caret/highlight -->
-    <Card
-      class="overflow-hidden rounded-3xl border-none! shadow-xl! dark:bg-slate-900!"
-      @dragover.prevent="onCardDragOver"
-      @mousemove="onCardMouseMove"
-    >
-      <template #content>
-        <div class="flex flex-col gap-8 p-4 md:p-6">
-          <!-- Header -->
+  <div
+    class="w-full"
+    @dragover.prevent="onCardDragOver"
+    @mousemove="onCardMouseMove"
+  >
+    <div class="flex w-full flex-col gap-8 md:p-2">
+      <!-- Header -->
           <div class="flex flex-col items-center gap-4 text-center">
             <h2 class="m-0 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl dark:text-slate-100">
               {{ task.question }}
@@ -380,7 +408,7 @@ const showAnswer = () => {
               icon="pi pi-times-circle"
               class="shadow-sm"
             >
-              Неверно. Проверьте порядок и структуру аргументов.
+              Неверно.
             </Message>
           </div>
 
@@ -412,13 +440,13 @@ const showAnswer = () => {
               class="flex items-center gap-2 pl-1 text-[10px] font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500"
             >
               <span>Параметры</span>
-              <span v-if="selectedId" class="font-normal text-sky-500/70 normal-case dark:text-sky-400/70">
+              <span v-if="selectedId" class="font-normal text-emerald-500/70 normal-case dark:text-emerald-400/70">
                 · Выберите зону или кликните сюда для возврата
               </span>
             </div>
             <div
               class="flex min-h-20 cursor-pointer flex-wrap items-center justify-center gap-3 rounded-2xl p-6 transition-all duration-200 md:p-8"
-              :class="{ 'shadow-[0_0_0_2px_rgba(14,165,233,0.4)]': isBankHighlighted || selectedId }"
+              :class="{ 'shadow-[0_0_0_2px_rgba(16,185,129,0.4)]': isBankHighlighted || selectedId }"
               @dragover.prevent.stop="onBankDragOver"
               @drop.prevent.stop="onBankDrop"
               @click="onBankClick"
@@ -428,7 +456,7 @@ const showAnswer = () => {
                 :key="item.id"
                 class="cursor-grab rounded-lg! border! border-slate-200! bg-slate-100! transition-all duration-200 dark:border-slate-700! dark:bg-slate-800!"
                 :class="{
-                  'scale-105 ring-2 ring-sky-500/40': selectedId === item.id,
+                  'scale-105 ring-2 ring-emerald-500/40': selectedId === item.id,
                   'cursor-default! opacity-60': isFinished,
                 }"
                 :draggable="!isFinished"
@@ -454,29 +482,18 @@ const showAnswer = () => {
           </div>
 
           <!-- Actions -->
-          <div class="flex items-center justify-between pt-2">
-            <div>
-              <Button
-                v-if="isFinished && status !== 'success' && status !== 'showing_answer'"
-                label="Показать ответ"
-                icon="pi pi-eye"
-                severity="secondary"
-                variant="text"
-                size="small"
-                @click="showAnswer"
-              />
-            </div>
+          <div class="flex items-center justify-start pt-2">
             <Button
-              v-if="!isFinished"
-              label="Проверить"
-              icon="pi pi-check"
-              class="border-emerald-500! bg-emerald-500! px-6 text-white! hover:bg-emerald-600!"
-              @click="checkResult"
+              v-if="isFinished && status !== 'success' && status !== 'showing_answer'"
+              label="Показать ответ"
+              icon="pi pi-eye"
+              severity="secondary"
+              variant="text"
+              size="small"
+              @click="showAnswer"
             />
           </div>
-        </div>
-      </template>
-    </Card>
+    </div>
   </div>
 </template>
 
