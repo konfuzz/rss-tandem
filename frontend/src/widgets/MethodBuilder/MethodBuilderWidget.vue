@@ -300,11 +300,11 @@ const validate = async () => {
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
     });
-    
+
     if (!response.ok) throw new Error('API error');
-    
+
     const data = await response.json();
-    
+
     if (data.score === 10) {
       status.value = 'success';
       correctStructure.value = data.correctAnswer || correctStructure.value;
@@ -368,131 +368,127 @@ const showAnswer = () => {
 </script>
 
 <template>
-  <div
-    class="w-full"
-    @dragover.prevent="onCardDragOver"
-    @mousemove="onCardMouseMove"
-  >
+  <div class="w-full" @dragover.prevent="onCardDragOver" @mousemove="onCardMouseMove">
     <div class="flex w-full flex-col gap-8 md:p-2">
       <!-- Header -->
-          <div class="flex flex-col items-center gap-4 text-center">
-            <h2 class="m-0 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl dark:text-slate-100">
-              {{ task.question }}
-            </h2>
-          </div>
+      <div class="flex flex-col items-center gap-4 text-center">
+        <h2 class="m-0 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl dark:text-slate-100">
+          {{ task.question }}
+        </h2>
+      </div>
 
-          <!-- Status -->
-          <div v-if="isFinished" class="transition-all duration-300">
-            <Message
-              v-if="status === 'success'"
-              severity="success"
-              :closable="false"
-              icon="pi pi-check-circle"
-              class="border-emerald-500/20! bg-emerald-500/10! text-emerald-600! shadow-sm dark:text-emerald-400!"
-            >
-              Отлично! Метод собран верно.
-            </Message>
-            <Message
-              v-else-if="status === 'showing_answer'"
-              severity="info"
-              :closable="false"
-              icon="pi pi-info-circle"
-              class="shadow-sm"
-            >
-              Вот правильный ответ.
-            </Message>
-            <Message
-              v-else-if="status === 'fail'"
-              severity="error"
-              :closable="false"
-              icon="pi pi-times-circle"
-              class="shadow-sm"
-            >
-              Неверно.
-            </Message>
-          </div>
+      <!-- Status -->
+      <div v-if="isFinished" class="transition-all duration-300">
+        <Message
+          v-if="status === 'success'"
+          severity="success"
+          :closable="false"
+          icon="pi pi-check-circle"
+          class="border-emerald-500/20! bg-emerald-500/10! text-emerald-600! shadow-sm dark:text-emerald-400!"
+        >
+          Отлично! Метод собран верно.
+        </Message>
+        <Message
+          v-else-if="status === 'showing_answer'"
+          severity="info"
+          :closable="false"
+          icon="pi pi-info-circle"
+          class="shadow-sm"
+        >
+          Вот правильный ответ.
+        </Message>
+        <Message
+          v-else-if="status === 'fail'"
+          severity="error"
+          :closable="false"
+          icon="pi pi-times-circle"
+          class="shadow-sm"
+        >
+          Неверно.
+        </Message>
+      </div>
 
-          <!-- Constructor -->
-          <div
-            class="flex min-h-20 items-center justify-center overflow-x-auto rounded-2xl p-8 transition-all duration-500 md:p-6"
-            :class="{ 'animating-answer': status === 'showing_answer' }"
+      <!-- Constructor -->
+      <div
+        class="flex min-h-20 items-center justify-center overflow-x-auto rounded-2xl p-8 transition-all duration-500 md:p-6"
+        :class="{ 'animating-answer': status === 'showing_answer' }"
+      >
+        <div v-if="root" class="flex items-center">
+          <MethodNode
+            :node="root"
+            :is-root="true"
+            :selected-id="selectedId"
+            :caret="caret"
+            :disabled="isFinished"
+            @chip-click="onChipClick"
+            @chip-dragstart="onChipDragStart"
+            @chip-dragend="onChipDragEnd"
+            @zone-click="onZoneClick"
+            @zone-dragover="onZoneDragOver"
+            @zone-drop="onZoneDrop"
+            @zone-mousemove="onZoneMouseMove"
+          />
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-3">
+        <div
+          class="flex items-center gap-2 pl-1 text-[10px] font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500"
+        >
+          <span>Параметры</span>
+          <span v-if="selectedId" class="font-normal text-emerald-500/70 normal-case dark:text-emerald-400/70">
+            · Выберите зону или кликните сюда для возврата
+          </span>
+        </div>
+        <div
+          class="flex min-h-20 cursor-pointer flex-wrap items-center justify-center gap-3 rounded-2xl p-6 transition-all duration-200 md:p-8"
+          :class="{ 'shadow-[0_0_0_2px_rgba(16,185,129,0.4)]': isBankHighlighted || selectedId }"
+          @dragover.prevent.stop="onBankDragOver"
+          @drop.prevent.stop="onBankDrop"
+          @click="onBankClick"
+        >
+          <Chip
+            v-for="item in bank"
+            :key="item.id"
+            class="cursor-grab rounded-lg! border! border-slate-200! bg-slate-100! transition-all duration-200 dark:border-slate-700! dark:bg-slate-800!"
+            :class="{
+              'scale-105 ring-2 ring-emerald-500/40': selectedId === item.id,
+              'cursor-default! opacity-60': isFinished,
+            }"
+            :draggable="!isFinished"
+            @click.stop="onChipClick({ id: item.id, event: $event })"
+            @dragstart="onChipDragStart({ event: $event, id: item.id })"
+            @dragend="onChipDragEnd"
           >
-            <div v-if="root" class="flex items-center">
-              <MethodNode
-                :node="root"
-                :is-root="true"
-                :selected-id="selectedId"
-                :caret="caret"
-                :disabled="isFinished"
-                @chip-click="onChipClick"
-                @chip-dragstart="onChipDragStart"
-                @chip-dragend="onChipDragEnd"
-                @zone-click="onZoneClick"
-                @zone-dragover="onZoneDragOver"
-                @zone-drop="onZoneDrop"
-                @zone-mousemove="onZoneMouseMove"
-              />
-            </div>
-          </div>
-
-          <div class="flex flex-col gap-3">
-            <div
-              class="flex items-center gap-2 pl-1 text-[10px] font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500"
-            >
-              <span>Параметры</span>
-              <span v-if="selectedId" class="font-normal text-emerald-500/70 normal-case dark:text-emerald-400/70">
-                · Выберите зону или кликните сюда для возврата
+            <template #default>
+              <span class="flex items-center gap-1.5">
+                <span class="font-mono text-xs font-semibold">{{ item.label }}</span>
+                <span
+                  v-if="item.isContainer"
+                  class="rounded bg-slate-200/50 px-1.5 py-0.5 text-[10px] font-bold text-slate-800 dark:bg-slate-700/50 dark:text-slate-200"
+                  >()</span
+                >
               </span>
-            </div>
-            <div
-              class="flex min-h-20 cursor-pointer flex-wrap items-center justify-center gap-3 rounded-2xl p-6 transition-all duration-200 md:p-8"
-              :class="{ 'shadow-[0_0_0_2px_rgba(16,185,129,0.4)]': isBankHighlighted || selectedId }"
-              @dragover.prevent.stop="onBankDragOver"
-              @drop.prevent.stop="onBankDrop"
-              @click="onBankClick"
-            >
-              <Chip
-                v-for="item in bank"
-                :key="item.id"
-                class="cursor-grab rounded-lg! border! border-slate-200! bg-slate-100! transition-all duration-200 dark:border-slate-700! dark:bg-slate-800!"
-                :class="{
-                  'scale-105 ring-2 ring-emerald-500/40': selectedId === item.id,
-                  'cursor-default! opacity-60': isFinished,
-                }"
-                :draggable="!isFinished"
-                @click.stop="onChipClick({ id: item.id, event: $event })"
-                @dragstart="onChipDragStart({ event: $event, id: item.id })"
-                @dragend="onChipDragEnd"
-              >
-                <template #default>
-                  <span class="flex items-center gap-1.5">
-                    <span class="font-mono text-xs font-semibold">{{ item.label }}</span>
-                    <span
-                      v-if="item.isContainer"
-                      class="rounded bg-slate-200/50 px-1.5 py-0.5 text-[10px] font-bold text-slate-800 dark:bg-slate-700/50 dark:text-slate-200"
-                      >()</span
-                    >
-                  </span>
-                </template>
-              </Chip>
-              <span v-if="bank.length === 0" class="w-full py-2 text-center text-sm text-slate-300 italic">
-                Все параметры использованы
-              </span>
-            </div>
-          </div>
+            </template>
+          </Chip>
+          <span v-if="bank.length === 0" class="w-full py-2 text-center text-sm text-slate-300 italic">
+            Все параметры использованы
+          </span>
+        </div>
+      </div>
 
-          <!-- Actions -->
-          <div class="flex items-center justify-start pt-2">
-            <Button
-              v-if="isFinished && status !== 'success' && status !== 'showing_answer'"
-              label="Показать ответ"
-              icon="pi pi-eye"
-              severity="secondary"
-              variant="text"
-              size="small"
-              @click="showAnswer"
-            />
-          </div>
+      <!-- Actions -->
+      <div class="flex items-center justify-start pt-2">
+        <Button
+          v-if="isFinished && status !== 'success' && status !== 'showing_answer'"
+          label="Показать ответ"
+          icon="pi pi-eye"
+          severity="secondary"
+          variant="text"
+          size="small"
+          @click="showAnswer"
+        />
+      </div>
     </div>
   </div>
 </template>

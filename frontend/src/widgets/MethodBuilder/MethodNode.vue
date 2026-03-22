@@ -63,10 +63,11 @@ const emit = defineEmits<{
 
     <!-- Container: ( children ) -->
     <template v-if="node.isContainer">
-      <span 
+      <span
         class="mx-0.5 font-mono text-lg leading-none font-bold text-slate-800 transition-colors duration-200 dark:text-slate-200"
         :class="{ 'text-emerald-500! dark:text-emerald-400!': selectedId }"
-      >(</span>
+        >(</span
+      >
 
       <span
         class="drop-zone relative inline-flex min-h-9 min-w-14 flex-wrap items-center gap-1 rounded-lg border border-transparent px-1.5 py-1 transition-colors"
@@ -113,10 +114,11 @@ const emit = defineEmits<{
         </span>
       </span>
 
-      <span 
+      <span
         class="mx-0.5 font-mono text-lg leading-none font-bold text-slate-800 transition-colors duration-200 dark:text-slate-200"
         :class="{ 'text-emerald-500! dark:text-emerald-400!': selectedId }"
-      >)</span>
+        >)</span
+      >
     </template>
   </span>
 </template>
