@@ -293,9 +293,8 @@ const validate = async () => {
   }
 
   const answerPayload = buildCleanAnswer(root.value);
-
   try {
-    const response = await fetch('http://localhost:3000/quiz/submit', {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/quiz/submit`, {
       body: JSON.stringify({ answer: answerPayload, questionId: props.questionId }),
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
