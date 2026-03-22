@@ -4,14 +4,10 @@ import type { WidgetConfig } from '../types/widget';
 import WidgetWrapper from '../components/WidgetWrapper.vue';
 
 const questions: WidgetConfig[] = [
-  { type: 'example' },
   {
-    type: 'basic-poll',
-  },
-  {
-    type: 'drag-n-drop',
-  },
-  {
+    props: {
+      question: 'Что такое замыкание (closure) и как оно работает?',
+    },
     type: 'ai-interviewer',
   },
 ];
