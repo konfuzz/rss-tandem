@@ -1,16 +1,16 @@
 import cors from 'cors';
 import 'dotenv/config';
-import express from 'express';
-import jwt from 'jsonwebtoken';
-import { Response, NextFunction } from 'express';
-import { AuthRequest } from './types/schemas.js';
+import express, { json, NextFunction, Response } from 'express';
+import { verify } from 'jsonwebtoken';
+
+import { aiReview } from './routes/ai.js';
 import { login } from './routes/auth/login.js';
 import { register } from './routes/auth/register.js';
-import { aiReview } from './routes/ai.js';
-import { quizStart } from './routes/start.js';
-import { submitAnswer } from './routes/submit.js';
 import { finishQuiz } from './routes/finish.js';
+import { quizStart } from './routes/start.js';
 import { getUserStats } from './routes/stats.js';
+import { submitAnswer } from './routes/submit.js';
+import { AuthRequest } from './types/schemas.js';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 
@@ -18,7 +18,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(express.json());
+app.use(json());
 
 app.get('/', (_req, res) => {
   res.json({ message: 'Backend is running' });
@@ -30,10 +30,10 @@ const authMiddleware = (req: AuthRequest, res: Response, next: NextFunction) => 
 
   const token = authHeader.split(' ')[1];
   try {
-    const decoded = jwt.verify(token, JWT_SECRET);
+    const decoded = verify(token, JWT_SECRET);
     req.user = decoded;
     next();
-  } catch (err) {
+  } catch {
     res.status(401).send('Invalid token');
   }
 };
