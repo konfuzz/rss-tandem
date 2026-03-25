@@ -5,7 +5,7 @@ import { quizResults } from '../db/schema.js';
 import { AuthRequest, FinishQuizSchema } from '../types/schemas.js';
 
 export async function finishQuiz(req: AuthRequest, res: Response) {
-  const userId = req.userId as string;
+  const userId = Number(req.userId);
 
   const result = FinishQuizSchema.safeParse(req.body);
 
