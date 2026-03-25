@@ -6,6 +6,8 @@ import { computed, ref } from 'vue';
 
 import type { QuizTask } from '../../types/widget';
 
+import { apiFetch } from '../../utils/api';
+
 interface MultipleChoiceValidationResponse {
   correctAnswer?: number[];
   score?: number;
@@ -138,7 +140,7 @@ async function validate() {
   clearNotice();
 
   try {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/quiz/submit`, {
+    const response = await apiFetch('/quiz/submit', {
       body: JSON.stringify({
         answer: selectedAnswers.value,
         questionId: props.questionId,

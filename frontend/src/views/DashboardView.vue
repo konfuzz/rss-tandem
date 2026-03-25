@@ -29,7 +29,13 @@ const data = ref<null | UserData>(null);
 
 onMounted(async () => {
   try {
-    data.value = await apiFetch('/user/stats');
+    const response = await apiFetch('/user/stats');
+
+    if (!response.ok) {
+      throw new Error('Failed to load dashboard data.');
+    }
+
+    data.value = (await response.json()) as UserData;
   } catch (error) {
     console.error('Ошибка:', error);
   }

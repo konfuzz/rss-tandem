@@ -6,6 +6,8 @@ import { computed, ref } from 'vue';
 
 import type { QuizTask } from '../../types/widget';
 
+import { apiFetch } from '../../utils/api';
+
 type NoticeSeverity = 'error' | 'warn';
 
 interface PollValidationResponse {
@@ -132,7 +134,7 @@ async function validate() {
   clearNotice();
 
   try {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/quiz/submit`, {
+    const response = await apiFetch('/quiz/submit', {
       body: JSON.stringify({
         answer: selectedAnswer.value,
         questionId: props.questionId,
