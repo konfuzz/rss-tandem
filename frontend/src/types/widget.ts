@@ -5,6 +5,13 @@ export type questionType =
   | 'drag-n-drop'
   | 'example'
   | 'multiple-choice';
+
+export interface QuizTask {
+  answers?: string[];
+  question?: string;
+  questionImage?: string;
+}
+
 export interface WidgetConfig {
   props?: Record<string, unknown>;
   type: questionType;

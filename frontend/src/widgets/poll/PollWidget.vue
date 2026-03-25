@@ -4,13 +4,9 @@ import Message from 'primevue/message';
 import RadioButton from 'primevue/radiobutton';
 import { computed, ref } from 'vue';
 
-type NoticeSeverity = 'error' | 'warn';
+import type { QuizTask } from '../../types/widget';
 
-interface PollTask {
-  answers?: string[];
-  question?: string;
-  questionImage?: string;
-}
+type NoticeSeverity = 'error' | 'warn';
 
 interface PollValidationResponse {
   correctAnswer?: number;
@@ -18,9 +14,9 @@ interface PollValidationResponse {
 }
 
 const props = defineProps<{
-  content?: PollTask;
+  content?: QuizTask;
   questionId?: number;
-  task?: PollTask;
+  task?: QuizTask;
 }>();
 
 const emit = defineEmits<{
@@ -34,7 +30,7 @@ const correctAnswerIndex = ref<null | number>(null);
 const isSubmitting = ref(false);
 const notice = ref<null | { severity: NoticeSeverity; text: string }>(null);
 
-const resolvedTask = computed<PollTask>(() => props.task ?? props.content ?? {});
+const resolvedTask = computed<QuizTask>(() => props.task ?? props.content ?? {});
 const answers = computed(() =>
   (resolvedTask.value.answers ?? []).filter((answer): answer is string => typeof answer === 'string'),
 );

@@ -4,11 +4,7 @@ import Checkbox from 'primevue/checkbox';
 import Message from 'primevue/message';
 import { computed, ref } from 'vue';
 
-interface MultipleChoiceTask {
-  answers?: string[];
-  question?: string;
-  questionImage?: string;
-}
+import type { QuizTask } from '../../types/widget';
 
 interface MultipleChoiceValidationResponse {
   correctAnswer?: number[];
@@ -18,9 +14,9 @@ interface MultipleChoiceValidationResponse {
 type NoticeSeverity = 'error' | 'warn';
 
 const props = defineProps<{
-  content?: MultipleChoiceTask;
+  content?: QuizTask;
   questionId?: number;
-  task?: MultipleChoiceTask;
+  task?: QuizTask;
 }>();
 
 const emit = defineEmits<{
@@ -34,7 +30,7 @@ const correctAnswerIndices = ref<number[]>([]);
 const isSubmitting = ref(false);
 const notice = ref<null | { severity: NoticeSeverity; text: string }>(null);
 
-const resolvedTask = computed<MultipleChoiceTask>(() => props.task ?? props.content ?? {});
+const resolvedTask = computed<QuizTask>(() => props.task ?? props.content ?? {});
 const answers = computed(() =>
   (resolvedTask.value.answers ?? []).filter((answer): answer is string => typeof answer === 'string'),
 );

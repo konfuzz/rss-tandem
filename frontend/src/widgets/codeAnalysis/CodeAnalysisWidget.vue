@@ -3,11 +3,7 @@ import Button from 'primevue/button';
 import Message from 'primevue/message';
 import { computed, ref } from 'vue';
 
-interface CodeAnalysisTask {
-  answers?: string[];
-  question?: string;
-  questionImage?: string;
-}
+import type { QuizTask } from '../../types/widget';
 
 interface CodeAnalysisValidationResponse {
   correctAnswer?: number[];
@@ -17,9 +13,9 @@ interface CodeAnalysisValidationResponse {
 type NoticeSeverity = 'error' | 'warn';
 
 const props = defineProps<{
-  content?: CodeAnalysisTask;
+  content?: QuizTask;
   questionId?: number;
-  task?: CodeAnalysisTask;
+  task?: QuizTask;
 }>();
 
 const emit = defineEmits<{
@@ -33,7 +29,7 @@ const correctLineIndices = ref<number[]>([]);
 const isSubmitting = ref(false);
 const notice = ref<null | { severity: NoticeSeverity; text: string }>(null);
 
-const resolvedTask = computed<CodeAnalysisTask>(() => props.task ?? props.content ?? {});
+const resolvedTask = computed<QuizTask>(() => props.task ?? props.content ?? {});
 const lines = computed(() =>
   (resolvedTask.value.answers ?? []).filter((answer): answer is string => typeof answer === 'string'),
 );
