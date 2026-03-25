@@ -6,7 +6,6 @@ import { computed, ref } from 'vue';
 interface CodeAnalysisTask {
   answers?: string[];
   question?: string;
-  'question-image'?: string;
   questionImage?: string;
 }
 
@@ -39,9 +38,7 @@ const lines = computed(() =>
   (resolvedTask.value.answers ?? []).filter((answer): answer is string => typeof answer === 'string'),
 );
 const questionText = computed(() => resolvedTask.value.question?.trim() ?? '');
-const questionImage = computed(
-  () => resolvedTask.value.questionImage?.trim() ?? resolvedTask.value['question-image']?.trim() ?? '',
-);
+const questionImage = computed(() => resolvedTask.value.questionImage?.trim() ?? '');
 const hasRenderableTask = computed(() => questionText.value.length > 0 && lines.value.length > 0);
 const isFinished = computed(() => status.value !== 'playing');
 const selectedLinesCaption = computed(() =>
