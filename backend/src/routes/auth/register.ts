@@ -11,7 +11,7 @@ export async function register(req: Request, res: Response) {
   if (!result.success) {
     return res.status(400).json({
       error: result.error.issues[0].message,
-      success: false
+      success: false,
     });
   }
 

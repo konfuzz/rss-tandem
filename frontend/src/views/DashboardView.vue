@@ -18,7 +18,7 @@ interface UserData {
     avgScore: number;
     recentHistory: QuizResults[];
     totalQuizzes: number;
-  },
+  };
   user: {
     id: number;
     username: string;
@@ -34,7 +34,6 @@ onMounted(async () => {
     console.error('Ошибка:', error);
   }
 });
-
 </script>
 <template>
   <div flex flex-col min-h-screen items-center justify-center>

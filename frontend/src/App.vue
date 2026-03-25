@@ -11,11 +11,14 @@ const handleLogout = () => {
   auth.logout();
 };
 
-watch(() => auth.token, (newToken) => {
-  if (!newToken) {
-    router.push({ name: 'login' });
-  }
-});
+watch(
+  () => auth.token,
+  (newToken) => {
+    if (!newToken) {
+      router.push({ name: 'login' });
+    }
+  },
+);
 </script>
 
 <template>
