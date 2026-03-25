@@ -1,0 +1,67 @@
+#!/bin/sh
+
+BASIC_RED="\e[0;31m"
+BASIC_GREEN="\e[0;32m"
+BASIC_YELLOW="\e[0;33m"
+BASIC_BLUE="\e[0;34m"
+BASIC_CYAN="\e[0;36m"
+ENDCOLOR="\e[0m"
+
+run_frontend_linter() {
+  echo -e "${BASIC_CYAN}🧹 Checking for linting errors in the frontend src directory${ENDCOLOR}"
+  (
+    cd frontend &&
+    bunx lint-staged
+  )
+  if [ $? -ne 0 ]; then
+    echo -e "${BASIC_RED}❌ Frontend linting failed.${ENDCOLOR}"
+    echo -e "${BASIC_YELLOW}⚠️ Please fix the frontend errors and try again.${ENDCOLOR}"
+    exit 1
+  fi
+}
+
+run_frontend_tsc() {
+  echo -e "${BASIC_BLUE}🌊 Checking for TypeScript errors in frontend${ENDCOLOR}"
+  (
+    cd frontend &&
+    bun run typecheck
+  )
+  if [ $? -ne 0 ]; then
+    echo -e "${BASIC_RED}❌ Frontend TypeScript compilation failed.${ENDCOLOR}"
+    echo -e "${BASIC_YELLOW}⚠️ Please fix the frontend errors and try again.${ENDCOLOR}"
+    exit 1
+  fi
+}
+
+run_backend_linter() {
+  echo -e "${BASIC_CYAN}🧹 Checking for linting errors in the backend src directory${ENDCOLOR}"
+  (
+    cd backend &&
+    npx lint-staged
+  )
+  if [ $? -ne 0 ]; then
+    echo -e "${BASIC_RED}❌ Backend linting failed.${ENDCOLOR}"
+    echo -e "${BASIC_YELLOW}⚠️ Please fix the backend errors and try again.${ENDCOLOR}"
+    exit 1
+  fi
+}
+
+run_backend_tsc() {
+  echo -e "${BASIC_BLUE}🌊 Checking for TypeScript errors in backend${ENDCOLOR}"
+  (
+    cd backend &&
+    npm run typecheck
+  )
+  if [ $? -ne 0 ]; then
+    echo -e "${BASIC_RED}❌ Backend TypeScript compilation failed.${ENDCOLOR}"
+    echo -e "${BASIC_YELLOW}⚠️ Please fix the backend errors and try again.${ENDCOLOR}"
+    exit 1
+  fi
+}
+
+run_frontend_linter
+run_frontend_tsc
+run_backend_linter
+run_backend_tsc
+
+printf "${BASIC_GREEN}❤️‍🔥 All frontend and backend checks have passed. Happy coding!${ENDCOLOR}\n"

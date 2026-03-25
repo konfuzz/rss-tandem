@@ -11,8 +11,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "ci:format": "prettier --check .",
-    "format": "prettier --write .",
-    "prepare": "cd .. && husky frontend/.husky"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@primeuix/themes": "^2.0.3",
