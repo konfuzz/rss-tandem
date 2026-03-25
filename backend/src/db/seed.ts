@@ -1,9 +1,10 @@
+import BetterSqlite3 from 'better-sqlite3';
 import { drizzle } from 'drizzle-orm/better-sqlite3';
-import Database from 'better-sqlite3';
-import { questions } from './schema.js';
 import fs from 'fs';
 
-const sqlite = new Database('sqlite.db');
+import { questions } from './schema.js';
+
+const sqlite = new BetterSqlite3('sqlite.db');
 const db = drizzle(sqlite);
 
 async function seed() {
@@ -13,25 +14,28 @@ async function seed() {
   console.log('Seeding started...');
 
   for (const q of data) {
-    await db.insert(questions).values({
-      id: q.id,
-      type: q.type,
-      category: q.category,
-      complexity: q.complexity,
-      time: q.time,
-      content: q.content,     // Теперь берем из вложенного объекта
-      answerKey: q.answerKey  // И это тоже
-    }).onConflictDoUpdate({
-      target: questions.id,
-      set: {
-        type: q.type,
+    await db
+      .insert(questions)
+      .values({
+        answerKey: q.answerKey, // И это тоже
         category: q.category,
         complexity: q.complexity,
+        content: q.content, // Теперь берем из вложенного объекта
+        id: q.id,
         time: q.time,
-        content: q.content,
-        answerKey: q.answerKey
-      }
-    });
+        type: q.type,
+      })
+      .onConflictDoUpdate({
+        set: {
+          answerKey: q.answerKey,
+          category: q.category,
+          complexity: q.complexity,
+          content: q.content,
+          time: q.time,
+          type: q.type,
+        },
+        target: questions.id,
+      });
   }
   console.log('✅ Done!');
 }

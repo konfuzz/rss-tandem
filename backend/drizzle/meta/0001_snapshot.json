@@ -122,12 +122,8 @@
           "name": "quiz_results_user_id_users_id_fk",
           "tableFrom": "quiz_results",
           "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -179,9 +175,7 @@
       "indexes": {
         "users_username_unique": {
           "name": "users_username_unique",
-          "columns": [
-            "username"
-          ],
+          "columns": ["username"],
           "isUnique": true
         }
       },

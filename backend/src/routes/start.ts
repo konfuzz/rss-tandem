@@ -1,7 +1,8 @@
-import { db } from '../db/index.js';
-import { questions as questionsTable } from '../db/schema.js';
 import { eq } from 'drizzle-orm';
 import { Request, Response } from 'express';
+
+import { db } from '../db/index.js';
+import { questions as questionsTable } from '../db/schema.js';
 
 export async function quizStart(req: Request, res: Response) {
   try {
@@ -11,11 +12,11 @@ export async function quizStart(req: Request, res: Response) {
 
     const allQuestions = await db
       .select({
-        id: questionsTable.id,
-        type: questionsTable.type,
         category: questionsTable.category,
         content: questionsTable.content,
-        time: questionsTable.time
+        id: questionsTable.id,
+        time: questionsTable.time,
+        type: questionsTable.type,
       })
       .from(questionsTable)
       .where(eq(questionsTable.complexity, complexity as string));
@@ -41,8 +42,8 @@ export async function quizStart(req: Request, res: Response) {
     }
 
     if (selected.length < LIMIT) {
-      const selectedIds = new Set(selected.map(q => q.id));
-      const remaining = shuffled.filter(q => !selectedIds.has(q.id));
+      const selectedIds = new Set(selected.map((q) => q.id));
+      const remaining = shuffled.filter((q) => !selectedIds.has(q.id));
 
       const extra = remaining.slice(0, LIMIT - selected.length);
       selected.push(...extra);

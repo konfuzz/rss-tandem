@@ -8,6 +8,7 @@ import globals from 'globals';
 import { configs as tsConfigs } from 'typescript-eslint';
 
 export default defineConfig([
+  { ignores: ['dist/'] },
   {
     extends: [
       js.configs.recommended,
@@ -33,10 +34,10 @@ export default defineConfig([
       'unused-imports/no-unused-vars': [
         'warn',
         {
-          vars: 'all',
-          varsIgnorePattern: '^_',
           args: 'after-used',
           argsIgnorePattern: '^_',
+          vars: 'all',
+          varsIgnorePattern: '^_',
         },
       ],
     },
