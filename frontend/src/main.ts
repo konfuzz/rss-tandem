@@ -14,7 +14,7 @@ createApp(App)
     theme: {
       options: {
         cssLayer: false,
-        darkModeSelector: 'system',
+        darkModeSelector: '.p-dark',
         prefix: 'p',
       },
       preset: Aura,

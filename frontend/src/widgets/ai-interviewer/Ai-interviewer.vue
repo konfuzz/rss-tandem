@@ -76,68 +76,32 @@ defineExpose({ validate });
 </script>
 
 <template>
-  <Card>
-    <div class="chat">
-      <p class="message int">{{ question.question }}</p>
-      <p class="message student">{{ studentAnswer }}</p>
-      <div v-html="renderedHtml" class="message"></div>
+  <div class="flex w-full flex-col gap-4">
+    <div class="flex grow flex-col gap-1">
+      <p
+        class="ai-message max-w-[70%] rounded-lg bg-emerald-800 px-4 py-2 text-emerald-50 dark:bg-emerald-900 dark:text-emerald-100"
+      >
+        {{ question.question }}
+      </p>
+      <p
+        v-if="studentAnswer"
+        class="ai-message max-w-[70%] self-end rounded-lg bg-emerald-600 px-4 py-2 text-emerald-50 dark:bg-emerald-700 dark:text-emerald-100"
+      >
+        {{ studentAnswer }}
+      </p>
+      <div
+        v-if="renderedHtml"
+        v-html="renderedHtml"
+        class="ai-message flex max-w-[70%] flex-col gap-2 rounded-lg bg-emerald-800 px-4 py-2 text-emerald-50 dark:bg-emerald-900 dark:text-emerald-100"
+      />
     </div>
-    <div class="form">
-      <p class="message score">{{ score }}</p>
-      <Textarea rows="5" cols="30" v-model="draftAnswer" placeholder="Введите ответ..." />
-      <!-- <Button label='Ответить' @click="submitAnswer" /> -->
+    <div class="flex w-full items-start gap-4">
+      <p
+        class="rounded-lg bg-emerald-800 px-4 py-2 text-lg font-bold text-emerald-50 dark:bg-emerald-900 dark:text-emerald-100"
+      >
+        {{ score }}
+      </p>
+      <Textarea rows="5" cols="30" v-model="draftAnswer" placeholder="Введите ответ..." class="grow" />
     </div>
-  </Card>
+  </div>
 </template>
-
-<style scoped>
-.chat {
-  flex-grow: 1;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.form {
-  width: 100%;
-  display: flex;
-  height: 100px;
-  gap: 1rem;
-}
-
-textarea {
-  flex-grow: 1;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-}
-
-button {
-  align-self: flex-start;
-  padding: 0.5rem 1rem;
-  background-color: rgb(3, 89, 4);
-  border: none;
-}
-
-.message {
-  max-width: 70%;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-  line-height: 1.5;
-  background-color: rgb(0, 62, 62);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-
-  &:empty {
-    display: none;
-  }
-
-  &.student {
-    background-color: rgb(0, 106, 5);
-    align-self: flex-end;
-  }
-}
-</style>

@@ -42,9 +42,9 @@ onMounted(async () => {
 });
 </script>
 <template>
-  <div flex flex-col min-h-screen items-center justify-center>
-    <h1>Dashboard</h1>
-    <p>Привет, {{ data ? data.user.username : '' }}</p>
-    <p>Твой id: {{ data ? data.user.id : '' }}</p>
+  <div class="flex min-h-screen flex-col items-center justify-center gap-2">
+    <h1 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100">Dashboard</h1>
+    <p class="text-zinc-700 dark:text-zinc-300">Привет, {{ data ? data.user.username : '' }}</p>
+    <p class="text-zinc-500 dark:text-zinc-400">Твой id: {{ data ? data.user.id : '' }}</p>
   </div>
 </template>
