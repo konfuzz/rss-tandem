@@ -6,6 +6,7 @@ import { computed, onMounted, ref } from 'vue';
 
 import type { CaretPosition, NodeItem } from './MethodNode.vue';
 
+import { apiFetch } from '../../utils/api';
 import MethodNode from './MethodNode.vue';
 
 interface TaskData {
@@ -294,7 +295,7 @@ const validate = async () => {
 
   const answerPayload = buildCleanAnswer(root.value);
   try {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/quiz/submit`, {
+    const response = await apiFetch('/quiz/submit', {
       body: JSON.stringify({ answer: answerPayload, questionId: props.questionId }),
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
