@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import MarkdownIt from 'markdown-it';
-// import Button from 'primevue/button';
 import Textarea from 'primevue/textarea';
 import { computed, ref } from 'vue';
 
-const apiUrl = import.meta.env.VITE_API_URL;
+import { apiFetch } from '../../utils/api';
 
 const md = new MarkdownIt();
 const answer = ref('');
@@ -31,7 +30,7 @@ async function validate() {
   studentAnswer.value = draftAnswer.value;
   draftAnswer.value = '';
 
-  const response = await fetch(`${apiUrl}/quiz/review`, {
+  const response = await apiFetch('/quiz/review', {
     body: JSON.stringify({
       question: question,
       studentAnswer: studentAnswer.value,
