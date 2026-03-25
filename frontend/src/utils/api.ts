@@ -23,5 +23,5 @@ export async function apiFetch(endpoint: string, options: RequestInit = {}) {
     return response;
   }
 
-  return response.json();
+  return response;
 }
