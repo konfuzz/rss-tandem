@@ -15,6 +15,13 @@
       "when": 1774016927854,
       "tag": "0001_zippy_shiver_man",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1774446970802,
+      "tag": "0002_wide_shadow_king",
+      "breakpoints": true
     }
   ]
 }

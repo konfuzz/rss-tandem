@@ -1,11 +1,44 @@
 <script setup lang="ts">
-import { useAuthStore } from '../stores/auth';
+import { onMounted, ref } from 'vue';
 
-const auth = useAuthStore();
+import { apiFetch } from '../utils/api';
+
+interface QuizResults {
+  complexity: string;
+  createdAt: string;
+  details: string;
+  id: number;
+  totalDuration: number;
+  totalScore: number;
+  userId: number;
+}
+
+interface UserData {
+  stats: {
+    avgScore: number;
+    recentHistory: QuizResults[];
+    totalQuizzes: number;
+  };
+  user: {
+    id: number;
+    username: string;
+  };
+}
+
+const data = ref<null | UserData>(null);
+
+onMounted(async () => {
+  try {
+    data.value = await apiFetch('/user/stats');
+  } catch (error) {
+    console.error('Ошибка:', error);
+  }
+});
 </script>
 <template>
   <div flex flex-col min-h-screen items-center justify-center>
     <h1>Dashboard</h1>
-    <p>Привет, {{ auth.userName }}</p>
+    <p>Привет, {{ data ? data.user.username : '' }}</p>
+    <p>Твой id: {{ data ? data.user.id : '' }}</p>
   </div>
 </template>

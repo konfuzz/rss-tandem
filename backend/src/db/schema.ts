@@ -25,5 +25,5 @@ export const quizResults = sqliteTable('quiz_results', {
   id: integer('id').primaryKey({ autoIncrement: true }),
   totalDuration: integer('total_duration').notNull(),
   totalScore: integer('total_score').notNull(),
-  userId: text('user_id').references(() => users.id),
+  userId: integer('user_id').references(() => users.id),
 });
