@@ -3,9 +3,6 @@
   "scripts": {
     "prepare": "husky"
   },
-  "dependencies": {
-    "bcrypt": "^6.0.0"
-  },
   "devDependencies": {
     "husky": "^9.1.7"
   }
