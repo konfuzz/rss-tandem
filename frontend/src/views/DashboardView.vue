@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
+
 import { apiFetch } from '../utils/api';
 
 interface QuizResults {
+  complexity: string;
+  createdAt: string;
+  details: string;
   id: number;
   totalDuration: number;
   totalScore: number;
   userId: number;
-  complexity: string;
-  createdAt: string;
-  details: string;
 }
 
 interface UserData {
