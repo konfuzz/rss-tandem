@@ -1,12 +1,13 @@
 import bcrypt from 'bcryptjs';
 import { eq } from 'drizzle-orm';
 import { Request, Response } from 'express';
-import { sign } from 'jsonwebtoken';
+import { SignJWT } from 'jose';
 
 import { db } from '../../db/index.js';
 import { users } from '../../db/schema.js';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'secret';
+const secret = new TextEncoder().encode(JWT_SECRET);
 
 export async function login(req: Request, res: Response) {
   const { password, username } = req.body;
@@ -24,7 +25,11 @@ export async function login(req: Request, res: Response) {
       return res.status(401).json({ error: 'Неверный пароль' });
     }
 
-    const token = sign({ userId: user.id, username: user.username }, JWT_SECRET, { expiresIn: '7d' });
+    const token = await new SignJWT({ userId: String(user.id) })
+      .setProtectedHeader({ alg: 'HS256' })
+      .setIssuedAt()
+      .setExpirationTime('7d')
+      .sign(secret);
 
     res.json({
       token,

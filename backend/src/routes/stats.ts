@@ -2,11 +2,15 @@ import { desc, eq } from 'drizzle-orm';
 import { Response } from 'express';
 
 import { db } from '../db/index.js';
-import { quizResults } from '../db/schema.js';
+import { quizResults, users } from '../db/schema.js';
 import { AuthRequest } from '../types/schemas.js';
 
 export async function getUserStats(req: AuthRequest, res: Response) {
-  const userId = req.user.id;
+  const userId = Number(req.userId);
+
+  const user = await db.select().from(users).where(eq(users.id, userId)).get();
+
+  if (!user) return res.status(404).json({ error: 'Пользователь не найден' });
 
   const history = await db
     .select()
@@ -23,6 +27,9 @@ export async function getUserStats(req: AuthRequest, res: Response) {
       recentHistory: history,
       totalQuizzes,
     },
-    user: req.user,
+    user: {
+      id: user.id,
+      username: user.username,
+    },
   });
 }

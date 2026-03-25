@@ -5,6 +5,8 @@ import { quizResults } from '../db/schema.js';
 import { AuthRequest, FinishQuizSchema } from '../types/schemas.js';
 
 export async function finishQuiz(req: AuthRequest, res: Response) {
+  const userId = req.userId as string;
+
   const result = FinishQuizSchema.safeParse(req.body);
 
   if (!result.success) {
@@ -19,7 +21,7 @@ export async function finishQuiz(req: AuthRequest, res: Response) {
         details: result.data.answers,
         totalDuration: result.data.totalDuration,
         totalScore: Math.round(result.data.totalScore),
-        userId: req.user.userId,
+        userId: userId,
       })
       .returning();
 

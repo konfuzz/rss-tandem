@@ -37,10 +37,18 @@ export const FinishQuizSchema = z.object({
 });
 
 export interface AuthRequest extends Request {
-  user?: // eslint-disable-next-line @typescript-eslint/no-explicit-any -- temporary until auth payload/db types are aligned
-    | any
-    | {
-        userId: number;
-        username: string;
-      };
+  userId?: string;
 }
+
+export const RegisterSchema = z.object({
+  username: z
+    .string()
+    .min(3, 'Юзернейм должен быть не короче 3 символов')
+    .max(20, 'Слишком длинный юзернейм')
+    .trim()
+    .regex(/^[a-zA-Z0-9_]+$/, 'Можно использовать только буквы, цифры и подчеркивание'),
+  password: z
+    .string()
+    .min(6, 'Пароль должен быть не короче 6 символов')
+    .max(20, 'Слишком длинный пароль')
+});
