@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import Button from 'primevue/button';
+import FloatLabel from 'primevue/floatlabel';
 import InputText from 'primevue/inputtext';
+import Password from 'primevue/password';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -45,14 +47,22 @@ const handleLogin = async () => {
 </script>
 
 <template>
-  <div class="flex min-h-screen flex-col items-center justify-center">
-    <h2>Вход</h2>
-    <form @submit.prevent="handleLogin" class="flex max-w-sm flex-col gap-1">
-      <InputText v-model="username" type="text" placeholder="Логин" required />
-      <InputText v-model="password" type="password" placeholder="Пароль" required />
+  <div class="flex min-h-screen flex-col items-center justify-center gap-4">
+    <h2 class="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">Вход</h2>
+    <form @submit.prevent="handleLogin" class="flex w-full max-w-sm flex-col gap-4">
+      <FloatLabel variant="on">
+        <InputText id="login-username" v-model="username" class="w-full" required />
+        <label for="login-username">Логин</label>
+      </FloatLabel>
+      <FloatLabel variant="on">
+        <Password id="login-password" v-model="password" class="w-full" :feedback="false" toggle-mask fluid required />
+        <label for="login-password">Пароль</label>
+      </FloatLabel>
       <Button type="submit" :disabled="loading" :label="loading ? 'Загрузка...' : 'Войти'" />
-      <p v-if="error" style="color: red">{{ error }}</p>
+      <p v-if="error" class="text-sm text-red-600 dark:text-red-400">{{ error }}</p>
     </form>
-    <RouterLink to="/register">Регистрация</RouterLink>
+    <RouterLink to="/register" class="text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100">
+      Регистрация
+    </RouterLink>
   </div>
 </template>

@@ -59,10 +59,10 @@ function getCodeClasses(index: number) {
   const isWrongVisible = status.value === 'fail' && isSelected && !isCorrect;
 
   return [
-    'ca-code text-slate-700 dark:text-slate-200',
-    status.value === 'playing' && isSelected && 'text-slate-900 dark:text-slate-100',
+    'ca-code text-zinc-700 dark:text-zinc-200',
+    status.value === 'playing' && isSelected && 'text-zinc-900 dark:text-zinc-100',
     isCorrectVisible && 'text-emerald-900 dark:text-emerald-100',
-    isWrongVisible && 'text-rose-900 dark:text-rose-100',
+    isWrongVisible && 'text-red-900 dark:text-red-100',
   ].filter(Boolean);
 }
 
@@ -76,14 +76,14 @@ function getGutterClasses(index: number) {
   const isWrongVisible = status.value === 'fail' && isSelected && !isCorrect;
 
   return [
-    'ca-gutter border-slate-200 text-slate-400 dark:border-slate-700/60 dark:text-slate-500',
-    !isFinished.value && 'group-hover/line:text-slate-500 dark:group-hover/line:text-slate-400',
+    'ca-gutter border-zinc-200 text-zinc-400 dark:border-zinc-700/60 dark:text-zinc-500',
+    !isFinished.value && 'group-hover/line:text-zinc-500 dark:group-hover/line:text-zinc-400',
     status.value === 'playing' &&
       isSelected &&
       'font-semibold text-emerald-700 drop-shadow-[0_0_6px_rgba(16,185,129,0.28)] dark:text-emerald-300 dark:drop-shadow-[0_0_8px_rgba(52,211,153,0.35)]',
     isCorrectVisible &&
       'font-semibold text-emerald-700 drop-shadow-[0_0_7px_rgba(16,185,129,0.32)] dark:text-emerald-200 dark:drop-shadow-[0_0_9px_rgba(52,211,153,0.4)]',
-    isWrongVisible && 'text-rose-600 dark:text-rose-300',
+    isWrongVisible && 'text-red-600 dark:text-red-300',
   ].filter(Boolean);
 }
 
@@ -99,14 +99,14 @@ function getLineClasses(index: number) {
   return [
     'ca-line group/line',
     !isFinished.value &&
-      'cursor-pointer hover:bg-slate-50 focus-visible:bg-slate-50 dark:hover:bg-slate-800/70 dark:focus-visible:bg-slate-800/70',
+      'cursor-pointer hover:bg-zinc-50 focus-visible:bg-zinc-50 dark:hover:bg-zinc-800/70 dark:focus-visible:bg-zinc-800/70',
     isFinished.value && 'cursor-default',
     status.value === 'playing' &&
       isSelected &&
       'border-l-emerald-400 bg-emerald-50/80 shadow-[inset_3px_0_0_0_rgba(52,211,153,1),inset_0_0_18px_rgba(16,185,129,0.08)] dark:border-l-emerald-500 dark:bg-emerald-500/12 dark:shadow-[inset_3px_0_0_0_rgba(16,185,129,1),inset_0_0_22px_rgba(16,185,129,0.14)]',
     isCorrectVisible &&
       'border-l-emerald-500 bg-emerald-100/80 shadow-[inset_3px_0_0_0_rgba(16,185,129,1),inset_0_0_24px_rgba(16,185,129,0.12)] dark:border-l-emerald-400 dark:bg-emerald-500/18 dark:shadow-[inset_3px_0_0_0_rgba(52,211,153,1),inset_0_0_28px_rgba(16,185,129,0.18)]',
-    isWrongVisible && 'border-l-rose-500 bg-rose-50 dark:border-l-rose-400 dark:bg-rose-500/10',
+    isWrongVisible && 'border-l-red-500 bg-red-50 dark:border-l-red-400 dark:bg-red-500/10',
   ].filter(Boolean);
 }
 
@@ -225,17 +225,17 @@ defineExpose({ validate });
 <template>
   <div class="flex w-full flex-col gap-6 md:p-2">
     <div class="flex flex-col items-center gap-3 text-center">
-      <h2 class="m-0 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl dark:text-slate-100">
+      <h2 class="m-0 text-2xl font-bold tracking-tight text-zinc-900 md:text-3xl dark:text-zinc-100">
         {{ questionText || 'Вопрос не загружен' }}
       </h2>
-      <p v-if="hasRenderableTask" class="text-sm text-slate-500 dark:text-slate-400">
+      <p v-if="hasRenderableTask" class="text-sm text-zinc-500 dark:text-zinc-400">
         {{ selectedLinesCaption }}
       </p>
     </div>
 
     <div
       v-if="questionImage"
-      class="overflow-hidden rounded-lg border-2 border-slate-200 bg-slate-50 shadow-sm dark:border-slate-800 dark:bg-slate-900/40"
+      class="overflow-hidden rounded-lg border-2 border-zinc-200 bg-zinc-50 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/40"
     >
       <img :src="questionImage" alt="Code analysis illustration" class="h-auto max-h-72 w-full object-cover" />
     </div>
@@ -280,16 +280,16 @@ defineExpose({ validate });
 
     <div
       v-if="hasRenderableTask"
-      class="ca-editor overflow-hidden rounded-xl border border-slate-200 bg-white shadow-[0_0_0_1px_rgba(148,163,184,0.08),0_20px_50px_-12px_rgba(15,23,42,0.12)] dark:border-slate-700/70 dark:bg-slate-900 dark:shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_20px_50px_-12px_rgba(0,0,0,0.28)]"
+      class="ca-editor overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-[0_0_0_1px_rgba(148,163,184,0.08),0_20px_50px_-12px_rgba(15,23,42,0.12)] dark:border-zinc-700/70 dark:bg-zinc-900 dark:shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_20px_50px_-12px_rgba(0,0,0,0.28)]"
     >
-      <div class="ca-titlebar border-b border-slate-200 bg-slate-50 dark:border-slate-700/60 dark:bg-slate-800">
+      <div class="ca-titlebar border-b border-zinc-200 bg-zinc-50 dark:border-zinc-700/60 dark:bg-zinc-800">
         <div class="ca-dots">
           <span class="ca-dot ca-dot--close" />
           <span class="ca-dot ca-dot--min" />
           <span class="ca-dot ca-dot--max" />
         </div>
-        <span class="ca-tab bg-white/95 text-slate-500 dark:bg-slate-900/65 dark:text-slate-400">code</span>
-        <span class="ca-meta text-slate-400 dark:text-slate-500">{{ lines.length }} lines</span>
+        <span class="ca-tab bg-white/95 text-zinc-500 dark:bg-zinc-900/65 dark:text-zinc-400">code</span>
+        <span class="ca-meta text-zinc-400 dark:text-zinc-500">{{ lines.length }} lines</span>
       </div>
 
       <div class="ca-body">

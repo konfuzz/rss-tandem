@@ -64,13 +64,13 @@ function onValidated(valid: boolean) {
       <template #title>
         <div class="flex items-center justify-between">
           <h2 class="text-xl font-semibold">Вопрос №{{ currentIndex + 1 }}</h2>
-          <span class="text-sm text-gray-500"> {{ currentIndex + 1 }}/{{ questionCount }} </span>
+          <span class="text-sm text-zinc-500 dark:text-zinc-400"> {{ currentIndex + 1 }}/{{ questionCount }} </span>
         </div>
       </template>
 
       <template #content>
         <div class="relative min-h-50">
-          <div v-if="error" class="text-red-500">Failed to load a question: {{ error }}</div>
+          <div v-if="error" class="text-red-600 dark:text-red-400">Failed to load a question: {{ error }}</div>
 
           <div v-else-if="loading" class="flex justify-center p-10">Загрузка вопроса...</div>
 

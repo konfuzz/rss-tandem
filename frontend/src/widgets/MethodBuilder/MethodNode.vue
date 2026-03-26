@@ -43,14 +43,14 @@ const emit = defineEmits<{
     <Chip
       v-if="isRoot"
       :label="node.label"
-      class="inline-flex shrink-0 items-center rounded-lg! border! border-slate-200! bg-slate-100! px-4! py-1.5! font-mono! text-[13px]! font-bold! text-slate-900! shadow-sm dark:border-slate-700! dark:bg-slate-800! dark:text-slate-100!"
+      class="inline-flex shrink-0 items-center rounded-lg! border! border-zinc-200! bg-zinc-100! px-4! py-1.5! font-mono! text-[13px]! font-bold! text-zinc-900! shadow-sm dark:border-zinc-700! dark:bg-zinc-800! dark:text-zinc-100!"
     />
 
     <!-- Non-root: draggable chip -->
     <Chip
       v-else
       :label="node.label"
-      class="inline-flex cursor-grab items-center rounded-lg! border! border-slate-200! bg-slate-100! px-3! py-1! font-mono! text-[13px]! font-semibold! text-slate-800! transition-all duration-200 active:cursor-grabbing dark:border-slate-700! dark:bg-slate-800! dark:text-slate-200!"
+      class="inline-flex cursor-grab items-center rounded-lg! border! border-zinc-200! bg-zinc-100! px-3! py-1! font-mono! text-[13px]! font-semibold! text-zinc-800! transition-all duration-200 active:cursor-grabbing dark:border-zinc-700! dark:bg-zinc-800! dark:text-zinc-200!"
       :class="{
         'scale-105 ring-2 ring-emerald-500/40': selectedId === node.id,
         'cursor-default opacity-60': disabled,
@@ -64,7 +64,7 @@ const emit = defineEmits<{
     <!-- Container: ( children ) -->
     <template v-if="node.isContainer">
       <span
-        class="mx-0.5 font-mono text-lg leading-none font-bold text-slate-800 transition-colors duration-200 dark:text-slate-200"
+        class="mx-0.5 font-mono text-lg leading-none font-bold text-zinc-800 transition-colors duration-200 dark:text-zinc-200"
         :class="{ 'text-emerald-500! dark:text-emerald-400!': selectedId }"
         >(</span
       >
@@ -98,7 +98,7 @@ const emit = defineEmits<{
           <!-- Separator + caret after this child -->
           <span
             v-if="idx < (node.children?.length ?? 0) - 1"
-            class="font-mono text-sm font-semibold text-slate-400 dark:text-slate-600"
+            class="font-mono text-sm font-semibold text-zinc-400 dark:text-zinc-600"
             >,
           </span>
 
@@ -108,14 +108,14 @@ const emit = defineEmits<{
         <!-- Placeholder when empty -->
         <span
           v-if="!node.children?.length && !(caret && caret.containerId === node.id)"
-          class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-2 text-[10px] whitespace-nowrap text-slate-400 italic dark:text-slate-500"
+          class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-2 text-[10px] whitespace-nowrap text-zinc-400 italic dark:text-zinc-500"
         >
           {{ disabled ? '…' : 'сюда' }}
         </span>
       </span>
 
       <span
-        class="mx-0.5 font-mono text-lg leading-none font-bold text-slate-800 transition-colors duration-200 dark:text-slate-200"
+        class="mx-0.5 font-mono text-lg leading-none font-bold text-zinc-800 transition-colors duration-200 dark:text-zinc-200"
         :class="{ 'text-emerald-500! dark:text-emerald-400!': selectedId }"
         >)</span
       >

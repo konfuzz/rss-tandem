@@ -55,15 +55,13 @@ function getOptionClasses(index: number) {
   const isWrongAnswerVisible = status.value === 'fail' && isSelected && !isCorrect;
 
   return [
-    'multiple-choice-option min-h-16 cursor-pointer rounded-md border-2 text-slate-900 shadow-sm transition-all duration-200 dark:text-slate-100',
-    'border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900/40',
+    'multiple-choice-option min-h-16 cursor-pointer rounded-md border-2 text-zinc-900 shadow-sm transition-all duration-200 dark:text-zinc-100',
+    'border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-900/40',
     !isFinished.value &&
-      'hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 hover:shadow-md dark:hover:border-slate-500 dark:hover:bg-slate-900/65',
-    status.value === 'playing' &&
-      isSelected &&
-      '!border-slate-400 bg-slate-50 dark:!border-slate-500 dark:bg-slate-900/75',
+      'hover:-translate-y-0.5 hover:border-zinc-300 hover:bg-zinc-50 hover:shadow-md dark:hover:border-zinc-500 dark:hover:bg-zinc-900/65',
+    status.value === 'playing' && isSelected && '!border-zinc-400 bg-zinc-50 dark:!border-zinc-500 dark:bg-zinc-900/75',
     isCorrectAnswerVisible && '!border-emerald-600 bg-emerald-50 dark:!border-emerald-500 dark:bg-emerald-500/10',
-    isWrongAnswerVisible && '!border-rose-600 bg-rose-50 dark:!border-rose-500 dark:bg-rose-500/10',
+    isWrongAnswerVisible && '!border-red-600 bg-red-50 dark:!border-red-500 dark:bg-red-500/10',
     isFinished.value && 'cursor-default',
   ].filter(Boolean);
 }
@@ -183,14 +181,14 @@ defineExpose({ validate });
 <template>
   <div class="flex w-full flex-col gap-6 md:p-2">
     <div class="flex flex-col items-center gap-4 text-center">
-      <h2 class="m-0 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl dark:text-slate-100">
+      <h2 class="m-0 text-2xl font-bold tracking-tight text-zinc-900 md:text-3xl dark:text-zinc-100">
         {{ questionText || 'Вопрос не загружен' }}
       </h2>
     </div>
 
     <div
       v-if="questionImage"
-      class="overflow-hidden rounded-lg border-2 border-slate-200 bg-slate-50 shadow-sm dark:border-slate-800 dark:bg-slate-900/40"
+      class="overflow-hidden rounded-lg border-2 border-zinc-200 bg-zinc-50 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/40"
     >
       <img :src="questionImage" alt="Multiple choice illustration" class="h-auto max-h-72 w-full object-cover" />
     </div>

@@ -372,7 +372,7 @@ const showAnswer = () => {
     <div class="flex w-full flex-col gap-8 md:p-2">
       <!-- Header -->
       <div class="flex flex-col items-center gap-4 text-center">
-        <h2 class="m-0 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl dark:text-slate-100">
+        <h2 class="m-0 text-2xl font-bold tracking-tight text-zinc-900 md:text-3xl dark:text-zinc-100">
           {{ task.question }}
         </h2>
       </div>
@@ -433,7 +433,7 @@ const showAnswer = () => {
 
       <div class="flex flex-col gap-3">
         <div
-          class="flex items-center gap-2 pl-1 text-[10px] font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500"
+          class="flex items-center gap-2 pl-1 text-[10px] font-bold tracking-wider text-zinc-400 uppercase dark:text-zinc-500"
         >
           <span>Параметры</span>
           <span v-if="selectedId" class="font-normal text-emerald-500/70 normal-case dark:text-emerald-400/70">
@@ -450,7 +450,7 @@ const showAnswer = () => {
           <Chip
             v-for="item in bank"
             :key="item.id"
-            class="cursor-grab rounded-lg! border! border-slate-200! bg-slate-100! transition-all duration-200 dark:border-slate-700! dark:bg-slate-800!"
+            class="cursor-grab rounded-lg! border! border-zinc-200! bg-zinc-100! transition-all duration-200 dark:border-zinc-700! dark:bg-zinc-800!"
             :class="{
               'scale-105 ring-2 ring-emerald-500/40': selectedId === item.id,
               'cursor-default! opacity-60': isFinished,
@@ -465,13 +465,13 @@ const showAnswer = () => {
                 <span class="font-mono text-xs font-semibold">{{ item.label }}</span>
                 <span
                   v-if="item.isContainer"
-                  class="rounded bg-slate-200/50 px-1.5 py-0.5 text-[10px] font-bold text-slate-800 dark:bg-slate-700/50 dark:text-slate-200"
+                  class="rounded bg-zinc-200/50 px-1.5 py-0.5 text-[10px] font-bold text-zinc-800 dark:bg-zinc-700/50 dark:text-zinc-200"
                   >()</span
                 >
               </span>
             </template>
           </Chip>
-          <span v-if="bank.length === 0" class="w-full py-2 text-center text-sm text-slate-300 italic">
+          <span v-if="bank.length === 0" class="w-full py-2 text-center text-sm text-zinc-300 italic">
             Все параметры использованы
           </span>
         </div>

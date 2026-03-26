@@ -1,7 +1,2 @@
 @import 'tailwindcss';
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@custom-variant dark (&:where(.p-dark, .p-dark *));
