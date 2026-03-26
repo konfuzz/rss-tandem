@@ -6,12 +6,13 @@ import { computed, onMounted, ref } from 'vue';
 
 import type { CaretPosition, NodeItem } from './MethodNode.vue';
 
+import { useQuizStore } from '../../stores/quiz';
 import { apiFetch } from '../../utils/api';
 import MethodNode from './MethodNode.vue';
+const quizState = useQuizStore();
 
 interface TaskData {
   answers: { isContainer: boolean; label: string }[];
-  correctStructure?: TaskNode;
   initialCode: { isContainer: boolean; label: string };
   question: string;
 }
@@ -21,7 +22,7 @@ interface TaskNode {
   label: string;
 }
 
-const props = defineProps<{ questionId?: number; task: TaskData }>();
+const props = defineProps<{ category: string; content: TaskData; questionId: number }>();
 const emit = defineEmits<{
   (e: 'validated', valid: boolean): void;
   (e: 'result', payload: { success: boolean }): void;
@@ -33,7 +34,7 @@ const uid = () => Math.random().toString(36).slice(2, 11);
 const status = ref<'fail' | 'playing' | 'showing_answer' | 'success'>('playing');
 const bank = ref<NodeItem[]>([]);
 const root = ref<NodeItem | null>(null);
-const correctStructure = ref<null | TaskNode>(props.task.correctStructure ?? null);
+const correctStructure = ref<null | TaskNode>(null);
 const selectedId = ref<null | string>(null);
 const caret = ref<CaretPosition | null>(null);
 
@@ -42,17 +43,17 @@ const initTask = () => {
   status.value = 'playing';
   selectedId.value = null;
   caret.value = null;
-  bank.value = props.task.answers.map((a) => ({
+  bank.value = props.content.answers.map((a) => ({
     children: a.isContainer ? [] : undefined,
     id: uid(),
     isContainer: a.isContainer,
     label: a.label,
   }));
   root.value = {
-    children: props.task.initialCode.isContainer ? [] : undefined,
+    children: props.content.initialCode.isContainer ? [] : undefined,
     id: uid(),
-    isContainer: props.task.initialCode.isContainer,
-    label: props.task.initialCode.label,
+    isContainer: props.content.initialCode.isContainer,
+    label: props.content.initialCode.label,
   };
 };
 
@@ -316,6 +317,7 @@ const validate = async () => {
       }
       emit('validated', true);
     }
+    quizState.recordAnswer(props.questionId, props.category, data.score);
     emit('result', { success: data.score === 10 });
   } catch (err) {
     console.error('Validation failed', err);
@@ -334,7 +336,7 @@ const showAnswer = () => {
   }
 
   // Create a pool of all available answers to track what's left
-  const pool = [...props.task.answers];
+  const pool = [...props.content.answers];
 
   const build = (n: TaskNode): NodeItem => {
     const kids = n.children;
@@ -373,7 +375,7 @@ const showAnswer = () => {
       <!-- Header -->
       <div class="flex flex-col items-center gap-4 text-center">
         <h2 class="m-0 text-2xl font-bold tracking-tight text-zinc-900 md:text-3xl dark:text-zinc-100">
-          {{ task.question }}
+          {{ content.question }}
         </h2>
       </div>
 
