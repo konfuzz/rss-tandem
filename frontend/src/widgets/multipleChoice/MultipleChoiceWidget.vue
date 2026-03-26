@@ -6,7 +6,9 @@ import { computed, ref } from 'vue';
 
 import type { QuizTask } from '../../types/widget';
 
+import { useQuizStore } from '../../stores/quiz';
 import { apiFetch } from '../../utils/api';
+const quizState = useQuizStore();
 
 interface MultipleChoiceValidationResponse {
   correctAnswer?: number[];
@@ -16,9 +18,9 @@ interface MultipleChoiceValidationResponse {
 type NoticeSeverity = 'error' | 'warn';
 
 const props = defineProps<{
-  content?: QuizTask;
-  questionId?: number;
-  task?: QuizTask;
+  category: string;
+  content: QuizTask;
+  questionId: number;
 }>();
 
 const emit = defineEmits<{
@@ -32,7 +34,7 @@ const correctAnswerIndices = ref<number[]>([]);
 const isSubmitting = ref(false);
 const notice = ref<null | { severity: NoticeSeverity; text: string }>(null);
 
-const resolvedTask = computed<QuizTask>(() => props.task ?? props.content ?? {});
+const resolvedTask = computed<QuizTask>(() => props.content ?? {});
 const answers = computed(() =>
   (resolvedTask.value.answers ?? []).filter((answer): answer is string => typeof answer === 'string'),
 );
@@ -163,6 +165,7 @@ async function validate() {
     status.value = score === 10 ? 'success' : 'fail';
 
     emit('result', { score, success: score === 10 });
+    quizState.recordAnswer(props.questionId, props.category, score);
     emit('validated', true);
   } catch (error) {
     console.error('Multiple-choice validation failed', error);

@@ -5,13 +5,21 @@ import { computed, ref } from 'vue';
 
 import type { WidgetConfig } from '../types/widget';
 
+import { useQuizStore } from '../stores/quiz';
+import { apiFetch } from '../utils/api';
 import { widgetRegistry } from '../widgets/widgetRegistry';
+
+const quizState = useQuizStore();
 
 const props = defineProps<{
   questions: WidgetConfig[];
 }>();
 
-const currentIndex = ref(0);
+const currentIndex = computed({
+  get: () => quizState.currentStep,
+  set: (val) => (quizState.currentStep = val),
+});
+
 const isAnswered = ref(false);
 const loading = ref(false);
 const error = ref<null | string>(null);
@@ -31,19 +39,53 @@ const buttonLabel = computed(() => {
   return currentIndex.value === questionCount.value - 1 ? 'Завершить' : 'Следующий вопрос';
 });
 
+async function finishQuiz() {
+  loading.value = true;
+  error.value = null;
+
+  try {
+    const payload = {
+      answers: quizState.answers,
+      complexity: 'junior',
+      totalDuration: 0,
+      totalScore: quizState.answers.reduce((acc, curr) => acc + curr.score, 0),
+    };
+
+    const response = await apiFetch('/quiz/finish', {
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    });
+
+    if (!response.ok) throw new Error('Ошибка при сохранении результатов');
+
+    quizState.resetQuiz();
+  } catch (e) {
+    console.log(e);
+  } finally {
+    loading.value = false;
+  }
+}
+
 function goToNextWidget() {
   if (currentIndex.value < questionCount.value - 1) {
     currentIndex.value++;
   }
 }
 
-function handleButtonClick() {
+async function handleButtonClick() {
   if (!isAnswered.value) {
     widgetRef.value?.validate();
     return;
   }
 
-  nextQuestion();
+  if (currentIndex.value === questionCount.value - 1) {
+    await finishQuiz();
+  } else {
+    nextQuestion();
+  }
 }
 
 function nextQuestion() {

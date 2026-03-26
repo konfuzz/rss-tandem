@@ -3,7 +3,12 @@ import MarkdownIt from 'markdown-it';
 import Textarea from 'primevue/textarea';
 import { computed, ref } from 'vue';
 
+import type { QuizTask } from '../../types/widget';
+
+import { useQuizStore } from '../../stores/quiz';
 import { apiFetch } from '../../utils/api';
+
+const quizState = useQuizStore();
 
 const md = new MarkdownIt();
 const answer = ref('');
@@ -11,12 +16,11 @@ const studentAnswer = ref('');
 const draftAnswer = ref('');
 const score = ref(0);
 
-const question = defineProps({
-  question: {
-    required: true,
-    type: String,
-  },
-});
+const question = defineProps<{
+  category: string;
+  content: QuizTask;
+  questionId: number;
+}>();
 
 const emit = defineEmits<{
   validated: [boolean];
@@ -32,7 +36,7 @@ async function validate() {
 
   const response = await apiFetch('/quiz/review', {
     body: JSON.stringify({
-      question: question,
+      question: question.content?.question,
       studentAnswer: studentAnswer.value,
     }),
     headers: { 'Content-Type': 'application/json' },
@@ -69,6 +73,7 @@ async function validate() {
     }
   }
 
+  quizState.recordAnswer(question.questionId, question.category, score.value);
   emit('validated', true);
 }
 
@@ -81,7 +86,7 @@ defineExpose({ validate });
       <p
         class="ai-message max-w-[70%] rounded-lg bg-emerald-800 px-4 py-2 text-emerald-50 dark:bg-emerald-900 dark:text-emerald-100"
       >
-        {{ question.question }}
+        {{ question.content?.question }}
       </p>
       <p
         v-if="studentAnswer"
