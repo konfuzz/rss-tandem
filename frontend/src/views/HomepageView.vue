@@ -58,14 +58,14 @@ const team = [
           Разнообразные виджеты для каждого раунда квиза
         </h2>
 
-        <div class="mb-20 grid grid-cols-2 gap-8 md:grid-cols-2">
+        <div class="mb-20 grid grid-cols-1 gap-8 md:grid-cols-2">
           <div
             class="group rounded-3xl border border-zinc-100 bg-white p-8 transition-all duration-300 hover:border-emerald-500/30 hover:shadow-2xl dark:border-zinc-700/50 dark:bg-zinc-800/50"
           >
             <div
               class="mb-6 flex h-48 w-full items-center justify-center rounded-2xl border-2 border-dashed border-zinc-200 transition-colors group-hover:bg-zinc-200 dark:border-zinc-700 dark:group-hover:bg-zinc-700"
             >
-              <img src="/polls.jpg" alt="" class="h-full w-full object-contain" />
+              <img src="/polls.webp" alt="Виджет Выбор ответа" class="h-full w-full object-contain" />
             </div>
             <h3 class="mb-3 text-xl font-bold text-zinc-800 dark:text-zinc-100">Выбор ответа</h3>
             <p class="text-zinc-600 dark:text-zinc-400">
@@ -78,7 +78,7 @@ const team = [
             <div
               class="mb-6 flex h-48 w-full items-center justify-center rounded-2xl border-2 border-dashed border-zinc-200 transition-colors group-hover:bg-zinc-200 dark:border-zinc-700 dark:group-hover:bg-zinc-700"
             >
-              <img src="/code-analysis.jpg" alt="" class="h-full w-full object-contain" />
+              <img src="/code-analysis.webp" alt="Виджет Анализ кода" class="h-full w-full object-contain" />
             </div>
             <h3 class="mb-3 text-xl font-bold text-zinc-800 dark:text-zinc-100">Анализ кода</h3>
             <p class="text-zinc-600 dark:text-zinc-400">Найдите ошибки в коде в режиме реального времени.</p>
@@ -89,7 +89,7 @@ const team = [
             <div
               class="mb-6 flex h-48 w-full items-center justify-center rounded-2xl border-2 border-dashed border-zinc-200 transition-colors group-hover:bg-zinc-200 dark:border-zinc-700 dark:group-hover:bg-zinc-700"
             >
-              <img src="/method-builder.jpg" alt="" class="h-full w-full object-contain" />
+              <img src="/method-builder.webp" alt="Виджет Конструктор методов" class="h-full w-full object-contain" />
             </div>
             <h3 class="mb-3 text-xl font-bold text-zinc-800 dark:text-zinc-100">Конструктор методов</h3>
             <p class="text-zinc-600 dark:text-zinc-400">
@@ -102,7 +102,7 @@ const team = [
             <div
               class="mb-6 flex h-48 w-full items-center justify-center rounded-2xl border-2 border-dashed border-zinc-200 transition-colors group-hover:bg-zinc-200 dark:border-zinc-700 dark:group-hover:bg-zinc-700"
             >
-              <img src="/method-builder.jpg" alt="" class="h-full w-full object-contain" />
+              <img src="/ai-reviewer.webp" alt="Виджет AI-интервьюер" class="h-full w-full object-contain" />
             </div>
             <h3 class="mb-3 text-xl font-bold text-zinc-800 dark:text-zinc-100">AI-интервьюер</h3>
             <p class="text-zinc-600 dark:text-zinc-400">
