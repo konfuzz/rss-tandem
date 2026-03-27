@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Button from 'primevue/button';
 import Card from 'primevue/card';
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 
 import type { WidgetConfig } from '../types/widget';
 
@@ -26,6 +26,10 @@ const error = ref<null | string>(null);
 const widgetRef = ref();
 
 const currentQuestion = computed(() => props.questions[currentIndex.value]);
+const currentQuestionId = computed(() => currentQuestion.value?.props?.questionId);
+const currentQuestionAnswered = computed(
+  () => currentQuestionId.value != null && quizState.answers.some((answer) => answer.id === currentQuestionId.value),
+);
 
 const currentWidget = computed(() => {
   const question = currentQuestion.value;
@@ -34,10 +38,36 @@ const currentWidget = computed(() => {
 
 const questionCount = computed(() => props.questions.length);
 
+function buildQuizSummary(resultId: null | number = null) {
+  const answeredQuestions = quizState.answers.length;
+  const totalDuration = quizState.answers.reduce((acc, curr) => acc + curr.time, 0);
+  const totalScore = quizState.answers.reduce((acc, curr) => acc + curr.score, 0);
+
+  return {
+    answeredQuestions,
+    averageScore: answeredQuestions > 0 ? Number((totalScore / answeredQuestions).toFixed(1)) : 0,
+    categories: [...new Set(quizState.answers.map((answer) => answer.category))],
+    completedAt: new Date().toISOString(),
+    perfectAnswers: quizState.answers.filter((answer) => answer.score === 10).length,
+    resultId,
+    totalDuration,
+    totalQuestions: questionCount.value,
+    totalScore,
+  };
+}
+
 const buttonLabel = computed(() => {
   if (!isAnswered.value) return 'Ответить';
   return currentIndex.value === questionCount.value - 1 ? 'Завершить' : 'Следующий вопрос';
 });
+
+watch(
+  currentQuestionAnswered,
+  (answered) => {
+    isAnswered.value = answered;
+  },
+  { immediate: true },
+);
 
 async function finishQuiz() {
   loading.value = true;
@@ -47,7 +77,7 @@ async function finishQuiz() {
     const payload = {
       answers: quizState.answers,
       complexity: 'junior',
-      totalDuration: 0,
+      totalDuration: quizState.answers.reduce((acc, curr) => acc + curr.time, 0),
       totalScore: quizState.answers.reduce((acc, curr) => acc + curr.score, 0),
     };
 
@@ -61,9 +91,12 @@ async function finishQuiz() {
 
     if (!response.ok) throw new Error('Ошибка при сохранении результатов');
 
-    quizState.resetQuiz();
-  } catch (e) {
-    console.log(e);
+    const data = (await response.json()) as { resultId?: number };
+
+    quizState.completeQuiz(buildQuizSummary(data.resultId ?? null));
+  } catch (finishError) {
+    error.value = finishError instanceof Error ? finishError.message : 'Не удалось завершить квиз';
+    console.error(finishError);
   } finally {
     loading.value = false;
   }
@@ -112,17 +145,17 @@ function onValidated(valid: boolean) {
 
       <template #content>
         <div class="relative min-h-50">
-          <div v-if="error" class="text-red-600 dark:text-red-400">Failed to load a question: {{ error }}</div>
+          <div v-if="error" class="text-red-600 dark:text-red-400">{{ error }}</div>
 
-          <div v-else-if="loading" class="flex justify-center p-10">Загрузка вопроса...</div>
+          <div v-else-if="loading" class="flex justify-center p-10">Сохраняем результат...</div>
 
           <Transition name="fade" mode="out-in">
             <component
               :is="currentWidget"
-              v-bind="currentQuestion?.props"
-              @validated="onValidated"
               :key="currentIndex"
               ref="widgetRef"
+              v-bind="currentQuestion?.props"
+              @validated="onValidated"
             />
           </Transition>
         </div>
@@ -130,7 +163,7 @@ function onValidated(valid: boolean) {
 
       <template #footer>
         <div class="justify mt-4 flex justify-center">
-          <Button :label="buttonLabel" @click="handleButtonClick" />
+          <Button :label="buttonLabel" :loading="loading" @click="handleButtonClick" />
         </div>
       </template>
     </Card>

@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
 
+import { useQuizStore } from './quiz';
+
 export const useAuthStore = defineStore(
   'auth',
   () => {
@@ -17,6 +19,9 @@ export const useAuthStore = defineStore(
     }
 
     function logout() {
+      const quiz = useQuizStore();
+
+      quiz.resetQuiz();
       token.value = null;
       userName.value = null;
       userId.value = null;
