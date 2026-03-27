@@ -6,7 +6,7 @@ import type { WidgetConfig } from '../types/widget';
 export interface QuizResultSummary {
   answeredQuestions: number;
   averageScore: number;
-  categories: string[];
+  categories: QuizSummaryCategory[];
   completedAt: string;
   perfectAnswers: number;
   resultId: null | number;
@@ -20,6 +20,11 @@ export interface QuizRound {
   id: number;
   score: number;
   time: number;
+}
+
+export interface QuizSummaryCategory {
+  averageScore: number;
+  name: string;
 }
 
 export const useQuizStore = defineStore(

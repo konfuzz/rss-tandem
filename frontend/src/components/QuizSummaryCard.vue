@@ -41,6 +41,10 @@ const progressToneClass = computed(() => {
 
   return 'summary-progress--high';
 });
+
+function formatScore(score: number) {
+  return score.toFixed(1);
+}
 </script>
 
 <template>
@@ -83,8 +87,8 @@ const progressToneClass = computed(() => {
             <div class="flex flex-wrap gap-3">
               <Tag
                 v-for="category in summary.categories"
-                :key="category"
-                :value="category"
+                :key="category.name"
+                :value="`${category.name}: ${formatScore(category.averageScore)}`"
                 severity="success"
                 class="summary-tag border! border-emerald-200! bg-emerald-50! px-3.5! py-2! text-sm! font-semibold! text-emerald-900! shadow-sm dark:border-emerald-800! dark:bg-emerald-950/80! dark:text-emerald-100!"
               />

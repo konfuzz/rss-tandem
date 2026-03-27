@@ -7,6 +7,7 @@ import type { WidgetConfig } from '../types/widget';
 
 import { useQuizStore } from '../stores/quiz';
 import { apiFetch } from '../utils/api';
+import { buildFinishQuizPayload, buildQuizSummary, calculateQuizStats } from '../utils/quizResults';
 import { widgetRegistry } from '../widgets/widgetRegistry';
 
 const quizState = useQuizStore();
@@ -38,24 +39,6 @@ const currentWidget = computed(() => {
 
 const questionCount = computed(() => props.questions.length);
 
-function buildQuizSummary(resultId: null | number = null) {
-  const answeredQuestions = quizState.answers.length;
-  const totalDuration = quizState.answers.reduce((acc, curr) => acc + curr.time, 0);
-  const totalScore = quizState.answers.reduce((acc, curr) => acc + curr.score, 0);
-
-  return {
-    answeredQuestions,
-    averageScore: answeredQuestions > 0 ? Number((totalScore / answeredQuestions).toFixed(1)) : 0,
-    categories: [...new Set(quizState.answers.map((answer) => answer.category))],
-    completedAt: new Date().toISOString(),
-    perfectAnswers: quizState.answers.filter((answer) => answer.score === 10).length,
-    resultId,
-    totalDuration,
-    totalQuestions: questionCount.value,
-    totalScore,
-  };
-}
-
 const buttonLabel = computed(() => {
   if (!isAnswered.value) return 'Ответить';
   return currentIndex.value === questionCount.value - 1 ? 'Завершить' : 'Следующий вопрос';
@@ -74,12 +57,8 @@ async function finishQuiz() {
   error.value = null;
 
   try {
-    const payload = {
-      answers: quizState.answers,
-      complexity: 'junior',
-      totalDuration: quizState.answers.reduce((acc, curr) => acc + curr.time, 0),
-      totalScore: quizState.answers.reduce((acc, curr) => acc + curr.score, 0),
-    };
+    const stats = calculateQuizStats(quizState.answers);
+    const payload = buildFinishQuizPayload(quizState.answers, 'junior', stats);
 
     const response = await apiFetch('/quiz/finish', {
       body: JSON.stringify(payload),
@@ -93,7 +72,13 @@ async function finishQuiz() {
 
     const data = (await response.json()) as { resultId?: number };
 
-    quizState.completeQuiz(buildQuizSummary(data.resultId ?? null));
+    quizState.completeQuiz(
+      buildQuizSummary({
+        resultId: data.resultId ?? null,
+        stats,
+        totalQuestions: questionCount.value,
+      }),
+    );
   } catch (finishError) {
     error.value = finishError instanceof Error ? finishError.message : 'Не удалось завершить квиз';
     console.error(finishError);
