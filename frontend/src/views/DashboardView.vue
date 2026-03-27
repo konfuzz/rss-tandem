@@ -46,5 +46,12 @@ onMounted(async () => {
     <h1 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100">Dashboard</h1>
     <p class="text-zinc-700 dark:text-zinc-300">Привет, {{ data ? data.user.username : '' }}</p>
     <p class="text-zinc-500 dark:text-zinc-400">Твой id: {{ data ? data.user.id : '' }}</p>
+
+    <RouterLink
+      to="/quiz"
+      class="rounded-xl bg-zinc-900 px-4 py-2 text-center font-bold text-white shadow-lg transition-all hover:scale-105 active:scale-95 dark:bg-zinc-100 dark:text-zinc-900"
+    >
+      Начать квиз
+    </RouterLink>
   </div>
 </template>
