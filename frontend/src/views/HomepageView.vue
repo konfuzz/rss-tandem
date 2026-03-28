@@ -137,7 +137,7 @@ const team = [
           <div
             class="relative z-10 flex h-64 w-full flex-1 items-center justify-center rounded-2xl border border-zinc-200 bg-zinc-100 lg:h-80 dark:border-zinc-700 dark:bg-zinc-900"
           >
-            <span class="font-medium text-zinc-400 dark:text-zinc-600">Placeholder</span>
+            <img src="/dashboard.webp" alt="Дашборд приложения InterVue" class="h-full w-full object-contain" />
           </div>
         </div>
       </div>
