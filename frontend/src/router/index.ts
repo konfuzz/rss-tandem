@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { useAuthStore } from '../stores/auth';
 import DashboardView from '../views/DashboardView.vue';
 import HomeView from '../views/HomepageView.vue';
+import LeaderboardView from '../views/LeaderboardView.vue';
 import LoginView from '../views/LoginView.vue';
 import NotFoundView from '../views/NotFound.vue';
 import QuizView from '../views/QuizView.vue';
@@ -25,6 +26,12 @@ const routes = [
     meta: { requiresAuth: true },
     name: 'dashboard',
     path: '/dashboard',
+  },
+  {
+    component: LeaderboardView,
+    meta: { requiresAuth: true },
+    name: 'leaderboard',
+    path: '/leaderboard',
   },
   {
     component: LoginView,
