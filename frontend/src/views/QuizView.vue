@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { markRaw, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 import type { WidgetConfig } from '../types/widget';
@@ -61,14 +61,16 @@ async function loadQuiz(options?: { inline?: boolean }) {
 
     const rawData = (await response.json()) as BackendQuizQuestion[];
 
-    const questions = rawData.map((item) => ({
-      props: {
-        category: item.category,
-        content: item.content,
-        questionId: item.id,
-      },
-      type: item.type,
-    }));
+    const questions = rawData.map((item) =>
+      markRaw({
+        props: {
+          category: item.category,
+          content: item.content,
+          questionId: item.id,
+        },
+        type: item.type,
+      }),
+    );
 
     quizState.startQuiz(crypto.randomUUID(), questions);
   } catch (loadError) {
