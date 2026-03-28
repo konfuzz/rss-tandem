@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { ref } from 'vue';
+import { ref, shallowRef } from 'vue';
 
 import type { WidgetConfig } from '../types/widget';
 
@@ -30,7 +30,7 @@ export interface QuizSummaryCategory {
 export const useQuizStore = defineStore(
   'quiz',
   () => {
-    const questions = ref<WidgetConfig[]>([]);
+    const questions = shallowRef<WidgetConfig[]>([]);
     const currentQuizId = ref<null | string>(null);
     const answers = ref<QuizRound[]>([]);
     const currentStep = ref(0);

@@ -1,14 +1,17 @@
 import type { Component } from 'vue';
 
-import { defineAsyncComponent } from 'vue';
-
 import type { questionType } from '../types/widget';
 
+import AiInterviewer from './ai-interviewer/Ai-interviewer.vue';
+import CodeAnalysisWidget from './codeAnalysis/CodeAnalysisWidget.vue';
+import MethodBuilderWidget from './MethodBuilder/MethodBuilderWidget.vue';
+import MultipleChoiceWidget from './multipleChoice/MultipleChoiceWidget.vue';
+import PollWidget from './poll/PollWidget.vue';
+
 export const widgetRegistry: Partial<Record<questionType, Component>> = {
-  'ai-interviewer': defineAsyncComponent(() => import('./ai-interviewer/Ai-interviewer.vue')),
-  'basic-poll': defineAsyncComponent(() => import('./poll/PollWidget.vue')),
-  'code-analysis': defineAsyncComponent(() => import('./codeAnalysis/CodeAnalysisWidget.vue')),
-  'drag-n-drop': defineAsyncComponent(() => import('./MethodBuilder/MethodBuilderWidget.vue')),
-  example: defineAsyncComponent(() => import('./WidgetExample.vue')),
-  'multiple-choice': defineAsyncComponent(() => import('./multipleChoice/MultipleChoiceWidget.vue')),
+  'ai-interviewer': AiInterviewer,
+  'basic-poll': PollWidget,
+  'code-analysis': CodeAnalysisWidget,
+  'drag-n-drop': MethodBuilderWidget,
+  'multiple-choice': MultipleChoiceWidget,
 };
