@@ -54,7 +54,25 @@ export async function getLeaders(_req: AuthRequest, res: Response) {
       };
     });
 
-    res.json(leaders);
+    const maxStreak = leaders
+      .map((l) => ({ streak: l.streak, username: l.user }))
+      .filter((l) => l.streak > 0)
+      .sort((a, b) => b.streak - a.streak)
+      .slice(0, 10);
+
+    const avgScore = leaders
+      .map((l) => ({ score: l.avgScore, username: l.user }))
+      .filter((l) => l.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 10);
+
+    const finished = leaders
+      .map((l) => ({ username: l.user, value: l.finished }))
+      .filter((l) => l.value > 0)
+      .sort((a, b) => b.value - a.value)
+      .slice(0, 10);
+
+    res.json({ avgScore, finished, maxStreak });
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Внутренняя ошибка сервера' });
