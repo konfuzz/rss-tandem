@@ -5,6 +5,8 @@ import { CategoryScale, Chart as ChartJS, Filler, LinearScale, LineElement, Poin
 import { computed, onMounted, ref } from 'vue';
 import { Line } from 'vue-chartjs';
 
+import { useQuizStore } from '../stores/quiz';
+
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Filler);
 
 import { apiFetch } from '../utils/api';
@@ -25,6 +27,8 @@ interface UserData {
 
 const data = ref<null | UserData>(null);
 const loading = ref(true);
+const quizState = useQuizStore();
+const quizFinished = computed(() => quizState.isFinished);
 
 onMounted(async () => {
   try {
@@ -195,7 +199,7 @@ function getDayWord(n: number) {
             to="/quiz"
             class="mt-4 inline-block rounded-2xl bg-indigo-600 px-8 py-3 font-bold text-white shadow-lg shadow-indigo-500/30 transition-all hover:scale-105 hover:bg-indigo-700 active:scale-95"
           >
-            Начать новый квиз!
+            {{ quizFinished ? 'Начать новый квиз!' : 'Продолжить начатый квиз' }}
           </RouterLink>
         </div>
         <div class="flex items-center gap-2 rounded-2xl bg-white p-4 shadow-sm dark:bg-zinc-900">
