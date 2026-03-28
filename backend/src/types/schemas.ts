@@ -22,15 +22,17 @@ export const QuestionSchema = z.discriminatedUnion('type', [
 
 export type ValidatedQuestion = z.infer<typeof QuestionSchema>;
 
+export const QuizDetailSchema = z.object({
+  category: z.string(),
+  id: z.number(),
+  score: z.number(),
+  time: z.number(),
+});
+
+export type QuizDetail = z.infer<typeof QuizDetailSchema>;
+
 export const FinishQuizSchema = z.object({
-  answers: z.array(
-    z.object({
-      category: z.string(),
-      id: z.number(),
-      score: z.number(),
-      time: z.number(),
-    }),
-  ),
+  answers: z.array(QuizDetailSchema),
   complexity: z.string(),
   totalDuration: z.number(),
   totalScore: z.number(),
