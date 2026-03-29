@@ -31,6 +31,7 @@ const emit = defineEmits<{
 
 const status = ref<'fail' | 'playing' | 'showing_answer' | 'success'>('playing');
 const selectedAnswer = ref<null | number>(null);
+const userSelectedAnswer = ref<null | number>(null);
 const correctAnswerIndex = ref<null | number>(null);
 const isSubmitting = ref(false);
 const notice = ref<null | { severity: NoticeSeverity; text: string }>(null);
@@ -43,6 +44,9 @@ const questionText = computed(() => resolvedTask.value.question?.trim() ?? '');
 const questionImage = computed(() => resolvedTask.value.questionImage?.trim() ?? '');
 const hasRenderablePoll = computed(() => questionText.value.length > 0 && answers.value.length > 0);
 const isFinished = computed(() => status.value !== 'playing');
+const answerActionLabel = computed(() =>
+  status.value === 'showing_answer' ? 'Вернуться к моему ответу' : 'Показать ответ',
+);
 
 function clearNotice() {
   notice.value = null;
@@ -94,11 +98,25 @@ function setNotice(severity: NoticeSeverity, text: string) {
 }
 
 function showAnswer() {
+  if (status.value === 'showing_answer') {
+    if (userSelectedAnswer.value === null) {
+      setNotice('error', 'Не удалось восстановить ваш ответ.');
+      return;
+    }
+
+    selectedAnswer.value = userSelectedAnswer.value;
+    status.value = 'fail';
+    clearNotice();
+    emit('validated', true);
+    return;
+  }
+
   if (correctAnswerIndex.value === null) {
     setNotice('error', 'Не удалось получить правильный ответ с сервера.');
     return;
   }
 
+  userSelectedAnswer.value = selectedAnswer.value;
   selectedAnswer.value = correctAnswerIndex.value;
   status.value = 'showing_answer';
   clearNotice();
@@ -157,6 +175,7 @@ async function validate() {
     const score = typeof data.score === 'number' ? data.score : 0;
     const isCorrect = score === 10;
 
+    userSelectedAnswer.value = selectedAnswer.value;
     correctAnswerIndex.value = typeof data.correctAnswer === 'number' ? data.correctAnswer : null;
     status.value = isCorrect ? 'success' : 'fail';
 
@@ -165,10 +184,7 @@ async function validate() {
     emit('validated', true);
   } catch (error) {
     console.error('Poll validation failed', error);
-    status.value = 'fail';
     setNotice('error', 'Не удалось проверить ответ. Попробуйте ещё раз.');
-    emit('result', { score: 0, success: false });
-    emit('validated', true);
   } finally {
     isSubmitting.value = false;
   }
@@ -259,9 +275,9 @@ defineExpose({ validate });
 
     <div class="flex items-center justify-start pt-1">
       <Button
-        v-if="status === 'fail'"
-        label="Показать ответ"
-        icon="pi pi-eye"
+        v-if="status === 'fail' || status === 'showing_answer'"
+        :label="answerActionLabel"
+        :icon="status === 'showing_answer' ? 'pi pi-undo' : 'pi pi-eye'"
         severity="secondary"
         variant="text"
         size="small"

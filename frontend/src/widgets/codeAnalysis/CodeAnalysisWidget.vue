@@ -29,6 +29,7 @@ const emit = defineEmits<{
 
 const status = ref<'fail' | 'playing' | 'showing_answer' | 'success'>('playing');
 const selectedLines = ref<number[]>([]);
+const userSelectedLines = ref<number[]>([]);
 const correctLineIndices = ref<number[]>([]);
 const isSubmitting = ref(false);
 const notice = ref<null | { severity: NoticeSeverity; text: string }>(null);
@@ -41,6 +42,9 @@ const questionText = computed(() => resolvedTask.value.question?.trim() ?? '');
 const questionImage = computed(() => resolvedTask.value.questionImage?.trim() ?? '');
 const hasRenderableTask = computed(() => questionText.value.length > 0 && lines.value.length > 0);
 const isFinished = computed(() => status.value !== 'playing');
+const answerActionLabel = computed(() =>
+  status.value === 'showing_answer' ? 'Вернуться к моему ответу' : 'Показать ответ',
+);
 const selectedLinesCaption = computed(() =>
   selectedLines.value.length > 0
     ? `Выбраны строки: ${selectedLines.value.map((line) => line + 1).join(', ')}`
@@ -131,11 +135,25 @@ function setNotice(severity: NoticeSeverity, text: string) {
 }
 
 function showAnswer() {
+  if (status.value === 'showing_answer') {
+    if (userSelectedLines.value.length === 0) {
+      setNotice('error', 'Не удалось восстановить ваш ответ.');
+      return;
+    }
+
+    selectedLines.value = [...userSelectedLines.value];
+    status.value = 'fail';
+    clearNotice();
+    emit('validated', true);
+    return;
+  }
+
   if (correctLineIndices.value.length === 0) {
     setNotice('error', 'Не удалось получить правильные строки с сервера.');
     return;
   }
 
+  userSelectedLines.value = [...selectedLines.value];
   selectedLines.value = [...correctLineIndices.value];
   status.value = 'showing_answer';
   clearNotice();
@@ -205,6 +223,7 @@ async function validate() {
 
     const score = typeof data.score === 'number' ? data.score : 0;
 
+    userSelectedLines.value = [...selectedLines.value];
     correctLineIndices.value = Array.isArray(data.correctAnswer) ? [...data.correctAnswer] : [];
     status.value = score === 10 ? 'success' : 'fail';
 
@@ -213,10 +232,7 @@ async function validate() {
     emit('validated', true);
   } catch (error) {
     console.error('Code-analysis validation failed', error);
-    status.value = 'fail';
     setNotice('error', 'Не удалось проверить ответ. Попробуйте ещё раз.');
-    emit('result', { score: 0, success: false });
-    emit('validated', true);
   } finally {
     isSubmitting.value = false;
   }
@@ -311,9 +327,9 @@ defineExpose({ validate });
 
     <div class="flex items-center justify-start pt-1">
       <Button
-        v-if="status === 'fail'"
-        label="Показать ответ"
-        icon="pi pi-eye"
+        v-if="status === 'fail' || status === 'showing_answer'"
+        :label="answerActionLabel"
+        :icon="status === 'showing_answer' ? 'pi pi-undo' : 'pi pi-eye'"
         severity="secondary"
         variant="text"
         size="small"
