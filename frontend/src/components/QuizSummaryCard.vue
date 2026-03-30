@@ -138,7 +138,7 @@ function formatScore(score: number) {
               :loading="props.restartLoading"
               @click="emit('restart')"
             />
-            <Button label="На дашборд" icon="pi pi-chart-bar" @click="emit('dashboard')" />
+            <Button label="Завершить" icon="pi pi-chart-bar" @click="emit('dashboard')" />
           </div>
         </div>
       </template>

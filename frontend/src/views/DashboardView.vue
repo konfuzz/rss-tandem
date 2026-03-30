@@ -28,7 +28,11 @@ interface UserData {
 const data = ref<null | UserData>(null);
 const loading = ref(true);
 const quizState = useQuizStore();
-const quizFinished = computed(() => quizState.isFinished);
+const mainButtonMessage = computed(() => {
+  if (quizState.isFinished) return 'Посмотреть результаты последнего квиза';
+  if (quizState.currentQuizId) return 'Продолжить начатый квиз';
+  return 'Начать новый квиз';
+});
 
 onMounted(async () => {
   try {
@@ -183,7 +187,10 @@ function getDayWord(n: number) {
       <div class="h-12 w-12 animate-spin rounded-full border-4 border-indigo-500 border-t-transparent"></div>
     </div>
 
-    <div v-else-if="data" class="animate-in fade-in slide-in-from-bottom-4 mx-auto max-w-7xl duration-500">
+    <div
+      v-else-if="data && data.stats.totalQuizzes > 0"
+      class="animate-in fade-in slide-in-from-bottom-4 mx-auto max-w-7xl duration-500"
+    >
       <!-- Header -->
       <div class="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
         <div>
@@ -199,7 +206,7 @@ function getDayWord(n: number) {
             to="/quiz"
             class="mt-4 inline-block rounded-2xl bg-indigo-600 px-8 py-3 font-bold text-white shadow-lg shadow-indigo-500/30 transition-all hover:scale-105 hover:bg-indigo-700 active:scale-95"
           >
-            {{ quizFinished ? 'Начать новый квиз!' : 'Продолжить начатый квиз' }}
+            {{ mainButtonMessage }}
           </RouterLink>
         </div>
         <div class="flex items-center gap-2 rounded-2xl bg-white p-4 shadow-sm dark:bg-zinc-900">
@@ -376,7 +383,7 @@ function getDayWord(n: number) {
         to="/quiz"
         class="mt-4 rounded-2xl bg-indigo-600 px-8 py-3 font-bold text-white shadow-lg shadow-indigo-500/30 transition-all hover:scale-105 hover:bg-indigo-700 active:scale-95"
       >
-        Начать квиз!
+        {{ mainButtonMessage }}
       </RouterLink>
     </div>
   </div>

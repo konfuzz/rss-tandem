@@ -24,6 +24,7 @@ const restartLoading = ref(false);
 const router = useRouter();
 
 function goToDashboard() {
+  quizState.resetQuiz();
   router.push({ name: 'dashboard' });
 }
 

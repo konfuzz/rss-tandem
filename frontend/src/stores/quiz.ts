@@ -94,7 +94,7 @@ export const useQuizStore = defineStore(
   {
     persist: {
       key: 'quiz-progress',
-      pick: ['answers', 'currentQuizId', 'currentStep', 'questions'],
+      pick: ['answers', 'currentQuizId', 'currentStep', 'questions', 'isFinished', 'lastResult'],
       storage: localStorage,
     },
   },
