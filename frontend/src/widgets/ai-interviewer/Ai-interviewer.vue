@@ -31,6 +31,10 @@ const errorMessage = ref('');
 const isValidating = ref(false);
 
 async function validate() {
+  if (!draftAnswer.value.trim()) {
+    errorMessage.value = 'Ответ не может быть пустым. Пожалуйста, ответьте на вопрос.';
+    return;
+  }
   answer.value = '';
   score.value = 0;
   studentAnswer.value = draftAnswer.value;
