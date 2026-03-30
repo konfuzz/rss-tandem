@@ -17,10 +17,10 @@ async function seed() {
     await db
       .insert(questions)
       .values({
-        answerKey: q.answerKey, // И это тоже
+        answerKey: q.answerKey || '',
         category: q.category,
         complexity: q.complexity,
-        content: q.content, // Теперь берем из вложенного объекта
+        content: q.content,
         id: q.id,
         time: q.time,
         type: q.type,

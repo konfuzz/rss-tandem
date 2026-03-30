@@ -6,12 +6,14 @@ import { computed, onMounted, ref } from 'vue';
 
 import type { CaretPosition, NodeItem } from './MethodNode.vue';
 
+import { useQuizStore } from '../../stores/quiz';
 import { apiFetch } from '../../utils/api';
 import MethodNode from './MethodNode.vue';
+const quizState = useQuizStore();
 
+type NoticeSeverity = 'error' | 'warn';
 interface TaskData {
   answers: { isContainer: boolean; label: string }[];
-  correctStructure?: TaskNode;
   initialCode: { isContainer: boolean; label: string };
   question: string;
 }
@@ -21,7 +23,7 @@ interface TaskNode {
   label: string;
 }
 
-const props = defineProps<{ questionId?: number; task: TaskData }>();
+const props = defineProps<{ category: string; content: TaskData; questionId: number }>();
 const emit = defineEmits<{
   (e: 'validated', valid: boolean): void;
   (e: 'result', payload: { success: boolean }): void;
@@ -33,32 +35,64 @@ const uid = () => Math.random().toString(36).slice(2, 11);
 const status = ref<'fail' | 'playing' | 'showing_answer' | 'success'>('playing');
 const bank = ref<NodeItem[]>([]);
 const root = ref<NodeItem | null>(null);
-const correctStructure = ref<null | TaskNode>(props.task.correctStructure ?? null);
+const correctStructure = ref<null | TaskNode>(null);
+const userAnswerState = ref<null | { bank: NodeItem[]; root: NodeItem }>(null);
 const selectedId = ref<null | string>(null);
 const caret = ref<CaretPosition | null>(null);
+const notice = ref<null | { severity: NoticeSeverity; text: string }>(null);
 
 // ─── Init ───
 const initTask = () => {
   status.value = 'playing';
+  correctStructure.value = null;
+  userAnswerState.value = null;
   selectedId.value = null;
   caret.value = null;
-  bank.value = props.task.answers.map((a) => ({
+  notice.value = null;
+  bank.value = props.content.answers.map((a) => ({
     children: a.isContainer ? [] : undefined,
     id: uid(),
     isContainer: a.isContainer,
     label: a.label,
   }));
   root.value = {
-    children: props.task.initialCode.isContainer ? [] : undefined,
+    children: props.content.initialCode.isContainer ? [] : undefined,
     id: uid(),
-    isContainer: props.task.initialCode.isContainer,
-    label: props.task.initialCode.label,
+    isContainer: props.content.initialCode.isContainer,
+    label: props.content.initialCode.label,
   };
 };
 
 onMounted(initTask);
 
 const isFinished = computed(() => status.value !== 'playing');
+const hasUserAnswer = computed(() => Boolean(root.value?.children?.length));
+const answerActionLabel = computed(() =>
+  status.value === 'showing_answer' ? 'Вернуться к моему ответу' : 'Показать ответ',
+);
+
+function clearNotice() {
+  notice.value = null;
+}
+
+function clearWarnNotice() {
+  if (notice.value?.severity === 'warn') {
+    clearNotice();
+  }
+}
+
+function setNotice(severity: NoticeSeverity, text: string) {
+  notice.value = { severity, text };
+}
+
+const cloneNode = (node: NodeItem): NodeItem => ({
+  children: node.children?.map(cloneNode),
+  id: node.id,
+  isContainer: node.isContainer,
+  label: node.label,
+});
+
+const cloneNodeList = (nodes: NodeItem[]): NodeItem[] => nodes.map(cloneNode);
 
 // ─── Tree ───
 const findNode = (node: NodeItem, id: string): NodeItem | null => {
@@ -160,6 +194,7 @@ const calcInsertIndex = (event: DragEvent | MouseEvent, containerId: string): nu
 // ─── Click-to-place ───
 const onChipClick = (payload: { event: MouseEvent; id: string }) => {
   if (isFinished.value) return;
+  clearWarnNotice();
   const { id } = payload;
 
   if (selectedId.value === id) {
@@ -189,6 +224,7 @@ const onChipClick = (payload: { event: MouseEvent; id: string }) => {
 
 const onZoneClick = (payload: { containerId: string; event: MouseEvent }) => {
   if (isFinished.value || !selectedId.value) return;
+  clearWarnNotice();
   const idx =
     caret.value?.containerId === payload.containerId
       ? caret.value.index
@@ -244,6 +280,7 @@ const onZoneDragOver = (payload: { containerId: string; event: DragEvent }) => {
 const onZoneDrop = (payload: { containerId: string; event: DragEvent }) => {
   const itemId = payload.event.dataTransfer?.getData('text/plain');
   if (!itemId) return;
+  clearWarnNotice();
   const idx = caret.value?.containerId === payload.containerId ? caret.value.index : undefined;
   insertItemAt(itemId, payload.containerId, idx);
   onChipDragEnd();
@@ -259,6 +296,7 @@ const onBankDrop = (event: DragEvent) => {
   isBankHighlighted.value = false;
   const itemId = event.dataTransfer?.getData('text/plain');
   if (!itemId) return;
+  clearWarnNotice();
   const item = findAndRemove(itemId, false);
   if (item) bank.value.push(...flattenNode(item));
   onChipDragEnd();
@@ -267,6 +305,7 @@ const onBankDrop = (event: DragEvent) => {
 const onBankClick = () => {
   // If clicked bank empty space and an item is selected from constructor, move it back
   if (isFinished.value || !selectedId.value) return;
+  clearWarnNotice();
   const item = findAndRemove(selectedId.value, false);
   if (item) {
     bank.value.push(...flattenNode(item));
@@ -285,6 +324,15 @@ const buildCleanAnswer = (node: NodeItem): Record<string, unknown> => {
   return result;
 };
 
+function captureUserAnswerState() {
+  if (!root.value) return;
+
+  userAnswerState.value = {
+    bank: cloneNodeList(bank.value),
+    root: cloneNode(root.value),
+  };
+}
+
 const validate = async () => {
   if (!root.value) return;
 
@@ -293,7 +341,20 @@ const validate = async () => {
     return;
   }
 
+  if (!hasUserAnswer.value) {
+    setNotice('warn', 'Добавьте хотя бы один параметр перед проверкой.');
+    emit('validated', false);
+    return;
+  }
+
+  if (!props.questionId) {
+    setNotice('error', 'Не удалось определить идентификатор вопроса для проверки.');
+    emit('validated', false);
+    return;
+  }
+
   const answerPayload = buildCleanAnswer(root.value);
+  clearNotice();
   try {
     const response = await apiFetch('/quiz/submit', {
       body: JSON.stringify({ answer: answerPayload, questionId: props.questionId }),
@@ -304,8 +365,11 @@ const validate = async () => {
     if (!response.ok) throw new Error('API error');
 
     const data = await response.json();
+    const score = typeof data.score === 'number' ? data.score : 0;
 
-    if (data.score === 10) {
+    captureUserAnswerState();
+
+    if (score === 10) {
       status.value = 'success';
       correctStructure.value = data.correctAnswer || correctStructure.value;
       emit('validated', true);
@@ -316,25 +380,42 @@ const validate = async () => {
       }
       emit('validated', true);
     }
-    emit('result', { success: data.score === 10 });
+    quizState.recordAnswer(props.questionId, props.category, score);
+    emit('result', { success: score === 10 });
   } catch (err) {
     console.error('Validation failed', err);
-    status.value = 'fail';
-    emit('validated', true);
-    emit('result', { success: false });
+    setNotice('error', 'Не удалось проверить ответ. Попробуйте ещё раз.');
   }
 };
 
 defineExpose({ validate });
 
 const showAnswer = () => {
-  if (!correctStructure.value) {
-    console.warn('Cannot show answer: correctStructure is missing.');
+  if (status.value === 'showing_answer') {
+    if (!userAnswerState.value) {
+      setNotice('error', 'Не удалось восстановить ваш ответ.');
+      return;
+    }
+
+    root.value = cloneNode(userAnswerState.value.root);
+    bank.value = cloneNodeList(userAnswerState.value.bank);
+    selectedId.value = null;
+    caret.value = null;
+    status.value = 'fail';
+    clearNotice();
+    emit('validated', true);
     return;
   }
 
+  if (!correctStructure.value) {
+    setNotice('error', 'Не удалось получить правильный ответ с сервера.');
+    return;
+  }
+
+  captureUserAnswerState();
+
   // Create a pool of all available answers to track what's left
-  const pool = [...props.task.answers];
+  const pool = [...props.content.answers];
 
   const build = (n: TaskNode): NodeItem => {
     const kids = n.children;
@@ -362,7 +443,10 @@ const showAnswer = () => {
     label: p.label,
   }));
 
+  selectedId.value = null;
+  caret.value = null;
   status.value = 'showing_answer';
+  clearNotice();
   emit('validated', true);
 };
 </script>
@@ -373,7 +457,7 @@ const showAnswer = () => {
       <!-- Header -->
       <div class="flex flex-col items-center gap-4 text-center">
         <h2 class="m-0 text-2xl font-bold tracking-tight text-zinc-900 md:text-3xl dark:text-zinc-100">
-          {{ task.question }}
+          {{ content.question }}
         </h2>
       </div>
 
@@ -407,6 +491,10 @@ const showAnswer = () => {
           Неверно.
         </Message>
       </div>
+
+      <Message v-if="notice" :severity="notice.severity" :closable="false">
+        {{ notice.text }}
+      </Message>
 
       <!-- Constructor -->
       <div
@@ -480,9 +568,9 @@ const showAnswer = () => {
       <!-- Actions -->
       <div class="flex items-center justify-start pt-2">
         <Button
-          v-if="isFinished && status !== 'success' && status !== 'showing_answer'"
-          label="Показать ответ"
-          icon="pi pi-eye"
+          v-if="status === 'fail' || status === 'showing_answer'"
+          :label="answerActionLabel"
+          :icon="status === 'showing_answer' ? 'pi pi-undo' : 'pi pi-eye'"
           severity="secondary"
           variant="text"
           size="small"

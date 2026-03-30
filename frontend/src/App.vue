@@ -35,11 +35,14 @@ watch(
       </RouterLink>
     </template>
     <template v-else>
+      <RouterLink
+        to="/leaderboard"
+        class="text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100"
+      >
+        Лидерборд
+      </RouterLink>
       <RouterLink to="/dashboard" class="text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100">
         Кабинет
-      </RouterLink>
-      <RouterLink to="/quiz" class="text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100">
-        Quiz
       </RouterLink>
       <button
         class="group flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border-none bg-transparent text-lg transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700"

@@ -1,30 +1,33 @@
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
 
-export const useAuthStore = defineStore('auth', () => {
-  const token = ref(localStorage.getItem('token') || null);
-  const userName = ref<null | string>(null);
-  const userId = ref<null | number>(null);
+import { useQuizStore } from './quiz';
 
-  const isAuthenticated = computed(() => !!token.value);
+export const useAuthStore = defineStore(
+  'auth',
+  () => {
+    const token = ref<null | string>(null);
+    const userName = ref<null | string>(null);
+    const userId = ref<null | number>(null);
 
-  function setUser(user: string, id: number, token: string) {
-    userName.value = user;
-    userId.value = id;
-    setToken(token);
-  }
+    const isAuthenticated = computed(() => !!token.value);
 
-  function setToken(newToken: string) {
-    token.value = newToken;
-    localStorage.setItem('token', newToken);
-  }
+    function setUser(user: string, id: number, newToken: string) {
+      userName.value = user;
+      userId.value = id;
+      token.value = newToken;
+    }
 
-  function logout() {
-    token.value = null;
-    userName.value = null;
-    userId.value = null;
-    localStorage.removeItem('token');
-  }
+    function logout() {
+      const quiz = useQuizStore();
 
-  return { isAuthenticated, logout, setUser, token, userId, userName };
-});
+      quiz.resetQuiz();
+      token.value = null;
+      userName.value = null;
+      userId.value = null;
+    }
+
+    return { isAuthenticated, logout, setUser, token, userId, userName };
+  },
+  { persist: true },
+);

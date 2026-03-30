@@ -7,6 +7,7 @@ import { aiReview } from './routes/ai.js';
 import { login } from './routes/auth/login.js';
 import { register } from './routes/auth/register.js';
 import { finishQuiz } from './routes/finish.js';
+import { getLeaders } from './routes/leaders.js';
 import { quizStart } from './routes/start.js';
 import { getUserStats } from './routes/stats.js';
 import { submitAnswer } from './routes/submit.js';
@@ -49,6 +50,7 @@ app.get('/quiz/start', authMiddleware, quizStart);
 app.post('/quiz/submit', authMiddleware, submitAnswer);
 app.post('/quiz/finish', authMiddleware, finishQuiz);
 app.get('/user/stats', authMiddleware, getUserStats);
+app.get('/leaders', authMiddleware, getLeaders);
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);

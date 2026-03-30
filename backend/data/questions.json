@@ -1,75 +1,3234 @@
 [
   {
     "id": 1,
-    "type": "basic-poll",
-    "category": "JavaScript",
-    "complexity": "trainee",
-    "time": 1,
+    "type": "multiple-choice",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 2,
     "content": {
-      "question": "Какой метод массива используется для создания нового массива с результатами вызова функции для каждого элемента?",
-      "answers": ["forEach()", "filter()", "map()", "reduce()"]
+      "question": "Какие HTML-теги относятся к семантическим?",
+      "answers": ["<header>", "<section>", "<div>", "<footer>"]
     },
     "answerKey": {
-      "correctAnswer": 2
+      "correctAnswers": [0, 1, 3]
     }
   },
   {
     "id": 2,
     "type": "multiple-choice",
-    "category": "Web API",
+    "category": "CSS & UI",
     "complexity": "junior",
     "time": 2,
     "content": {
-      "question": "Какие из перечисленных технологий относятся к методам хранения данных в браузере?",
-      "answers": ["localStorage", "Redux", "IndexedDB", "HTTP Cookies", "Docker"]
+      "question": "Какой способ задания стилей имеет наибольший приоритет?",
+      "answers": ["Стили браузера по умолчанию", "CSS-класс", "Inline style через attribute style", "Стили тега"]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 3,
+    "type": "multiple-choice",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие объявления переменных имеют блочную область видимости?",
+      "answers": ["var", "let", "const", "function"]
+    },
+    "answerKey": {
+      "correctAnswers": [1, 2]
+    }
+  },
+  {
+    "id": 4,
+    "type": "multiple-choice",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какой метод возвращает элемент по его id?",
+      "answers": [
+        "document.querySelectorAll()",
+        "document.getElementById()",
+        "document.getElementsByClassName()",
+        "document.createElement()"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 5,
+    "type": "multiple-choice",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие технологии относятся к способам хранения данных в браузере?",
+      "answers": ["localStorage", "sessionStorage", "IndexedDB", "Webpack"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 6,
+    "type": "multiple-choice",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Для чего используется event.preventDefault()?",
+      "answers": [
+        "Останавливает всплытие события",
+        "Отменяет действие браузера по умолчанию",
+        "Удаляет обработчик события",
+        "Создает новое событие"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 7,
+    "type": "multiple-choice",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какое CSS-свойство отвечает за выравнивание элементов вдоль главной оси контейнера?",
+      "answers": ["align-items", "justify-content", "align-content", "flex-wrap"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 8,
+    "type": "multiple-choice",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какой HTTP-метод обычно используется для получения данных?",
+      "answers": ["GET", "POST", "DELETE", "PATCH"]
+    },
+    "answerKey": {
+      "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 9,
+    "type": "multiple-choice",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какая запись корректно описывает массив строк в TypeScript?",
+      "answers": ["string{}", "string[]", "ArrayString", "[string]"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 10,
+    "type": "multiple-choice",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что помогает сделать изображение доступнее для пользователей скринридеров?",
+      "answers": ["Атрибут alt", "Атрибут class", "Атрибут id", "Атрибут style"]
+    },
+    "answerKey": {
+      "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 11,
+    "type": "multiple-choice",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие части входят в CSS box model?",
+      "answers": ["content", "padding", "border", "margin"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2, 3]
+    }
+  },
+  {
+    "id": 12,
+    "type": "multiple-choice",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какой метод массива создает новый массив, преобразуя каждый элемент?",
+      "answers": ["forEach", "map", "find", "includes"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 13,
+    "type": "multiple-choice",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие состояния есть у Promise?",
+      "answers": ["pending", "fulfilled", "rejected", "resolvedLater"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 14,
+    "type": "multiple-choice",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Для чего нужен meta viewport в мобильной верстке?",
+      "answers": [
+        "Для настройки масштаба и ширины области отображения",
+        "Для подключения CSS-файла",
+        "Для добавления favicon",
+        "Для включения JavaScript"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 15,
+    "type": "multiple-choice",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какой HTTP-метод используется в fetch по умолчанию, если method не указан?",
+      "answers": ["POST", "GET", "PUT", "OPTIONS"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 16,
+    "type": "multiple-choice",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Как ведет себя элемент с position: fixed?",
+      "answers": [
+        "Позиционируется относительно ближайшего родителя",
+        "Позиционируется относительно viewport",
+        "Остается только внутри flex-контейнера",
+        "Не может использовать top и left"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 17,
+    "type": "multiple-choice",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какой input type помогает браузеру проверить, что введено значение в формате email?",
+      "answers": ["text", "mail", "email", "string"]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 18,
+    "type": "multiple-choice",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что означает HTTP-статус 404?",
+      "answers": ["Сервер временно недоступен", "Ресурс не найден", "Успешный ответ", "Нет содержимого"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 19,
+    "type": "multiple-choice",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие CSS-свойства обычно используются для описания структуры контейнера со строками и колонками?",
+      "answers": ["grid-template-columns", "grid-template-rows", "justify-self", "gap"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 20,
+    "type": "multiple-choice",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие из перечисленных относятся к микрозадачам (microtasks) в event loop?",
+      "answers": ["Promise.then", "queueMicrotask", "setTimeout", "MutationObserver callback"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 21,
+    "type": "multiple-choice",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие подходы помогают сузить union type в TypeScript?",
+      "answers": ["typeof", "instanceof", "Проверка discriminant-поля", "JSON.stringify"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 22,
+    "type": "multiple-choice",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "В каких случаях браузер может отправить CORS preflight-запрос?",
+      "answers": [
+        "Если используется метод PUT",
+        "Если отправляется custom header",
+        "Если GET без специальных заголовков",
+        "Если Content-Type не является простым"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 23,
+    "type": "multiple-choice",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие заголовки часто используются для кеширования и валидации ресурса?",
+      "answers": ["Cache-Control", "ETag", "Last-Modified", "Authorization"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 24,
+    "type": "multiple-choice",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какое значение tabindex позволяет элементу участвовать в естественной последовательности клавиатурной навигации?",
+      "answers": ["-1", "0", "1", "null"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 25,
+    "type": "multiple-choice",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Для tree shaking обычно важны какие условия?",
+      "answers": [
+        "Использование ES modules",
+        "Статический анализ импортов/экспортов",
+        "Подключение jQuery",
+        "Корректная работа с sideEffects"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 26,
+    "type": "multiple-choice",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что лучше всего описывает замыкание (closure) в JavaScript?",
+      "answers": [
+        "Функция теряет доступ к внешним переменным после завершения блока",
+        "Функция запоминает окружение, в котором была создана",
+        "Это специальный тип Promise",
+        "Это способ клонирования объекта"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 27,
+    "type": "multiple-choice",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Зачем в TypeScript используют generics?",
+      "answers": [
+        "Для повторного использования типизированной логики",
+        "Для усиления type safety",
+        "Для создания runtime-типов в браузере",
+        "Для более гибких API"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 28,
+    "type": "multiple-choice",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что умеет Service Worker?",
+      "answers": [
+        "Перехватывать сетевые запросы",
+        "Кешировать ресурсы",
+        "Показывать push-уведомления",
+        "Напрямую изменять DOM страницы"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 29,
+    "type": "multiple-choice",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что лучше подходит для debounce?",
+      "answers": [
+        "Обработка resize/scroll без ограничения частоты",
+        "Запросы поиска во время ввода текста",
+        "Анимация через requestAnimationFrame",
+        "Рендер React-компонента"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 30,
+    "type": "multiple-choice",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие меры помогают снизить риск XSS?",
+      "answers": [
+        "Экранирование/санитизация пользовательского ввода",
+        "Использование CSP",
+        "Безопасная работа с dangerouslySetInnerHTML",
+        "Отключение HTTPS"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 31,
+    "type": "multiple-choice",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Относительно чего обычно позиционируется элемент с position: absolute?",
+      "answers": [
+        "Относительно viewport",
+        "Относительно ближайшего предка с position не static",
+        "Всегда относительно body",
+        "Относительно ближайшего flex-контейнера"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 32,
+    "type": "multiple-choice",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие выражения создают новый объект в JavaScript?",
+      "answers": ["{}", "Object.create(null)", "[]", "new Date()"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 33,
+    "type": "multiple-choice",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие единицы измерения в CSS относятся к относительным?",
+      "answers": ["px", "em", "rem", "%"]
+    },
+    "answerKey": {
+      "correctAnswers": [1, 2, 3]
+    }
+  },
+  {
+    "id": 34,
+    "type": "multiple-choice",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие возможности относятся к продвинутой типизации TypeScript?",
+      "answers": ["Conditional types", "Mapped types", "Template literal types", "CSS Modules"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 35,
+    "type": "multiple-choice",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Что обычно помогает уменьшить размер initial bundle?",
+      "answers": [
+        "Code splitting через dynamic import()",
+        "Удаление неиспользуемого кода",
+        "Инлайн всех изображений в JS",
+        "Lazy loading модулей"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 36,
+    "type": "multiple-choice",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие практики помогают уменьшить layout thrashing?",
+      "answers": [
+        "Группировать чтения и записи DOM отдельно",
+        "Часто вызывать getBoundingClientRect между изменениями стилей",
+        "Использовать transform вместо top/left для анимаций",
+        "Минимизировать синхронные измерения layout"
+      ]
     },
     "answerKey": {
       "correctAnswers": [0, 2, 3]
     }
   },
   {
-    "id": 3,
-    "type": "ai-interviewer",
-    "category": "JavaScript Basics",
+    "id": 37,
+    "type": "multiple-choice",
+    "category": "Performance & Architecture",
     "complexity": "junior",
-    "time": 5,
+    "time": 4,
     "content": {
-      "question": "Что такое замыкание (closure) в JavaScript и приведите пример его использования?"
-    },
-    "answerKey": {
-      "idealKeywords": ["лексическое окружение", "внешние переменные", "scope"]
-    }
-  },
-  {
-    "id": 4,
-    "type": "code-analysis",
-    "category": "JavaScript Basics",
-    "complexity": "trainee",
-    "time": 3,
-    "content": {
-      "question": "В какой строке кода содержится ошибка, приводящая к TypeError?",
+      "question": "Что может привести к hydration mismatch в SSR-приложении?",
       "answers": [
-        "const user = { id: 1 };",
-        "let isAdmin = true;",
-        "user.id = 2;",
-        "user = { id: 3 };",
-        "console.log(user.id);"
+        "Использование Math.random() при рендере",
+        "Использование Date.now() при рендере",
+        "Рендер контента, зависящего от window.innerWidth",
+        "Статическая строка 'Hello'"
       ]
     },
     "answerKey": {
-      "correctAnswers": [3]
+      "correctAnswers": [0, 1, 2]
     }
   },
   {
-    "id": 5,
-    "type": "drag-n-drop",
-    "category": "JavaScript",
+    "id": 38,
+    "type": "multiple-choice",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие директивы и подходы относятся к Content Security Policy?",
+      "answers": ["script-src", "object-src", "default-src", "use strict"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 39,
+    "type": "multiple-choice",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Что может приводить к утечкам памяти во frontend-приложении?",
+      "answers": [
+        "Неудаленные event listeners",
+        "Незавершенные timers/subscriptions",
+        "Сохранение ненужных ссылок на DOM в замыканиях",
+        "Использование const"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 40,
+    "type": "multiple-choice",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какое преимущество HTTP/2 особенно важно для фронтенда?",
+      "answers": [
+        "Обязательное шифрование всех соединений протоколом",
+        "Multiplexing нескольких запросов по одному соединению",
+        "Полная замена необходимости в кешировании",
+        "Поддержка только JSON"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 41,
+    "type": "multiple-choice",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Для чего применяют проверку через never в exhaustive switch/case?",
+      "answers": [
+        "Чтобы проверить, что обработаны все варианты union type",
+        "Чтобы отключить type checking",
+        "Чтобы преобразовать любой тип в string",
+        "Чтобы удалить unreachable code из bundle"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 42,
+    "type": "multiple-choice",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие преимущества дает Shadow DOM?",
+      "answers": [
+        "Инкапсуляция стилей",
+        "Изоляция внутренней структуры компонента",
+        "Автоматическая поддержка React state",
+        "Снижение риска конфликтов глобальных CSS"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 43,
+    "type": "multiple-choice",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие свойства/условия могут создавать новый stacking context?",
+      "answers": ["position с z-index у позиционированного элемента", "opacity меньше 1", "transform", "margin"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 44,
+    "type": "multiple-choice",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Что верно про жизненный цикл обновления Service Worker?",
+      "answers": [
+        "Новая версия сначала проходит стадию installing",
+        "После установки worker может ждать активации",
+        "Активный worker всегда мгновенно заменяется без ожидания",
+        "skipWaiting может ускорить активацию новой версии"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 45,
+    "type": "multiple-choice",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Когда уместно использовать aria-live?",
+      "answers": [
+        "Для динамически обновляемых сообщений без смены фокуса",
+        "Для уведомлений о результате действия",
+        "Для любого декоративного текста",
+        "Для статичных заголовков страницы"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1]
+    }
+  },
+  {
+    "id": 46,
+    "type": "multiple-choice",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Почему tree shaking хуже работает с CommonJS по сравнению с ES modules?",
+      "answers": [
+        "Потому что CommonJS менее предсказуем для статического анализа",
+        "Потому что require может быть динамическим",
+        "Потому что ES modules имеют статическую структуру импортов",
+        "Потому что CommonJS запрещен в Node.js"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 47,
+    "type": "multiple-choice",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие меры помогают защититься от CSRF?",
+      "answers": ["CSRF token", "SameSite cookies", "Проверка Origin/Referer на сервере", "innerHTML"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 48,
+    "type": "multiple-choice",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие метрики входят в Core Web Vitals?",
+      "answers": ["LCP", "CLS", "INP", "TTFB"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 49,
+    "type": "basic-poll",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой оператор используется для строгого сравнения без приведения типов в JavaScript?",
+      "answers": ["==", "===", "=", "!="]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 50,
+    "type": "basic-poll",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой HTML-тег используется для создания ссылки?",
+      "answers": ["<link>", "<href>", "<a>", "<url>"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 51,
+    "type": "basic-poll",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какое CSS-свойство отвечает за цвет текста?",
+      "answers": ["background-color", "font-color", "text-color", "color"]
+    },
+    "answerKey": {
+      "correctAnswer": 3
+    }
+  },
+  {
+    "id": 52,
+    "type": "basic-poll",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой метод возвращает первый элемент, найденный по CSS-селектору?",
+      "answers": [
+        "document.querySelector()",
+        "document.querySelectorAll()",
+        "document.getElementsByTagName()",
+        "document.find()"
+      ]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 53,
+    "type": "basic-poll",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какое значение имеет переменная, объявленная через let без присваивания?",
+      "answers": ["null", "0", "undefined", "false"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 54,
+    "type": "basic-poll",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какое свойство используется для задания внутреннего отступа элемента?",
+      "answers": ["margin", "padding", "spacing", "border"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 55,
+    "type": "basic-poll",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой метод массива возвращает первый найденный элемент, удовлетворяющий условию?",
+      "answers": ["find()", "map()", "every()", "join()"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 56,
+    "type": "basic-poll",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой тег используется для вставки изображения на страницу?",
+      "answers": ["<picture>", "<image>", "<img>", "<src>"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 57,
+    "type": "basic-poll",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой тип в TypeScript позволяет хранить значения любого типа без проверки?",
+      "answers": ["unknown", "never", "any", "void"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 58,
+    "type": "basic-poll",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой HTTP-статус означает успешное выполнение запроса?",
+      "answers": ["200", "301", "404", "500"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 59,
+    "type": "basic-poll",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какое свойство меняет размер шрифта?",
+      "answers": ["font-style", "font-size", "text-size", "line-height"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 60,
+    "type": "basic-poll",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой метод переводит JSON-строку в JavaScript-объект?",
+      "answers": ["JSON.stringify()", "JSON.toObject()", "JSON.parse()", "JSON.decode()"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 61,
+    "type": "basic-poll",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой тег используется для кнопки в HTML?",
+      "answers": ["<btn>", "<button>", "<input-button>", "<control>"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 62,
+    "type": "basic-poll",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой объект представляет текущую страницу в браузере и ее адрес?",
+      "answers": ["window.history", "document", "location", "navigator"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 63,
+    "type": "basic-poll",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какое значение display используется для гибкого расположения элементов внутри контейнера?",
+      "answers": ["block", "flex", "inline", "grid-item"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 64,
+    "type": "basic-poll",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой метод массива проверяет, существует ли элемент в массиве?",
+      "answers": ["has()", "contains()", "exists()", "includes()"]
+    },
+    "answerKey": {
+      "correctAnswer": 3
+    }
+  },
+  {
+    "id": 65,
+    "type": "basic-poll",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какое CSS-свойство делает углы элемента скругленными?",
+      "answers": ["corner-radius", "border-radius", "radius", "round"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 66,
+    "type": "basic-poll",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой тип указывает, что функция ничего не возвращает?",
+      "answers": ["null", "empty", "void", "undefined"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 67,
+    "type": "basic-poll",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какой метод массива возвращает новый массив только с элементами, прошедшими проверку?",
+      "answers": ["find()", "filter()", "some()", "sort()"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 68,
+    "type": "basic-poll",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какой utility type делает все свойства типа необязательными?",
+      "answers": ["Readonly<T>", "Pick<T>", "Partial<T>", "Required<T>"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 69,
+    "type": "basic-poll",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какое значение свойства position позволяет элементу вести себя как обычный до определенной точки прокрутки, а затем 'прилипать'?",
+      "answers": ["fixed", "relative", "sticky", "absolute"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 70,
+    "type": "basic-poll",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какой HTTP-статус чаще всего означает, что у пользователя нет прав доступа к ресурсу?",
+      "answers": ["201", "403", "302", "409"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 71,
+    "type": "basic-poll",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какой оператор позволяет безопасно обращаться к вложенному свойству, если часть цепочки может быть null или undefined?",
+      "answers": ["??", "?.", "&&=", "**"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 72,
+    "type": "basic-poll",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какой utility type выбирает только часть свойств исходного типа?",
+      "answers": ["Pick<T, K>", "Omit<T, K>", "Record<K, T>", "Exclude<T, U>"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 73,
+    "type": "basic-poll",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какое CSS-свойство используется для изменения порядка элемента внутри контейнера?",
+      "answers": ["z-index", "sort", "order", "arrange"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 74,
+    "type": "basic-poll",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какой API позволяет отслеживать появление элемента в области видимости?",
+      "answers": ["ResizeObserver", "MutationObserver", "IntersectionObserver", "PerformanceObserver"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 75,
+    "type": "basic-poll",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какой метод объекта Promise принимает массив промисов и завершается только когда все они успешно выполнены?",
+      "answers": ["Promise.race()", "Promise.all()", "Promise.resolve()", "Promise.any()"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 76,
+    "type": "basic-poll",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какой тип безопаснее использовать вместо any, если значение неизвестно заранее и требует проверки перед использованием?",
+      "answers": ["never", "void", "unknown", "object"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 77,
+    "type": "basic-poll",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какое CSS-свойство задает расстояние между строками и колонками в контейнере?",
+      "answers": ["spacing", "gap", "grid-space", "margin"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 78,
+    "type": "basic-poll",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какой метод используется для отмены таймера, созданного через setTimeout?",
+      "answers": ["stopTimeout()", "removeTimeout()", "clearTimeout()", "cancelInterval()"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 79,
+    "type": "basic-poll",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какой инструмент обычно используется Vite для быстрой dev-сборки зависимостей?",
+      "answers": ["Rollup", "Parcel", "esbuild", "Gulp"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 80,
+    "type": "basic-poll",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Как называется уязвимость, при которой злоумышленник внедряет вредоносный скрипт на страницу?",
+      "answers": ["CSRF", "XSS", "SQL Injection", "DDoS"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 81,
+    "type": "basic-poll",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Как называется подход, при котором HTML страницы генерируется на сервере на каждый запрос?",
+      "answers": ["CSR", "SSG", "SSR", "SPA-only"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 82,
+    "type": "basic-poll",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какой метод массива объединяет все элементы в одну строку?",
+      "answers": ["concat()", "join()", "merge()", "flat()"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 83,
+    "type": "basic-poll",
+    "category": "TypeScript",
     "complexity": "junior",
     "time": 3,
     "content": {
-      "question": "Соберите метод Array.prototype.reduce правильно",
+      "question": "Какой utility type исключает из union-типа те варианты, которые совместимы с другим типом?",
+      "answers": ["Extract", "Exclude", "Infer", "ReturnType"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 84,
+    "type": "basic-poll",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какой Web API позволяет узнать, какие ресурсы были загружены и сколько времени это заняло?",
+      "answers": ["Performance API", "History API", "Clipboard API", "Selection API"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 85,
+    "type": "basic-poll",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какое CSS-свойство чаще всего анимируется дешевле для браузера, чем width или left?",
+      "answers": ["margin", "transform", "top", "border-width"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 86,
+    "type": "basic-poll",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какой API позволяет выполнять тяжелые вычисления в отдельном потоке, не блокируя основной UI-поток?",
+      "answers": ["Service Worker", "WebSocket", "Web Worker", "BroadcastChannel"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 87,
+    "type": "basic-poll",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какой utility type получает тип значения, которое возвращает функция?",
+      "answers": ["InstanceType", "Parameters", "ReturnType", "ConstructorParameters"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 88,
+    "type": "basic-poll",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какой HTTP-заголовок обычно содержит время жизни кеша в секундах через max-age?",
+      "answers": ["Expires", "Pragma", "Cache-Control", "If-None-Match"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 89,
+    "type": "basic-poll",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какой объект используется для хранения пар ключ-значение, где ключом может быть любой тип значения?",
+      "answers": ["Object", "Map", "Set", "WeakSet"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 90,
+    "type": "basic-poll",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какой этап пайплайна браузера отвечает за вычисление размеров и расположения элементов на странице?",
+      "answers": ["Paint", "Composite", "Layout", "Parse"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 91,
+    "type": "basic-poll",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какой HTML-атрибут связывает label с конкретным input?",
+      "answers": ["for", "name", "aria-label", "target"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 92,
+    "type": "basic-poll",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какой utility type убирает null и undefined из типа?",
+      "answers": ["Nullable", "Strict", "NonNullable", "DefinedOnly"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 93,
+    "type": "basic-poll",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какой файл описывает метаданные PWA, например название приложения, иконки и режим отображения?",
+      "answers": ["robots.txt", "manifest.json", "sitemap.xml", "package-lock.json"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 94,
+    "type": "basic-poll",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Как называется подход, при котором HTML страницы генерируется заранее на этапе сборки?",
+      "answers": ["SSR", "ISR", "SSG", "Hydration"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 95,
+    "type": "basic-poll",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какой атрибут cookie запрещает доступ к cookie из JavaScript через document.cookie?",
+      "answers": ["Secure", "SameSite", "HttpOnly", "Path"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 96,
+    "type": "basic-poll",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какой метод Reflect позволяет безопасно получить значение свойства объекта?",
+      "answers": ["Reflect.set()", "Reflect.get()", "Reflect.value()", "Reflect.read()"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 97,
+    "type": "basic-poll",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какой source map режим в webpack обычно дает наиболее подробную информацию для отладки, но медленнее остальных?",
+      "answers": ["eval", "cheap-source-map", "source-map", "hidden-source-map"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 98,
+    "type": "basic-poll",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какой HTTP-статус обычно возвращает сервер, если ресурс не изменился и можно использовать кешированную версию?",
+      "answers": ["204", "304", "307", "412"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 99,
+    "type": "basic-poll",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какой подход лучше всего подходит для поэтапной загрузки редко используемой части интерфейса по требованию?",
+      "answers": ["Code splitting", "Global CSS reset", "Hot reload", "Minification only"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 100,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод Array.prototype.map правильно",
       "initialCode": {
-        "label": "reduce",
+        "label": "map",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "callbackFn",
+          "isContainer": true
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        },
+        {
+          "label": "element",
+          "isContainer": false
+        },
+        {
+          "label": "index",
+          "isContainer": false
+        },
+        {
+          "label": "array",
+          "isContainer": false
+        },
+        {
+          "label": "accumulator",
+          "isContainer": false
+        },
+        {
+          "label": "separator",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "map",
+        "children": [
+          {
+            "label": "callbackFn",
+            "children": [
+              {
+                "label": "element"
+              },
+              {
+                "label": "index"
+              },
+              {
+                "label": "array"
+              }
+            ]
+          },
+          {
+            "label": "thisArg"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 101,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод Array.prototype.filter правильно",
+      "initialCode": {
+        "label": "filter",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "callbackFn",
+          "isContainer": true
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        },
+        {
+          "label": "element",
+          "isContainer": false
+        },
+        {
+          "label": "index",
+          "isContainer": false
+        },
+        {
+          "label": "array",
+          "isContainer": false
+        },
+        {
+          "label": "accumulator",
+          "isContainer": false
+        },
+        {
+          "label": "searchElement",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "filter",
+        "children": [
+          {
+            "label": "callbackFn",
+            "children": [
+              {
+                "label": "element"
+              },
+              {
+                "label": "index"
+              },
+              {
+                "label": "array"
+              }
+            ]
+          },
+          {
+            "label": "thisArg"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 102,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод Array.prototype.find правильно",
+      "initialCode": {
+        "label": "find",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "callbackFn",
+          "isContainer": true
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        },
+        {
+          "label": "element",
+          "isContainer": false
+        },
+        {
+          "label": "index",
+          "isContainer": false
+        },
+        {
+          "label": "array",
+          "isContainer": false
+        },
+        {
+          "label": "separator",
+          "isContainer": false
+        },
+        {
+          "label": "initialValue",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "find",
+        "children": [
+          {
+            "label": "callbackFn",
+            "children": [
+              {
+                "label": "element"
+              },
+              {
+                "label": "index"
+              },
+              {
+                "label": "array"
+              }
+            ]
+          },
+          {
+            "label": "thisArg"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 103,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод Array.prototype.forEach правильно",
+      "initialCode": {
+        "label": "forEach",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "callbackFn",
+          "isContainer": true
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        },
+        {
+          "label": "element",
+          "isContainer": false
+        },
+        {
+          "label": "index",
+          "isContainer": false
+        },
+        {
+          "label": "array",
+          "isContainer": false
+        },
+        {
+          "label": "accumulator",
+          "isContainer": false
+        },
+        {
+          "label": "depth",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "forEach",
+        "children": [
+          {
+            "label": "callbackFn",
+            "children": [
+              {
+                "label": "element"
+              },
+              {
+                "label": "index"
+              },
+              {
+                "label": "array"
+              }
+            ]
+          },
+          {
+            "label": "thisArg"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 104,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод Array.prototype.includes правильно",
+      "initialCode": {
+        "label": "includes",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "searchElement",
+          "isContainer": false
+        },
+        {
+          "label": "fromIndex",
+          "isContainer": false
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        },
+        {
+          "label": "separator",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "includes",
+        "children": [
+          {
+            "label": "searchElement"
+          },
+          {
+            "label": "fromIndex"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 105,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод Array.prototype.indexOf правильно",
+      "initialCode": {
+        "label": "indexOf",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "searchElement",
+          "isContainer": false
+        },
+        {
+          "label": "fromIndex",
+          "isContainer": false
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        },
+        {
+          "label": "end",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "indexOf",
+        "children": [
+          {
+            "label": "searchElement"
+          },
+          {
+            "label": "fromIndex"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 106,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод Array.prototype.slice правильно",
+      "initialCode": {
+        "label": "slice",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "start",
+          "isContainer": false
+        },
+        {
+          "label": "end",
+          "isContainer": false
+        },
+        {
+          "label": "deleteCount",
+          "isContainer": false
+        },
+        {
+          "label": "callbackFn",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "slice",
+        "children": [
+          {
+            "label": "start"
+          },
+          {
+            "label": "end"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 107,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод Array.prototype.join правильно",
+      "initialCode": {
+        "label": "join",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "separator",
+          "isContainer": false
+        },
+        {
+          "label": "limit",
+          "isContainer": false
+        },
+        {
+          "label": "currentValue",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "join",
+        "children": [
+          {
+            "label": "separator"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 108,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод String.prototype.split правильно",
+      "initialCode": {
+        "label": "split",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "separator",
+          "isContainer": false
+        },
+        {
+          "label": "limit",
+          "isContainer": false
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        },
+        {
+          "label": "callbackFn",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "split",
+        "children": [
+          {
+            "label": "separator"
+          },
+          {
+            "label": "limit"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 109,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод String.prototype.startsWith правильно",
+      "initialCode": {
+        "label": "startsWith",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "searchString",
+          "isContainer": false
+        },
+        {
+          "label": "position",
+          "isContainer": false
+        },
+        {
+          "label": "separator",
+          "isContainer": false
+        },
+        {
+          "label": "endPosition",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "startsWith",
+        "children": [
+          {
+            "label": "searchString"
+          },
+          {
+            "label": "position"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 110,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод String.prototype.endsWith правильно",
+      "initialCode": {
+        "label": "endsWith",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "searchString",
+          "isContainer": false
+        },
+        {
+          "label": "endPosition",
+          "isContainer": false
+        },
+        {
+          "label": "position",
+          "isContainer": false
+        },
+        {
+          "label": "radix",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "endsWith",
+        "children": [
+          {
+            "label": "searchString"
+          },
+          {
+            "label": "endPosition"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 111,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод String.prototype.substring правильно",
+      "initialCode": {
+        "label": "substring",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "start",
+          "isContainer": false
+        },
+        {
+          "label": "end",
+          "isContainer": false
+        },
+        {
+          "label": "deleteCount",
+          "isContainer": false
+        },
+        {
+          "label": "separator",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "substring",
+        "children": [
+          {
+            "label": "start"
+          },
+          {
+            "label": "end"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 112,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод Array.prototype.at правильно",
+      "initialCode": {
+        "label": "at",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "index",
+          "isContainer": false
+        },
+        {
+          "label": "fromIndex",
+          "isContainer": false
+        },
+        {
+          "label": "searchElement",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "at",
+        "children": [
+          {
+            "label": "index"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 113,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод Object.keys правильно",
+      "initialCode": {
+        "label": "keys",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "obj",
+          "isContainer": false
+        },
+        {
+          "label": "key",
+          "isContainer": false
+        },
+        {
+          "label": "callbackFn",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "keys",
+        "children": [
+          {
+            "label": "obj"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 114,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод Object.values правильно",
+      "initialCode": {
+        "label": "values",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "obj",
+          "isContainer": false
+        },
+        {
+          "label": "value",
+          "isContainer": false
+        },
+        {
+          "label": "key",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "values",
+        "children": [
+          {
+            "label": "obj"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 115,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод Object.entries правильно",
+      "initialCode": {
+        "label": "entries",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "obj",
+          "isContainer": false
+        },
+        {
+          "label": "callbackFn",
+          "isContainer": false
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "entries",
+        "children": [
+          {
+            "label": "obj"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 116,
+    "type": "drag-n-drop",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод Promise.prototype.then правильно",
+      "initialCode": {
+        "label": "then",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "onFulfilled",
+          "isContainer": true
+        },
+        {
+          "label": "onRejected",
+          "isContainer": true
+        },
+        {
+          "label": "value",
+          "isContainer": false
+        },
+        {
+          "label": "reason",
+          "isContainer": false
+        },
+        {
+          "label": "initialValue",
+          "isContainer": false
+        },
+        {
+          "label": "separator",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "then",
+        "children": [
+          {
+            "label": "onFulfilled",
+            "children": [
+              {
+                "label": "value"
+              }
+            ]
+          },
+          {
+            "label": "onRejected",
+            "children": [
+              {
+                "label": "reason"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 117,
+    "type": "drag-n-drop",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод Promise.prototype.catch правильно",
+      "initialCode": {
+        "label": "catch",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "onRejected",
+          "isContainer": true
+        },
+        {
+          "label": "reason",
+          "isContainer": false
+        },
+        {
+          "label": "onFulfilled",
+          "isContainer": false
+        },
+        {
+          "label": "separator",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "catch",
+        "children": [
+          {
+            "label": "onRejected",
+            "children": [
+              {
+                "label": "reason"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 118,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод String.prototype.includes правильно",
+      "initialCode": {
+        "label": "includes",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "searchString",
+          "isContainer": false
+        },
+        {
+          "label": "position",
+          "isContainer": false
+        },
+        {
+          "label": "fromIndex",
+          "isContainer": false
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "includes",
+        "children": [
+          {
+            "label": "searchString"
+          },
+          {
+            "label": "position"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 119,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Соберите метод Number.prototype.toFixed правильно",
+      "initialCode": {
+        "label": "toFixed",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "digits",
+          "isContainer": false
+        },
+        {
+          "label": "radix",
+          "isContainer": false
+        },
+        {
+          "label": "separator",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "toFixed",
+        "children": [
+          {
+            "label": "digits"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 120,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Соберите метод Array.prototype.some правильно",
+      "initialCode": {
+        "label": "some",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "callbackFn",
+          "isContainer": true
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        },
+        {
+          "label": "element",
+          "isContainer": false
+        },
+        {
+          "label": "index",
+          "isContainer": false
+        },
+        {
+          "label": "array",
+          "isContainer": false
+        },
+        {
+          "label": "accumulator",
+          "isContainer": false
+        },
+        {
+          "label": "initialValue",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "some",
+        "children": [
+          {
+            "label": "callbackFn",
+            "children": [
+              {
+                "label": "element"
+              },
+              {
+                "label": "index"
+              },
+              {
+                "label": "array"
+              }
+            ]
+          },
+          {
+            "label": "thisArg"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 121,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Соберите метод Array.prototype.every правильно",
+      "initialCode": {
+        "label": "every",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "callbackFn",
+          "isContainer": true
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        },
+        {
+          "label": "element",
+          "isContainer": false
+        },
+        {
+          "label": "index",
+          "isContainer": false
+        },
+        {
+          "label": "array",
+          "isContainer": false
+        },
+        {
+          "label": "separator",
+          "isContainer": false
+        },
+        {
+          "label": "accumulator",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "every",
+        "children": [
+          {
+            "label": "callbackFn",
+            "children": [
+              {
+                "label": "element"
+              },
+              {
+                "label": "index"
+              },
+              {
+                "label": "array"
+              }
+            ]
+          },
+          {
+            "label": "thisArg"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 122,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Соберите метод Array.prototype.findIndex правильно",
+      "initialCode": {
+        "label": "findIndex",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "callbackFn",
+          "isContainer": true
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        },
+        {
+          "label": "element",
+          "isContainer": false
+        },
+        {
+          "label": "index",
+          "isContainer": false
+        },
+        {
+          "label": "array",
+          "isContainer": false
+        },
+        {
+          "label": "searchElement",
+          "isContainer": false
+        },
+        {
+          "label": "initialValue",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "findIndex",
+        "children": [
+          {
+            "label": "callbackFn",
+            "children": [
+              {
+                "label": "element"
+              },
+              {
+                "label": "index"
+              },
+              {
+                "label": "array"
+              }
+            ]
+          },
+          {
+            "label": "thisArg"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 123,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Соберите метод Array.prototype.sort правильно",
+      "initialCode": {
+        "label": "sort",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "compareFn",
+          "isContainer": true
+        },
+        {
+          "label": "a",
+          "isContainer": false
+        },
+        {
+          "label": "b",
+          "isContainer": false
+        },
+        {
+          "label": "currentValue",
+          "isContainer": false
+        },
+        {
+          "label": "separator",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "sort",
+        "children": [
+          {
+            "label": "compareFn",
+            "children": [
+              {
+                "label": "a"
+              },
+              {
+                "label": "b"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 124,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Соберите метод Array.prototype.flat правильно",
+      "initialCode": {
+        "label": "flat",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "depth",
+          "isContainer": false
+        },
+        {
+          "label": "callbackFn",
+          "isContainer": false
+        },
+        {
+          "label": "separator",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "flat",
+        "children": [
+          {
+            "label": "depth"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 125,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Соберите метод Array.prototype.flatMap правильно",
+      "initialCode": {
+        "label": "flatMap",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "callbackFn",
+          "isContainer": true
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        },
+        {
+          "label": "element",
+          "isContainer": false
+        },
+        {
+          "label": "index",
+          "isContainer": false
+        },
+        {
+          "label": "array",
+          "isContainer": false
+        },
+        {
+          "label": "accumulator",
+          "isContainer": false
+        },
+        {
+          "label": "initialValue",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "flatMap",
+        "children": [
+          {
+            "label": "callbackFn",
+            "children": [
+              {
+                "label": "element"
+              },
+              {
+                "label": "index"
+              },
+              {
+                "label": "array"
+              }
+            ]
+          },
+          {
+            "label": "thisArg"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 126,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Соберите метод Array.prototype.fill правильно",
+      "initialCode": {
+        "label": "fill",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "value",
+          "isContainer": false
+        },
+        {
+          "label": "start",
+          "isContainer": false
+        },
+        {
+          "label": "end",
+          "isContainer": false
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        },
+        {
+          "label": "deleteCount",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "fill",
+        "children": [
+          {
+            "label": "value"
+          },
+          {
+            "label": "start"
+          },
+          {
+            "label": "end"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 127,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Соберите метод Array.prototype.copyWithin правильно",
+      "initialCode": {
+        "label": "copyWithin",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "target",
+          "isContainer": false
+        },
+        {
+          "label": "start",
+          "isContainer": false
+        },
+        {
+          "label": "end",
+          "isContainer": false
+        },
+        {
+          "label": "separator",
+          "isContainer": false
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "copyWithin",
+        "children": [
+          {
+            "label": "target"
+          },
+          {
+            "label": "start"
+          },
+          {
+            "label": "end"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 128,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Соберите метод String.prototype.replace правильно",
+      "initialCode": {
+        "label": "replace",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "searchValue",
+          "isContainer": false
+        },
+        {
+          "label": "replaceValue",
+          "isContainer": false
+        },
+        {
+          "label": "position",
+          "isContainer": false
+        },
+        {
+          "label": "depth",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "replace",
+        "children": [
+          {
+            "label": "searchValue"
+          },
+          {
+            "label": "replaceValue"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 129,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Соберите метод String.prototype.replaceAll правильно",
+      "initialCode": {
+        "label": "replaceAll",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "searchValue",
+          "isContainer": false
+        },
+        {
+          "label": "replaceValue",
+          "isContainer": false
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        },
+        {
+          "label": "regexFlags",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "replaceAll",
+        "children": [
+          {
+            "label": "searchValue"
+          },
+          {
+            "label": "replaceValue"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 130,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Соберите метод String.prototype.matchAll правильно",
+      "initialCode": {
+        "label": "matchAll",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "regexp",
+          "isContainer": false
+        },
+        {
+          "label": "separator",
+          "isContainer": false
+        },
+        {
+          "label": "position",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "matchAll",
+        "children": [
+          {
+            "label": "regexp"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 131,
+    "type": "drag-n-drop",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Соберите метод Promise.prototype.finally правильно",
+      "initialCode": {
+        "label": "finally",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "onFinally",
+          "isContainer": true
+        },
+        {
+          "label": "onRejected",
+          "isContainer": false
+        },
+        {
+          "label": "value",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "finally",
+        "children": [
+          {
+            "label": "onFinally",
+            "children": []
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 132,
+    "type": "drag-n-drop",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Соберите метод Promise.all правильно",
+      "initialCode": {
+        "label": "all",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "iterable",
+          "isContainer": false
+        },
+        {
+          "label": "callbackFn",
+          "isContainer": false
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "all",
+        "children": [
+          {
+            "label": "iterable"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 133,
+    "type": "drag-n-drop",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Соберите метод Promise.allSettled правильно",
+      "initialCode": {
+        "label": "allSettled",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "iterable",
+          "isContainer": false
+        },
+        {
+          "label": "onFulfilled",
+          "isContainer": false
+        },
+        {
+          "label": "onRejected",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "allSettled",
+        "children": [
+          {
+            "label": "iterable"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 134,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Соберите метод Object.fromEntries правильно",
+      "initialCode": {
+        "label": "fromEntries",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "iterable",
+          "isContainer": false
+        },
+        {
+          "label": "obj",
+          "isContainer": false
+        },
+        {
+          "label": "descriptor",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "fromEntries",
+        "children": [
+          {
+            "label": "iterable"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 135,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 5,
+    "content": {
+      "question": "Соберите метод Array.prototype.reduceRight правильно",
+      "initialCode": {
+        "label": "reduceRight",
         "isContainer": true
       },
       "answers": [
@@ -88,12 +3247,28 @@
         {
           "label": "currentValue",
           "isContainer": false
+        },
+        {
+          "label": "currentIndex",
+          "isContainer": false
+        },
+        {
+          "label": "array",
+          "isContainer": false
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        },
+        {
+          "label": "separator",
+          "isContainer": false
         }
       ]
     },
     "answerKey": {
       "correctStructure": {
-        "label": "reduce",
+        "label": "reduceRight",
         "children": [
           {
             "label": "callbackFn",
@@ -103,6 +3278,12 @@
               },
               {
                 "label": "currentValue"
+              },
+              {
+                "label": "currentIndex"
+              },
+              {
+                "label": "array"
               }
             ]
           },
@@ -114,443 +3295,3795 @@
     }
   },
   {
-    "id": 6,
-    "type": "basic-poll",
-    "category": "CSS",
-    "complexity": "trainee",
-    "time": 1,
-    "content": {
-      "question": "Какое свойство CSS отвечает за внутренние отступы элемента?",
-      "answers": ["margin", "padding", "border", "spacing"]
-    },
-    "answerKey": {
-      "correctAnswer": 1
-    }
-  },
-  {
-    "id": 7,
-    "type": "ai-interviewer",
-    "category": "Event Loop",
-    "complexity": "middle",
+    "id": 136,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
     "time": 5,
     "content": {
-      "question": "Объясните разницу между микрозадачами (microtasks) и макрозадачами (macrotasks) в контексте Event Loop."
+      "question": "Соберите метод Array.prototype.toSorted правильно",
+      "initialCode": {
+        "label": "toSorted",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "compareFn",
+          "isContainer": true
+        },
+        {
+          "label": "a",
+          "isContainer": false
+        },
+        {
+          "label": "b",
+          "isContainer": false
+        },
+        {
+          "label": "depth",
+          "isContainer": false
+        },
+        {
+          "label": "initialValue",
+          "isContainer": false
+        }
+      ]
     },
     "answerKey": {
-      "checkFocus": ["Promise", "setTimeout", "очередь"]
+      "correctStructure": {
+        "label": "toSorted",
+        "children": [
+          {
+            "label": "compareFn",
+            "children": [
+              {
+                "label": "a"
+              },
+              {
+                "label": "b"
+              }
+            ]
+          }
+        ]
+      }
     }
   },
   {
-    "id": 8,
-    "type": "multiple-choice",
-    "category": "React",
+    "id": 137,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Objects & Collections",
     "complexity": "junior",
-    "time": 2,
+    "time": 5,
     "content": {
-      "question": "Какие из этих хуков являются встроенными в React?",
-      "answers": ["useState", "useFetch", "useEffect", "useContext", "useRouter"]
+      "question": "Соберите метод Reflect.get правильно",
+      "initialCode": {
+        "label": "get",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "target",
+          "isContainer": false
+        },
+        {
+          "label": "propertyKey",
+          "isContainer": false
+        },
+        {
+          "label": "receiver",
+          "isContainer": false
+        },
+        {
+          "label": "descriptor",
+          "isContainer": false
+        },
+        {
+          "label": "value",
+          "isContainer": false
+        }
+      ]
     },
     "answerKey": {
-      "correctAnswers": [0, 2, 3]
+      "correctStructure": {
+        "label": "get",
+        "children": [
+          {
+            "label": "target"
+          },
+          {
+            "label": "propertyKey"
+          },
+          {
+            "label": "receiver"
+          }
+        ]
+      }
     }
   },
   {
-    "id": 9,
-    "type": "basic-poll",
-    "category": "Node.js",
+    "id": 138,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Objects & Collections",
     "complexity": "junior",
-    "time": 1,
+    "time": 5,
     "content": {
-      "question": "Какой модуль в Node.js используется для работы с путями файловой системы?",
-      "answers": ["fs", "path", "http", "os"]
+      "question": "Соберите метод Reflect.set правильно",
+      "initialCode": {
+        "label": "set",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "target",
+          "isContainer": false
+        },
+        {
+          "label": "propertyKey",
+          "isContainer": false
+        },
+        {
+          "label": "value",
+          "isContainer": false
+        },
+        {
+          "label": "receiver",
+          "isContainer": false
+        },
+        {
+          "label": "descriptor",
+          "isContainer": false
+        },
+        {
+          "label": "enumerable",
+          "isContainer": false
+        }
+      ]
     },
     "answerKey": {
-      "correctAnswer": 1
+      "correctStructure": {
+        "label": "set",
+        "children": [
+          {
+            "label": "target"
+          },
+          {
+            "label": "propertyKey"
+          },
+          {
+            "label": "value"
+          },
+          {
+            "label": "receiver"
+          }
+        ]
+      }
     }
   },
   {
-    "id": 10,
+    "id": 139,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 5,
+    "content": {
+      "question": "Соберите метод Object.defineProperty правильно",
+      "initialCode": {
+        "label": "defineProperty",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "obj",
+          "isContainer": false
+        },
+        {
+          "label": "prop",
+          "isContainer": false
+        },
+        {
+          "label": "descriptor",
+          "isContainer": true
+        },
+        {
+          "label": "value",
+          "isContainer": false
+        },
+        {
+          "label": "writable",
+          "isContainer": false
+        },
+        {
+          "label": "enumerable",
+          "isContainer": false
+        },
+        {
+          "label": "configurable",
+          "isContainer": false
+        },
+        {
+          "label": "currentValue",
+          "isContainer": false
+        },
+        {
+          "label": "separator",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "defineProperty",
+        "children": [
+          {
+            "label": "obj"
+          },
+          {
+            "label": "prop"
+          },
+          {
+            "label": "descriptor",
+            "children": [
+              {
+                "label": "value"
+              },
+              {
+                "label": "writable"
+              },
+              {
+                "label": "enumerable"
+              },
+              {
+                "label": "configurable"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 140,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 5,
+    "content": {
+      "question": "Соберите метод Object.getOwnPropertyDescriptor правильно",
+      "initialCode": {
+        "label": "getOwnPropertyDescriptor",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "obj",
+          "isContainer": false
+        },
+        {
+          "label": "prop",
+          "isContainer": false
+        },
+        {
+          "label": "descriptor",
+          "isContainer": false
+        },
+        {
+          "label": "key",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "getOwnPropertyDescriptor",
+        "children": [
+          {
+            "label": "obj"
+          },
+          {
+            "label": "prop"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 141,
+    "type": "drag-n-drop",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 5,
+    "content": {
+      "question": "Соберите метод Promise.any правильно",
+      "initialCode": {
+        "label": "any",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "iterable",
+          "isContainer": false
+        },
+        {
+          "label": "onRejected",
+          "isContainer": false
+        },
+        {
+          "label": "callbackFn",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "any",
+        "children": [
+          {
+            "label": "iterable"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 142,
+    "type": "drag-n-drop",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 5,
+    "content": {
+      "question": "Соберите метод Promise.race правильно",
+      "initialCode": {
+        "label": "race",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "iterable",
+          "isContainer": false
+        },
+        {
+          "label": "onFulfilled",
+          "isContainer": false
+        },
+        {
+          "label": "reason",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "race",
+        "children": [
+          {
+            "label": "iterable"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 143,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 5,
+    "content": {
+      "question": "Соберите метод String.prototype.localeCompare правильно",
+      "initialCode": {
+        "label": "localeCompare",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "compareString",
+          "isContainer": false
+        },
+        {
+          "label": "locales",
+          "isContainer": false
+        },
+        {
+          "label": "options",
+          "isContainer": false
+        },
+        {
+          "label": "separator",
+          "isContainer": false
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "localeCompare",
+        "children": [
+          {
+            "label": "compareString"
+          },
+          {
+            "label": "locales"
+          },
+          {
+            "label": "options"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 144,
+    "type": "drag-n-drop",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 5,
+    "content": {
+      "question": "Соберите метод Array.from правильно",
+      "initialCode": {
+        "label": "from",
+        "isContainer": true
+      },
+      "answers": [
+        {
+          "label": "arrayLike",
+          "isContainer": false
+        },
+        {
+          "label": "mapFn",
+          "isContainer": true
+        },
+        {
+          "label": "thisArg",
+          "isContainer": false
+        },
+        {
+          "label": "value",
+          "isContainer": false
+        },
+        {
+          "label": "index",
+          "isContainer": false
+        },
+        {
+          "label": "accumulator",
+          "isContainer": false
+        },
+        {
+          "label": "initialValue",
+          "isContainer": false
+        }
+      ]
+    },
+    "answerKey": {
+      "correctStructure": {
+        "label": "from",
+        "children": [
+          {
+            "label": "arrayLike"
+          },
+          {
+            "label": "mapFn",
+            "children": [
+              {
+                "label": "value"
+              },
+              {
+                "label": "index"
+              }
+            ]
+          },
+          {
+            "label": "thisArg"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 145,
     "type": "code-analysis",
     "category": "TypeScript",
     "complexity": "junior",
     "time": 2,
     "content": {
-      "question": "Какая строка вызовет ошибку компиляции TypeScript?",
-      "answers": ["let x: number = 10;", "const y: string = 'hello';", "x = 'string';", "let z: any = true;"]
+      "question": "Какие строки вызовут ошибку компиляции TypeScript?",
+      "answers": ["let age: number = 25;", "const label: string = 'Возраст';", "age = '30';", "console.log(age);"]
     },
     "answerKey": {
       "correctAnswers": [2]
     }
   },
   {
-    "id": 11,
-    "type": "basic-poll",
-    "category": "React",
-    "complexity": "junior",
-    "time": 2,
-    "content": {
-      "question": "Для чего используется хук `useMemo`?",
-      "answers": [
-        "Для хранения состояния",
-        "Для кэширования результата вычислений",
-        "Для выполнения побочных эффектов",
-        "Для прямого доступа к DOM-узлу"
-      ]
-    },
-    "answerKey": {
-      "correctAnswer": 1
-    }
-  },
-  {
-    "id": 12,
-    "type": "ai-interviewer",
-    "category": "Computer Science",
-    "complexity": "middle",
-    "time": 5,
-    "content": {
-      "question": "Объясните разницу между процессами и потоками (Threads vs Processes)."
-    },
-    "answerKey": {
-      "idealKeywords": ["память", "изоляция", "параллелизм"]
-    }
-  },
-  {
-    "id": 13,
-    "type": "multiple-choice",
-    "category": "CSS",
-    "complexity": "junior",
-    "time": 2,
-    "content": {
-      "question": "Какие значения свойства `position` вырывают элемент из нормального потока документа?",
-      "answers": ["static", "relative", "absolute", "fixed", "sticky"]
-    },
-    "answerKey": {
-      "correctAnswers": [2, 3]
-    }
-  },
-  {
-    "id": 14,
-    "type": "drag-n-drop",
-    "category": "JavaScript",
-    "complexity": "middle",
-    "time": 4,
-    "content": {
-      "question": "Соберите цепочку Promise правильно для обработки ошибки",
-      "initialCode": {
-        "label": "fetchData()",
-        "isContainer": true
-      },
-      "answers": [
-        {
-          "label": ".then()",
-          "isContainer": true
-        },
-        {
-          "label": ".catch()",
-          "isContainer": true
-        },
-        {
-          "label": "handleSuccess",
-          "isContainer": false
-        },
-        {
-          "label": "handleError",
-          "isContainer": false
-        },
-        {
-          "label": ".finally()",
-          "isContainer": false
-        }
-      ]
-    },
-    "answerKey": {
-      "correctStructure": {
-        "label": "fetchData()",
-        "children": [
-          {
-            "label": ".then()",
-            "children": [
-              {
-                "label": "handleSuccess"
-              }
-            ]
-          },
-          {
-            "label": ".catch()",
-            "children": [
-              {
-                "label": "handleError"
-              }
-            ]
-          },
-          {
-            "label": ".finally()"
-          }
-        ]
-      }
-    }
-  },
-  {
-    "id": 15,
+    "id": 146,
     "type": "code-analysis",
-    "category": "JavaScript",
-    "complexity": "middle",
-    "time": 3,
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 2,
     "content": {
-      "question": "Что выведет `console.log(typeof NaN)`?",
-      "answers": ["'NaN'", "'number'", "'undefined'", "'object'"]
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": ["const status = 'ok';", "console.log(status);", "status = 'fail';", "const done = true;"]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 147,
+    "type": "code-analysis",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки вызовут ошибку компиляции TypeScript?",
+      "answers": [
+        "let tags: string[] = ['js', 'ts'];",
+        "tags.push('react');",
+        "tags.push(100);",
+        "console.log(tags.length);"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 148,
+    "type": "code-analysis",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": [
+        "const userName = 'Mila';",
+        "console.log(userName);",
+        "console.log(userAge);",
+        "const isAdmin = false;"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 149,
+    "type": "code-analysis",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки вызовут ошибку компиляции TypeScript?",
+      "answers": [
+        "function printId(id: number) { return id.toFixed(0); }",
+        "const result = printId(42);",
+        "printId('42');",
+        "console.log(result);"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 150,
+    "type": "code-analysis",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": ["const profile = null;", "console.log('start');", "console.log(profile.name);", "const ready = true;"]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 151,
+    "type": "code-analysis",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки вызовут ошибку компиляции TypeScript?",
+      "answers": [
+        "interface User { id: number; name: string; }",
+        "const user: User = { id: 1 };",
+        "console.log(user.id);",
+        "const ok = true;"
+      ]
     },
     "answerKey": {
       "correctAnswers": [1]
     }
   },
   {
-    "id": 16,
-    "type": "basic-poll",
-    "category": "TypeScript",
-    "complexity": "junior",
-    "time": 1,
-    "content": {
-      "question": "Как в TypeScript описать массив строк?",
-      "answers": ["Array<string>", "string[]", "Both A and B", "string?[]"]
-    },
-    "answerKey": {
-      "correctAnswer": 2
-    }
-  },
-  {
-    "id": 17,
-    "type": "ai-interviewer",
-    "category": "Web Security",
-    "complexity": "middle",
-    "time": 5,
-    "content": {
-      "question": "Что такое CORS и зачем он нужен?"
-    },
-    "answerKey": {
-      "keywords": ["Origin", "браузер", "безопасность"]
-    }
-  },
-  {
-    "id": 18,
-    "type": "multiple-choice",
-    "category": "Node.js",
+    "id": 152,
+    "type": "code-analysis",
+    "category": "Functions & Scope",
     "complexity": "junior",
     "time": 2,
     "content": {
-      "question": "Какие из этих инструментов являются пакетными менеджерами?",
-      "answers": ["npm", "pnpm", "yarn", "vite", "webpack"]
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": ["const count = 10;", "console.log(count);", "count();", "const next = count + 1;"]
     },
     "answerKey": {
-      "correctAnswers": [0, 1, 2]
+      "correctAnswers": [2]
     }
   },
   {
-    "id": 19,
-    "type": "basic-poll",
-    "category": "Git",
-    "complexity": "trainee",
-    "time": 1,
-    "content": {
-      "question": "Какая команда используется для создания новой ветки и перехода в неё?",
-      "answers": ["git branch new-branch", "git checkout -b new-branch", "git commit -m 'new'", "git push origin"]
-    },
-    "answerKey": {
-      "correctAnswer": 1
-    }
-  },
-  {
-    "id": 20,
+    "id": 153,
     "type": "code-analysis",
-    "category": "React",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки вызовут ошибку компиляции TypeScript?",
+      "answers": [
+        "type Config = { readonly apiUrl: string };",
+        "const config: Config = { apiUrl: '/api' };",
+        "config.apiUrl = '/v2';",
+        "console.log(config.apiUrl);"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 154,
+    "type": "code-analysis",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": [
+        "const raw = '{name: \\'Alex\\'}';",
+        "const data = JSON.parse(raw);",
+        "console.log(data);",
+        "const done = true;"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 155,
+    "type": "code-analysis",
+    "category": "TypeScript",
     "complexity": "junior",
     "time": 3,
     "content": {
-      "question": "Почему этот код вызовет бесконечный ререндер? `useEffect(() => { setCount(count + 1) })`",
+      "question": "Какие строки вызовут ошибку компиляции TypeScript?",
       "answers": [
-        "Отсутствует массив зависимостей",
-        "Функция setCount не определена",
-        "useEffect нельзя использовать для изменения стейта",
-        "Нужно использовать useLayoutEffect"
+        "let value: string | number = 10;",
+        "console.log(value);",
+        "value.toUpperCase();",
+        "const done = true;"
       ]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 156,
+    "type": "code-analysis",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": [
+        "const response = undefined;",
+        "const { data } = response;",
+        "console.log(data);",
+        "const loaded = false;"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 157,
+    "type": "code-analysis",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вызовут ошибку компиляции TypeScript?",
+      "answers": [
+        "let point: [number, number] = [10, 20];",
+        "point = [30, '40'];",
+        "console.log(point[0]);",
+        "point = [50, 60, 70];"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1, 3]
+    }
+  },
+  {
+    "id": 158,
+    "type": "code-analysis",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": ["console.log(total);", "let total = 5;", "total += 1;", "console.log(total);"]
     },
     "answerKey": {
       "correctAnswers": [0]
     }
   },
   {
-    "id": 21,
-    "type": "basic-poll",
-    "category": "JavaScript",
+    "id": 159,
+    "type": "code-analysis",
+    "category": "TypeScript",
     "complexity": "junior",
-    "time": 1,
+    "time": 3,
     "content": {
-      "question": "Какое ключевое слово используется для объявления переменной с областью видимости блока, которую нельзя переопределить?",
-      "answers": ["var", "let", "const", "static"]
+      "question": "Какие строки вызовут ошибку компиляции TypeScript?",
+      "answers": [
+        "function getLength<T extends { length: number }>(value: T) { return value.length; }",
+        "const a = getLength('hello');",
+        "console.log(a);",
+        "getLength(123);"
+      ]
     },
     "answerKey": {
-      "correctAnswer": 2
+      "correctAnswers": [3]
     }
   },
   {
-    "id": 22,
+    "id": 160,
+    "type": "code-analysis",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": ["const obj = { a: 1, b: 2 };", "const copy = [...obj];", "console.log(copy);", "const done = true;"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 161,
+    "type": "code-analysis",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вызовут ошибку компиляции TypeScript?",
+      "answers": [
+        "async function getCount() { return 5; }",
+        "const count: number = getCount();",
+        "console.log(count);",
+        "const done = true;"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 162,
+    "type": "code-analysis",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": ["const value = 10;", "const math = new Math();", "console.log(value + 1);", "console.log(math);"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 163,
+    "type": "code-analysis",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вызовут ошибку компиляции TypeScript?",
+      "answers": [
+        "const scores: Record<string, number> = {};",
+        "scores.alex = 10;",
+        "scores.bob = 'high';",
+        "console.log(scores);"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 164,
+    "type": "code-analysis",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": ["class Animal extends 10 {}", "const pet = new Animal();", "console.log(pet);", "const done = true;"]
+    },
+    "answerKey": {
+      "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 165,
+    "type": "code-analysis",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие строки вызовут ошибку компиляции TypeScript?",
+      "answers": [
+        "function format(value: string): string;",
+        "function format(value: number): string;",
+        "function format(value: string | number) { return String(value); }",
+        "const result = format(true);"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [3]
+    }
+  },
+  {
+    "id": 166,
+    "type": "code-analysis",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": [
+        "const cache = new WeakMap();",
+        "const key = 1;",
+        "cache.set(key, { value: true });",
+        "console.log(cache);"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 167,
+    "type": "code-analysis",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие строки вызовут ошибку компиляции TypeScript?",
+      "answers": [
+        "type Shape = { kind: 'circle'; radius: number } | { kind: 'square'; size: number };",
+        "function handle(shape: Shape) {",
+        "  if (shape.kind === 'circle') return shape.radius;",
+        "  const exhaustive: never = shape;",
+        "}"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [3]
+    }
+  },
+  {
+    "id": 168,
+    "type": "code-analysis",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": [
+        "class Account { #token = 'secret'; }",
+        "const account = new Account();",
+        "console.log(account.#token);",
+        "const done = true;"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 169,
+    "type": "code-analysis",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие строки вызовут ошибку компиляции TypeScript?",
+      "answers": [
+        "function pluck<T, K extends keyof T>(obj: T, key: K) { return obj[key]; }",
+        "const user = { id: 1, name: 'Ann' };",
+        "const name = pluck(user, 'name');",
+        "const value = pluck(user, 'age');"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [3]
+    }
+  },
+  {
+    "id": 170,
+    "type": "code-analysis",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": ["const amount = 10n;", "const bonus = 5;", "const total = amount + bonus;", "console.log(total);"]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 171,
+    "type": "code-analysis",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие строки вызовут ошибку компиляции TypeScript?",
+      "answers": [
+        "type Result<T> = T extends string ? string[] : number[];",
+        "const a: Result<string> = ['x'];",
+        "const b: Result<number> = [1, 2];",
+        "const c: Result<string> = [1, 2];"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [3]
+    }
+  },
+  {
+    "id": 172,
+    "type": "code-analysis",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": ["const source = { a: 1 };", "const { a, a } = source;", "console.log(a);", "const done = true;"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 173,
+    "type": "code-analysis",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие строки вызовут ошибку компиляции TypeScript?",
+      "answers": [
+        "type ApiResponse = { status: 'ok'; data: string } | { status: 'error'; error: Error };",
+        "function read(response: ApiResponse) {",
+        "  if (response.status === 'ok') return response.error;",
+        "  return response.error.message;",
+        "}"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 174,
+    "type": "code-analysis",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": ["const node = {};", "node.self = node;", "JSON.stringify(node);", "console.log('done');"]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 175,
     "type": "ai-interviewer",
-    "category": "Architecture",
-    "complexity": "middle",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "В чем разница между null и undefined?"
+    }
+  },
+  {
+    "id": 176,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Для чего используется оператор \"&&\"?"
+    }
+  },
+  {
+    "id": 177,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Для чего используется оператор \"||\"?"
+    }
+  },
+  {
+    "id": 178,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Является ли использование унарного плюса (оператор \"+\") самым быстрым способом преобразования строки в число?"
+    }
+  },
+  {
+    "id": 179,
+    "type": "ai-interviewer",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что такое DOM?"
+    }
+  },
+  {
+    "id": 180,
+    "type": "ai-interviewer",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что такое распространение события (Event Propogation)?"
+    }
+  },
+  {
+    "id": 181,
+    "type": "ai-interviewer",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что такое всплытие события (Event Bubbling)?"
+    }
+  },
+  {
+    "id": 182,
+    "type": "ai-interviewer",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что такое погружение события (Event Capturing)?"
+    }
+  },
+  {
+    "id": 183,
+    "type": "ai-interviewer",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "В чем разница между методами event.preventDefault() и event.stopPropagation()?"
+    }
+  },
+  {
+    "id": 184,
+    "type": "ai-interviewer",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Как узнать об использовании метода event.preventDefault()?"
+    }
+  },
+  {
+    "id": 185,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Почему obj.someprop.x приводит к ошибке?"
+    }
+  },
+  {
+    "id": 186,
+    "type": "ai-interviewer",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что такое цель события или целевой элемент (event.target)?"
+    }
+  },
+  {
+    "id": 187,
+    "type": "ai-interviewer",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что такое текущая цель события (event.currentTarget)?"
+    }
+  },
+  {
+    "id": 188,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "В чем разница между операторами \"==\" и \"===\"?"
+    }
+  },
+  {
+    "id": 189,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Почему результатом сравнения двух похожих объектов является false?"
+    }
+  },
+  {
+    "id": 190,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Для чего используется оператор \"!!\"?"
+    }
+  },
+  {
+    "id": 191,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Как записать несколько выражений в одну строку?"
+    }
+  },
+  {
+    "id": 192,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что такое поднятие (Hoisting)?"
+    }
+  },
+  {
+    "id": 193,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что такое область видимости (Scope)?"
+    }
+  },
+  {
+    "id": 194,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Что такое замыкание (Closures)?"
+    }
+  },
+  {
+    "id": 195,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие значения в JS являются ложными?"
+    }
+  },
+  {
+    "id": 196,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Как проверить, является ли значение ложным?"
+    }
+  },
+  {
+    "id": 197,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Для чего используется директива «use strict»?"
+    }
+  },
+  {
+    "id": 198,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какое значение имеет this?"
+    }
+  },
+  {
+    "id": 199,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что такое прототип объекта?"
+    }
+  },
+  {
+    "id": 200,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что такое IIFE?"
+    }
+  },
+  {
+    "id": 201,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Для чего используется метод Function.prototype.apply?"
+    }
+  },
+  {
+    "id": 202,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Для чего используется метод Function.prototype.call?"
+    }
+  },
+  {
+    "id": 203,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "В чем разница между методами call и apply?"
+    }
+  },
+  {
+    "id": 204,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Для чего используется метод Function.prototype.bind?"
+    }
+  },
+  {
+    "id": 205,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 5,
+    "content": {
+      "question": "Что такое функциональное программирование и какие особенности JS позволяют говорить о нем как о функциональном языке программирования?"
+    }
+  },
+  {
+    "id": 206,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что такое функции высшего порядка (Higher Order Functions)?"
+    }
+  },
+  {
+    "id": 207,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Почему функции в JS называют объектами первого класса (First-class Objects)?"
+    }
+  },
+  {
+    "id": 208,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 5,
+    "content": {
+      "question": "Как бы Вы реализовали метод Array.prototype.map?"
+    }
+  },
+  {
+    "id": 209,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 5,
+    "content": {
+      "question": "Как бы Вы реализовали метод Array.prototype.filter?"
+    }
+  },
+  {
+    "id": 210,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 7,
+    "content": {
+      "question": "Как бы Вы реализовали метод Array.prototype.reduce?"
+    }
+  },
+  {
+    "id": 211,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что такое объект arguments?"
+    }
+  },
+  {
+    "id": 212,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Как создать объект, не имеющий прототипа?"
+    }
+  },
+  {
+    "id": 213,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Почему в представленном коде переменная b становится глобальной при вызове функции?"
+    }
+  },
+  {
+    "id": 214,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что такое ECMAScript?"
+    }
+  },
+  {
+    "id": 215,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Что нового привнес в JS стандарт ES6 или ECMAScript2015?"
+    }
+  },
+  {
+    "id": 216,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "В чем разница между ключевыми словами «var», «let» и «const»?"
+    }
+  },
+  {
+    "id": 217,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что такое стрелочные функции (Arrow Functions)?"
+    }
+  },
+  {
+    "id": 218,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что такое классы (Classes)?"
+    }
+  },
+  {
+    "id": 219,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что такое шаблонные литералы (Template Literals)?"
+    }
+  },
+  {
+    "id": 220,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что такое деструктуризация объекта (Object Destructuring)?"
+    }
+  },
+  {
+    "id": 221,
+    "type": "ai-interviewer",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что такое модули (Modules)?"
+    }
+  },
+  {
+    "id": 222,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что такое объект Set?"
+    }
+  },
+  {
+    "id": 223,
+    "type": "ai-interviewer",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что такое функция обратного вызова (Callback Function)?"
+    }
+  },
+  {
+    "id": 224,
+    "type": "ai-interviewer",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Что такое промисы (Promises)?"
+    }
+  },
+  {
+    "id": 225,
+    "type": "ai-interviewer",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Что такое async/await?"
+    }
+  },
+  {
+    "id": 226,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "В чем разница между spread-оператором и rest-оператором?"
+    }
+  },
+  {
+    "id": 227,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что такое параметры по умолчанию (Default Parameters)?"
+    }
+  },
+  {
+    "id": 228,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что такое объектная обертка (Wrapper Objects)?"
+    }
+  },
+  {
+    "id": 229,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "В чем разница между явным и неявным преобразованием или приведением к типу (Implicit and Explicit Coercion)?"
+    }
+  },
+  {
+    "id": 230,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что такое NaN? Как проверить, является ли значение NaN?"
+    }
+  },
+  {
+    "id": 231,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Как проверить, является ли значение массивом?"
+    }
+  },
+  {
+    "id": 232,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Как проверить, что число является четным, без использования деления по модулю или деления с остатком (оператора \"%\")?"
+    }
+  },
+  {
+    "id": 233,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Как определить наличие свойства в объекте?"
+    }
+  },
+  {
+    "id": 234,
+    "type": "ai-interviewer",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что такое AJAX?"
+    }
+  },
+  {
+    "id": 235,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Как в JS создать объект?"
+    }
+  },
+  {
+    "id": 236,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "В чем разница между методами Object.freeze и Object.seal?"
+    }
+  },
+  {
+    "id": 237,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "В чем разница между оператором «in» и методом hasOwnProperty?"
+    }
+  },
+  {
+    "id": 238,
+    "type": "ai-interviewer",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 4,
+    "content": {
+      "question": "Какие приемы работы с асинхронным кодом в JS Вы знаете?"
+    }
+  },
+  {
+    "id": 239,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "В чем разница между обычной функцией и функциональным выражением?"
+    }
+  },
+  {
+    "id": 240,
+    "type": "ai-interviewer",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Как в JS вызвать функцию?"
+    }
+  },
+  {
+    "id": 241,
+    "type": "ai-interviewer",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что такое запоминание или мемоизация (Memoization)?"
+    }
+  },
+  {
+    "id": 242,
+    "type": "ai-interviewer",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
     "time": 6,
     "content": {
-      "question": "В чем разница между REST и GraphQL? Когда лучше выбрать один вместо другого?"
-    },
-    "answerKey": {
-      "idealKeywords": ["эндпоинт", "query", "overfetching"]
+      "question": "Как бы Вы реализовали вспомогательную функцию запоминания?"
     }
   },
   {
-    "id": 23,
-    "type": "multiple-choice",
-    "category": "HTML",
-    "complexity": "trainee",
-    "time": 2,
-    "content": {
-      "question": "Какие теги являются семантическими в HTML5?",
-      "answers": ["<div>", "<header>", "<span>", "<article>", "<section>"]
-    },
-    "answerKey": {
-      "correctAnswers": [1, 3, 4]
-    }
-  },
-  {
-    "id": 24,
-    "type": "drag-n-drop",
-    "category": "CSS",
+    "id": 243,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Core & Syntax",
     "complexity": "junior",
     "time": 3,
     "content": {
-      "question": "Соберите центрирование элемента через Flexbox",
-      "initialCode": {
-        "label": "display: flex",
-        "isContainer": true
-      },
-      "answers": [
-        {
-          "label": "justify-content: center",
-          "isContainer": false
-        },
-        {
-          "label": "align-items: center",
-          "isContainer": false
-        },
-        {
-          "label": "flex-direction: column",
-          "isContainer": false
-        }
-      ]
-    },
-    "answerKey": {
-      "correctStructure": {
-        "label": "display: flex",
-        "children": [
-          {
-            "label": "justify-content: center"
-          },
-          {
-            "label": "align-items: center"
-          }
-        ]
-      }
+      "question": "Почему typeof null возвращает object? Как проверить, является ли значение null?"
     }
   },
   {
-    "id": 25,
-    "type": "code-analysis",
-    "category": "JavaScript",
+    "id": 244,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Objects & Collections",
     "complexity": "junior",
-    "time": 2,
+    "time": 3,
     "content": {
-      "question": "Что выведет код `console.log(0.1 + 0.2 === 0.3)`?",
-      "answers": ["true", "false", "undefined", "TypeError"]
-    },
-    "answerKey": {
-      "correctAnswers": [1]
+      "question": "Для чего используется ключевое слово «new»?"
     }
   },
   {
-    "id": 26,
+    "id": 245,
+    "type": "ai-interviewer",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "В чем разница между Promise.all и Promise.allSettled?"
+    }
+  },
+  {
+    "id": 246,
+    "type": "ai-interviewer",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что произойдет, если внутри async-функции забыть await перед промисом?"
+    }
+  },
+  {
+    "id": 247,
     "type": "basic-poll",
-    "category": "Testing",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой метод создает уже успешно завершенный Promise?",
+      "answers": ["Promise.resolve()", "Promise.reject()", "Promise.done()", "Promise.complete()"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 248,
+    "type": "basic-poll",
+    "category": "Asynchronous JS",
     "complexity": "junior",
     "time": 2,
     "content": {
-      "question": "Что проверяет Unit-тест?",
-      "answers": [
-        "Взаимодействие между всеми модулями системы",
-        "Отдельную минимальную единицу кода (функцию, метод)",
-        "Производительность приложения под нагрузкой",
-        "Удобство интерфейса для пользователя"
-      ]
+      "question": "Какой API ставит колбэк в очередь после указанной задержки?",
+      "answers": ["setTimeout()", "queueMicrotask()", "Promise.then()", "requestAnimationFrame()"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 249,
+    "type": "basic-poll",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какое ключевое слово используется для объявления асинхронной функции?",
+      "answers": ["async", "defer", "await", "promise"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 250,
+    "type": "basic-poll",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой метод Promise чаще всего используют для обработки ошибки?",
+      "answers": ["then()", "catch()", "finally()", "done()"]
     },
     "answerKey": {
       "correctAnswer": 1
     }
   },
   {
-    "id": 27,
-    "type": "ai-interviewer",
-    "category": "Performance",
-    "complexity": "middle",
-    "time": 5,
-    "content": {
-      "question": "Что такое Virtual DOM в React и как он помогает оптимизировать производительность?"
-    },
-    "answerKey": {
-      "idealKeywords": ["diffing", "reconciliation", "отрисовка"]
-    }
-  },
-  {
-    "id": 28,
-    "type": "multiple-choice",
-    "category": "JavaScript",
+    "id": 251,
+    "type": "basic-poll",
+    "category": "Asynchronous JS",
     "complexity": "junior",
     "time": 2,
     "content": {
-      "question": "Какие методы используются для работы с асинхронным кодом в JS?",
-      "answers": ["Callbacks", "Promises", "Async/Await", "Loops", "Recursion"]
-    },
-    "answerKey": {
-      "correctAnswers": [0, 1, 2]
-    }
-  },
-  {
-    "id": 29,
-    "type": "basic-poll",
-    "category": "Algorithms",
-    "complexity": "middle",
-    "time": 4,
-    "content": {
-      "question": "Какова временная сложность (Big O) поиска в сбалансированном бинарном дереве поиска?",
-      "answers": ["O(1)", "O(n)", "O(log n)", "O(n^2)"]
+      "question": "Какая очередь выполняется раньше после завершения текущего стека вызовов?",
+      "answers": ["render queue", "macro task queue", "microtask queue", "callback stack"]
     },
     "answerKey": {
       "correctAnswer": 2
     }
   },
   {
-    "id": 30,
+    "id": 252,
     "type": "code-analysis",
-    "category": "TypeScript",
-    "complexity": "middle",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
     "time": 3,
     "content": {
-      "question": "Для чего используется оператор `keyof`?",
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": ["const task = new Promise();", "console.log(task);", "const ready = true;", "console.log(ready);"]
+    },
+    "answerKey": {
+      "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 253,
+    "type": "code-analysis",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
       "answers": [
-        "Для получения типа всех ключей объекта",
-        "Для проверки наличия ключа в объекте",
-        "Для создания нового интерфейса",
-        "Для удаления ключа из объекта"
+        "const jobs = [Promise.resolve(1)];",
+        "Promise.all(1);",
+        "console.log(jobs.length);",
+        "const done = false;"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 254,
+    "type": "code-analysis",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": [
+        "queueMicrotask(() => console.log(\"tick\"));",
+        "queueMicrotask(123);",
+        "const status = \"ok\";",
+        "console.log(status);"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 255,
+    "type": "code-analysis",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": [
+        "async function load() { return Promise.resolve(42); }",
+        "const result = load();",
+        "console.log(result.toFixed(2));",
+        "const done = true;"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 256,
+    "type": "multiple-choice",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие утверждения верны для async-функции?",
+      "answers": [
+        "Она всегда возвращает Promise",
+        "Внутри нее можно использовать await",
+        "Она всегда выполняется в отдельном потоке",
+        "Она может вернуть значение через return"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 257,
+    "type": "multiple-choice",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие из перечисленных относятся к комбинаторам Promise?",
+      "answers": ["Promise.all()", "Promise.any()", "Promise.resolve()", "Promise.race()"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 258,
+    "type": "multiple-choice",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что верно про Promise.prototype.finally()?",
+      "answers": [
+        "Выполняется и после fulfill, и после reject",
+        "Получает resolved value первым аргументом",
+        "Не меняет исходный результат, если не бросает ошибку",
+        "Часто используется для cleanup-логики"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 2, 3]
+    }
+  },
+  {
+    "id": 259,
+    "type": "multiple-choice",
+    "category": "Asynchronous JS",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие способы позволяют поставить асинхронную работу в очередь?",
+      "answers": ["setTimeout()", "fetch()", "queueMicrotask()", "Array.prototype.map()"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 260,
+    "type": "ai-interviewer",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Когда лучше использовать Flexbox, а когда Grid?"
+    }
+  },
+  {
+    "id": 261,
+    "type": "ai-interviewer",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Как работает CSS-specificity и как разруливать конфликты стилей?"
+    }
+  },
+  {
+    "id": 262,
+    "type": "ai-interviewer",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что такое stacking context и почему z-index иногда не работает как ожидается?"
+    }
+  },
+  {
+    "id": 263,
+    "type": "ai-interviewer",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Зачем часто задают box-sizing: border-box?"
+    }
+  },
+  {
+    "id": 264,
+    "type": "ai-interviewer",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Как бы Вы строили адаптивный интерфейс без большого количества медиа-запросов?"
+    }
+  },
+  {
+    "id": 265,
+    "type": "ai-interviewer",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Почему для анимаций обычно предпочитают transform и opacity?"
+    }
+  },
+  {
+    "id": 266,
+    "type": "code-analysis",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки содержат ошибку в CSS?",
+      "answers": ["color: #333;", "margin-top: 12;", "padding: 16px;", "display: block;"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 267,
+    "type": "code-analysis",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки содержат ошибку в CSS?",
+      "answers": ["display: flex;", "justify-content: middle;", "align-items: center;", "gap: 16px;"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 268,
+    "type": "code-analysis",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки содержат ошибку в CSS?",
+      "answers": ["position: center;", "top: 0;", "left: 0;", "z-index: 10;"]
+    },
+    "answerKey": {
+      "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 269,
+    "type": "code-analysis",
+    "category": "CSS & UI",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки содержат ошибку в CSS?",
+      "answers": ["display: grid;", "grid-template-columns: repeat(3, 1fr);", "gap: auto;", "padding: 12px;"]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 270,
+    "type": "basic-poll",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какое свойство события указывает на элемент, который реально инициировал событие?",
+      "answers": ["event.target", "event.currentTarget", "event.sourceElement", "event.defaultTarget"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 271,
+    "type": "basic-poll",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой метод используется для подписки на событие?",
+      "answers": ["addEventListener()", "removeEventListener()", "dispatchEvent()", "observe()"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 272,
+    "type": "basic-poll",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какое событие обычно срабатывает при вводе текста в поле по мере печати?",
+      "answers": ["input", "change", "submit", "load"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 273,
+    "type": "basic-poll",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой метод удаляет элемент из DOM?",
+      "answers": ["element.remove()", "element.delete()", "element.detach()", "element.destroy()"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 274,
+    "type": "basic-poll",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какая фаза прохождения события выполняется первой?",
+      "answers": ["bubbling", "targeting", "capturing", "default"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 275,
+    "type": "code-analysis",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": [
+        "const button = null;",
+        "button.addEventListener(\"click\", () => {});",
+        "const ready = true;",
+        "console.log(ready);"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 276,
+    "type": "code-analysis",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": [
+        "const nodes = document.querySelectorAll(\".item\");",
+        "nodes.classList.add(\"active\");",
+        "const count = nodes.length;",
+        "console.log(count);"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 277,
+    "type": "code-analysis",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": [
+        "const input = document.createElement(\"input\");",
+        "input.value = \"42\";",
+        "input.value();",
+        "console.log(input);"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 278,
+    "type": "code-analysis",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": [
+        "const text = document.createTextNode(\"hi\");",
+        "text.appendChild(document.createElement(\"span\"));",
+        "console.log(text.nodeType);",
+        "const done = true;"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 279,
+    "type": "multiple-choice",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие утверждения верны про всплытие событий?",
+      "answers": [
+        "Событие может пройти от вложенного элемента к родителю",
+        "Его можно остановить через stopPropagation()",
+        "Оно всегда выполняется раньше capturing",
+        "Оно полезно для делегирования событий"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 280,
+    "type": "multiple-choice",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие способы позволяют получить элементы из DOM?",
+      "answers": [
+        "document.getElementById()",
+        "document.querySelector()",
+        "document.createElement()",
+        "document.querySelectorAll()"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 281,
+    "type": "multiple-choice",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что верно про event delegation?",
+      "answers": [
+        "Один обработчик в родителе может обслуживать дочерние элементы",
+        "Подходит для динамически добавленных элементов",
+        "Требует отдельный listener на каждом дочернем узле",
+        "Обычно опирается на event.target"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 282,
+    "type": "multiple-choice",
+    "category": "DOM & Events",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие события обычно связаны с мышью или указателем?",
+      "answers": ["click", "mouseenter", "keydown", "pointerdown"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 283,
+    "type": "ai-interviewer",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что такое tree shaking и при каких условиях оно работает хорошо?"
+    }
+  },
+  {
+    "id": 284,
+    "type": "ai-interviewer",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Зачем нужны source maps и какие у них риски в production?"
+    }
+  },
+  {
+    "id": 285,
+    "type": "ai-interviewer",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "В чем разница между bundler, transpiler и minifier?"
+    }
+  },
+  {
+    "id": 286,
+    "type": "ai-interviewer",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что дает lockfile в проекте и почему его обычно коммитят в репозиторий?"
+    }
+  },
+  {
+    "id": 287,
+    "type": "ai-interviewer",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "По каким признакам Вы бы выбирали инструмент сборки для frontend-проекта?"
+    }
+  },
+  {
+    "id": 288,
+    "type": "basic-poll",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Как называется файл npm, который фиксирует точные версии установленных зависимостей?",
+      "answers": ["package-lock.json", "package.json", "tsconfig.json", "vite.config.ts"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 289,
+    "type": "basic-poll",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какое поле в package.json обычно содержит npm scripts?",
+      "answers": ["dependencies", "scripts", "exports", "files"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 290,
+    "type": "basic-poll",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Для чего нужны source maps?",
+      "answers": [
+        "Связывают собранный код с исходниками для отладки",
+        "Ускоряют runtime приложения",
+        "Хранят пользовательские данные",
+        "Заменяют bundle"
+      ]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 291,
+    "type": "basic-poll",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой файл управляет настройками компилятора TypeScript?",
+      "answers": ["package-lock.json", "eslint.config.js", "tsconfig.json", "index.d.ts"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 292,
+    "type": "code-analysis",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки делают package.json невалидным JSON?",
+      "answers": ["{", "  'name': 'demo',", "  \"version\": \"1.0.0\"", "}"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 293,
+    "type": "code-analysis",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки делают package.json невалидным JSON?",
+      "answers": ["{", "  \"scripts\": { \"dev\": vite },", "  \"name\": \"demo\"", "}"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 294,
+    "type": "code-analysis",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки делают package.json невалидным JSON?",
+      "answers": ["{", "  // comment", "  \"name\": \"demo\"", "}"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 295,
+    "type": "code-analysis",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки делают package.json невалидным JSON?",
+      "answers": ["{", "  \"name\": \"demo\",", "  \"version\": \"1.0.0\",", "}"]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 296,
+    "type": "multiple-choice",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие условия помогают tree shaking?",
+      "answers": [
+        "Использование ES modules",
+        "Статический анализ import/export",
+        "Корректная маркировка sideEffects",
+        "Переход на CommonJS require()"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 297,
+    "type": "multiple-choice",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что обычно делает bundler?",
+      "answers": [
+        "Объединяет модули",
+        "Может делать code splitting",
+        "Может оптимизировать ассеты через плагины",
+        "Хранит данные в IndexedDB"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 298,
+    "type": "multiple-choice",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что верно про source maps?",
+      "answers": [
+        "Они сопоставляют минифицированный код с исходным",
+        "Они полезны для отладки",
+        "Их публикацию в production стоит контролировать",
+        "Они меняют runtime-семантику приложения"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 299,
+    "type": "multiple-choice",
+    "category": "Ecosystem & Tooling",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие форматы модулей встречаются в JS-экосистеме?",
+      "answers": ["ESM", "CommonJS", "UMD", "DOM"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 300,
+    "type": "basic-poll",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой метод возвращает новую функцию с привязанным this?",
+      "answers": ["bind()", "call()", "apply()", "attach()"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 301,
+    "type": "basic-poll",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой объект содержит аргументы обычной функции?",
+      "answers": ["params", "arguments", "values", "context"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 302,
+    "type": "basic-poll",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какое значение this использует стрелочная функция?",
+      "answers": [
+        "Глобальный объект всегда",
+        "undefined всегда",
+        "Лексически берется из внешней области видимости",
+        "Зависит только от места вызова"
+      ]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 303,
+    "type": "basic-poll",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Как называется механизм, при котором функция помнит внешние переменные?",
+      "answers": ["prototype", "closure", "namespace", "module"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 304,
+    "type": "basic-poll",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какое ключевое слово используется для объявления функции?",
+      "answers": ["function", "method", "return", "class"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 305,
+    "type": "multiple-choice",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие утверждения верны про замыкания?",
+      "answers": [
+        "Они помнят лексическое окружение",
+        "Могут сохранять данные между вызовами",
+        "Работают только в асинхронном коде",
+        "Часто используются для инкапсуляции"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 306,
+    "type": "multiple-choice",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что верно про call, apply и bind?",
+      "answers": [
+        "call() вызывает функцию сразу",
+        "apply() принимает аргументы списком или массивоподобным объектом",
+        "bind() возвращает новую функцию",
+        "Все три метода удаляют контекст вызова"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 307,
+    "type": "multiple-choice",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что отличает стрелочные функции?",
+      "answers": [
+        "У них нет собственного this",
+        "Их нельзя использовать как конструктор",
+        "У них более краткий синтаксис",
+        "У них всегда есть собственный объект arguments"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 308,
+    "type": "multiple-choice",
+    "category": "Functions & Scope",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что может влиять на значение this в обычной функции?",
+      "answers": [
+        "Вызов как метода объекта",
+        "Использование call, apply или bind",
+        "Работа в strict mode",
+        "Лексическое окружение стрелочной функции"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 309,
+    "type": "ai-interviewer",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что дает семантическая разметка HTML помимо красоты кода?"
+    }
+  },
+  {
+    "id": 310,
+    "type": "ai-interviewer",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Когда нужен aria-label, а когда лучше видимый текстовый label?"
+    }
+  },
+  {
+    "id": 311,
+    "type": "ai-interviewer",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Как организовать клавиатурную навигацию в кастомном компоненте?"
+    }
+  },
+  {
+    "id": 312,
+    "type": "ai-interviewer",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Каким должен быть хороший alt-текст для изображения?"
+    }
+  },
+  {
+    "id": 313,
+    "type": "ai-interviewer",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Почему не стоит заменять button на div без необходимости?"
+    }
+  },
+  {
+    "id": 314,
+    "type": "ai-interviewer",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Как бы Вы проверяли доступность формы перед релизом?"
+    }
+  },
+  {
+    "id": 315,
+    "type": "basic-poll",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой тег обычно обозначает основную навигацию страницы?",
+      "answers": ["<menu>", "<nav>", "<aside>", "<header>"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 316,
+    "type": "basic-poll",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой атрибут делает поле формы обязательным для заполнения?",
+      "answers": ["placeholder", "required", "checked", "autocomplete"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 317,
+    "type": "code-analysis",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки содержат проблему доступности или HTML-разметки?",
+      "answers": [
+        "<button></button>",
+        "<button>Сохранить</button>",
+        "<button aria-label=\"Закрыть\"></button>",
+        "<button type=\"button\">Открыть</button>"
       ]
     },
     "answerKey": {
       "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 318,
+    "type": "code-analysis",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки содержат проблему доступности или HTML-разметки?",
+      "answers": [
+        "<img src=\"logo.svg\">",
+        "<img src=\"avatar.png\" alt=\"Фото пользователя\">",
+        "<img src=\"divider.svg\" alt=\"\">",
+        "<figure></figure>"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 319,
+    "type": "code-analysis",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки содержат проблему доступности или HTML-разметки?",
+      "answers": [
+        "<div onclick=\"save()\">Сохранить</div>",
+        "<button onclick=\"save()\">Сохранить</button>",
+        "<a href=\"/docs\">Документация</a>",
+        "<nav aria-label=\"Основное меню\"></nav>"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 320,
+    "type": "code-analysis",
+    "category": "HTML & Accessibility",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки содержат проблему доступности или HTML-разметки?",
+      "answers": [
+        "<label>Email</label><input id=\"email\" type=\"email\">",
+        "<label for=\"name\">Имя</label><input id=\"name\" type=\"text\">",
+        "<input aria-label=\"Поиск\" type=\"search\">",
+        "<button aria-label=\"Удалить\"></button>"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 321,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "В чем разница между map и forEach на практике?"
+    }
+  },
+  {
+    "id": 322,
+    "type": "ai-interviewer",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Когда reduce уместен, а когда лучше выбрать более специализированный метод массива?"
+    }
+  },
+  {
+    "id": 323,
+    "type": "basic-poll",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой метод заполняет массив указанным значением?",
+      "answers": ["fill()", "join()", "find()", "push()"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 324,
+    "type": "basic-poll",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой метод массива разворачивает вложенные массивы на один уровень?",
+      "answers": ["flat()", "slice()", "some()", "sort()"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 325,
+    "type": "code-analysis",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": ["const list = null;", "list.map(x => x * 2);", "const ready = true;", "console.log(ready);"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 326,
+    "type": "code-analysis",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": ["const numbers = [1, 2, 3];", "numbers.length = -1;", "console.log(numbers);", "const done = false;"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 327,
+    "type": "code-analysis",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": [
+        "const values = [1, 2, 3];",
+        "values.reduce();",
+        "console.log(values.length);",
+        "const status = \"ok\";"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 328,
+    "type": "code-analysis",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": ["const source = null;", "Array.from(source);", "const count = 0;", "console.log(count);"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 329,
+    "type": "multiple-choice",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие методы возвращают новый массив, не мутируя исходный?",
+      "answers": ["map()", "filter()", "slice()", "push()"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 330,
+    "type": "multiple-choice",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие методы могут вернуть boolean?",
+      "answers": ["some()", "every()", "includes()", "find()"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 331,
+    "type": "multiple-choice",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие методы используют для поиска элемента или его индекса?",
+      "answers": ["find()", "findIndex()", "indexOf()", "fill()"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 332,
+    "type": "multiple-choice",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что верно про Array.prototype.sort()?",
+      "answers": [
+        "По умолчанию сортирует элементы как строки",
+        "Изменяет исходный массив",
+        "Для чисел часто передают compare function",
+        "Всегда возвращает boolean"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 333,
+    "type": "multiple-choice",
+    "category": "JavaScript: Arrays",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие способы создают массив?",
+      "answers": ["[]", "Array.of(1, 2)", "Array.from(\"abc\")", "new Set([1, 2])"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 334,
+    "type": "basic-poll",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой оператор возвращает строку с типом значения?",
+      "answers": ["instanceof", "typeof", "isType", "classof"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 335,
+    "type": "basic-poll",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какое ключевое слово запрещает переназначение переменной?",
+      "answers": ["let", "var", "const", "static"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 336,
+    "type": "basic-poll",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какие символы используются для шаблонных строк?",
+      "answers": ["Одинарные кавычки", "Двойные кавычки", "Обратные кавычки", "Скобки"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 337,
+    "type": "multiple-choice",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие значения в JavaScript являются ложными?",
+      "answers": ["0", "\"\"", "[]", "null"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 338,
+    "type": "multiple-choice",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что верно про оператор ===?",
+      "answers": [
+        "Не выполняет приведение типов",
+        "Сравнивает и тип, и значение",
+        "Работает так же, как ==",
+        "Чаще подходит для предсказуемых сравнений"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 339,
+    "type": "multiple-choice",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что верно про let и const?",
+      "answers": [
+        "Имеют блочную область видимости",
+        "Поднимаются без TDZ",
+        "const не позволяет переназначить переменную",
+        "const можно объявить без инициализации так же, как let"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 2]
+    }
+  },
+  {
+    "id": 340,
+    "type": "multiple-choice",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что верно про optional chaining?",
+      "answers": [
+        "Останавливает доступ по цепочке при null или undefined",
+        "Записывается через ?.",
+        "Может заменить любой try/catch",
+        "Часто используется для безопасного чтения вложенных свойств"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 341,
+    "type": "multiple-choice",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие типы относятся к примитивам?",
+      "answers": ["string", "number", "boolean", "Map"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 342,
+    "type": "multiple-choice",
+    "category": "JavaScript: Core & Syntax",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что верно про nullish coalescing ??",
+      "answers": [
+        "Возвращает правый операнд только при null или undefined слева",
+        "Отличается от || поведением для 0 и пустой строки",
+        "Всегда эквивалентен оператору ||",
+        "Удобен для задания значений по умолчанию"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 343,
+    "type": "basic-poll",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой метод возвращает массив собственных ключей объекта?",
+      "answers": ["Object.keys()", "Object.values()", "Object.entries()", "Object.map()"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 344,
+    "type": "basic-poll",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какая коллекция хранит пары ключ-значение и позволяет использовать объект как ключ?",
+      "answers": ["Set", "Map", "Array", "WeakSet"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 345,
+    "type": "basic-poll",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой оператор проверяет наличие свойства в объекте, включая цепочку прототипов?",
+      "answers": ["has()", "exists", "in", "of"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 346,
+    "type": "basic-poll",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какой метод копирует перечислимые свойства из источника в целевой объект?",
+      "answers": ["Object.freeze()", "Object.assign()", "Object.seal()", "Object.keys()"]
+    },
+    "answerKey": {
+      "correctAnswer": 1
+    }
+  },
+  {
+    "id": 347,
+    "type": "multiple-choice",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что верно про Map?",
+      "answers": [
+        "Сохраняет порядок вставки",
+        "Позволяет использовать объект как ключ",
+        "Не имеет свойства size",
+        "Подходит для словарей со сложными ключами"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 348,
+    "type": "multiple-choice",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что верно про Object.freeze()?",
+      "answers": [
+        "Запрещает добавлять новые свойства",
+        "Запрещает удалять существующие свойства",
+        "Автоматически делает глубокую заморозку",
+        "Запрещает менять значения собственных свойств верхнего уровня"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 3]
+    }
+  },
+  {
+    "id": 349,
+    "type": "multiple-choice",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие способы позволяют получить значение свойства объекта?",
+      "answers": ["obj.name", "obj[\"name\"]", "Reflect.get(obj, \"name\")", "Object.keys(obj)"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 350,
+    "type": "multiple-choice",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Что верно про Set?",
+      "answers": [
+        "Хранит только уникальные значения",
+        "Имеет метод add()",
+        "Подходит для удаления дублей",
+        "Хранит пары ключ-значение"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 351,
+    "type": "multiple-choice",
+    "category": "JavaScript: Objects & Collections",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие выражения создают новый объект?",
+      "answers": ["{}", "Object.create(null)", "new Date()", "[1, 2, 3].map(x => x)"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 352,
+    "type": "ai-interviewer",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что такое CORS preflight и зачем браузер его делает?"
+    }
+  },
+  {
+    "id": 353,
+    "type": "ai-interviewer",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "В чем разница между HTTP-статусами 401 и 403?"
+    }
+  },
+  {
+    "id": 354,
+    "type": "ai-interviewer",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие практики реально снижают риск XSS во frontend-приложении?"
+    }
+  },
+  {
+    "id": 355,
+    "type": "ai-interviewer",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Как Вы бы объяснили защиту от CSRF простыми словами?"
+    }
+  },
+  {
+    "id": 356,
+    "type": "ai-interviewer",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Зачем cookie-атрибуты HttpOnly, Secure и SameSite?"
+    }
+  },
+  {
+    "id": 357,
+    "type": "code-analysis",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки содержат потенциально небезопасный код?",
+      "answers": [
+        "const safe = document.createElement(\"div\");",
+        "safe.textContent = userInput;",
+        "preview.innerHTML = userInput;",
+        "console.log(safe);"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [2]
+    }
+  },
+  {
+    "id": 358,
+    "type": "code-analysis",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки содержат потенциально небезопасный код?",
+      "answers": ["const title = \"Preview\";", "eval(userInput);", "console.log(title);", "const done = true;"]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 359,
+    "type": "code-analysis",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вместе создают небезопасную CORS-конфигурацию?",
+      "answers": [
+        "res.setHeader('Access-Control-Allow-Origin', '*');",
+        "res.setHeader('Access-Control-Allow-Credentials', 'true');",
+        "res.setHeader('Content-Type', 'application/json');",
+        "return res.end('{}');"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1]
+    }
+  },
+  {
+    "id": 360,
+    "type": "code-analysis",
+    "category": "Network & Security",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки содержат потенциально небезопасную практику?",
+      "answers": [
+        "fetch('http://api.example.com/user');",
+        "fetch('https://api.example.com/user');",
+        "const ready = true;",
+        "console.log(ready);"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 361,
+    "type": "ai-interviewer",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что дает code splitting и когда он действительно помогает?"
+    }
+  },
+  {
+    "id": 362,
+    "type": "ai-interviewer",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "В чем разница между debounce и throttle на практике?"
+    }
+  },
+  {
+    "id": 363,
+    "type": "ai-interviewer",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие сигналы говорят, что bottleneck у приложения в сети, а не в рендеринге?"
+    }
+  },
+  {
+    "id": 364,
+    "type": "ai-interviewer",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Из-за чего возникает hydration mismatch и как его предотвращать?"
+    }
+  },
+  {
+    "id": 365,
+    "type": "basic-poll",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Как называется подход, при котором код загружается по требованию, а не весь сразу?",
+      "answers": ["Code splitting", "Code freezing", "Hot reload", "Polyfilling"]
+    },
+    "answerKey": {
+      "correctAnswer": 0
+    }
+  },
+  {
+    "id": 366,
+    "type": "basic-poll",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 1,
+    "content": {
+      "question": "Какая метрика Core Web Vitals измеряет время рендера крупнейшего видимого элемента?",
+      "answers": ["FID", "CLS", "LCP", "TTFB"]
+    },
+    "answerKey": {
+      "correctAnswer": 2
+    }
+  },
+  {
+    "id": 367,
+    "type": "code-analysis",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки могут стать причиной проблем с производительностью?",
+      "answers": [
+        "window.addEventListener(\"scroll\", () => { for (let i = 0; i < 100000; i++) {} });",
+        "const ready = true;",
+        "console.log(ready);",
+        "const step = 1;"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 368,
+    "type": "code-analysis",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки могут стать причиной проблем с производительностью?",
+      "answers": [
+        "for (const item of items) { item.style.width = box.offsetWidth + \"px\"; }",
+        "const title = \"Grid\";",
+        "console.log(title);",
+        "const done = false;"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 369,
+    "type": "code-analysis",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки могут стать причиной проблем с производительностью?",
+      "answers": [
+        "setInterval(renderHugeTable, 16);",
+        "const status = \"ok\";",
+        "console.log(status);",
+        "const finished = false;"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 370,
+    "type": "code-analysis",
+    "category": "Performance & Architecture",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки могут стать причиной проблем с производительностью?",
+      "answers": [
+        "cards.forEach(card => card.addEventListener(\"mousemove\", expensiveWork));",
+        "const page = 1;",
+        "console.log(page);",
+        "const loaded = true;"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 371,
+    "type": "ai-interviewer",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "В чем практическая разница между any и unknown?"
+    }
+  },
+  {
+    "id": 372,
+    "type": "ai-interviewer",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Зачем в TypeScript нужны generic-параметры?"
+    }
+  },
+  {
+    "id": 373,
+    "type": "ai-interviewer",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Как работает narrowing union-типов?"
+    }
+  },
+  {
+    "id": 374,
+    "type": "ai-interviewer",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Когда лучше использовать interface, а когда type?"
+    }
+  },
+  {
+    "id": 375,
+    "type": "ai-interviewer",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Для чего полезны utility types вроде Partial, Pick и Omit?"
+    }
+  },
+  {
+    "id": 376,
+    "type": "ai-interviewer",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Зачем нужен never и где он помогает поймать ошибку дизайна типов?"
+    }
+  },
+  {
+    "id": 377,
+    "type": "multiple-choice",
+    "category": "TypeScript",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что верно про тип unknown?",
+      "answers": [
+        "Требует проверки перед использованием",
+        "Позволяет без проверок вызывать любые методы",
+        "Безопаснее any для неизвестных данных",
+        "Его можно сузить через typeof или instanceof"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 2, 3]
+    }
+  },
+  {
+    "id": 378,
+    "type": "ai-interviewer",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "В чем разница между localStorage, sessionStorage и IndexedDB?"
+    }
+  },
+  {
+    "id": 379,
+    "type": "ai-interviewer",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Когда стоит использовать IntersectionObserver вместо scroll-обработчика?"
+    }
+  },
+  {
+    "id": 380,
+    "type": "ai-interviewer",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Что дает AbortController в сетевых запросах?"
+    }
+  },
+  {
+    "id": 381,
+    "type": "ai-interviewer",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие задачи обычно решает Service Worker?"
+    }
+  },
+  {
+    "id": 382,
+    "type": "ai-interviewer",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Когда Web Worker действительно полезен?"
+    }
+  },
+  {
+    "id": 383,
+    "type": "ai-interviewer",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Для чего применяют History API в SPA-приложениях?"
+    }
+  },
+  {
+    "id": 384,
+    "type": "code-analysis",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": [
+        "const observer = new IntersectionObserver();",
+        "console.log(observer);",
+        "const ready = true;",
+        "console.log(ready);"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 385,
+    "type": "code-analysis",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": [
+        "const controller = new AbortController();",
+        "controller.signal.abort();",
+        "const status = \"idle\";",
+        "console.log(status);"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 386,
+    "type": "code-analysis",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": [
+        "const user = localStorage.getItem(\"user\");",
+        "console.log(user.name);",
+        "const done = true;",
+        "console.log(done);"
+      ]
+    },
+    "answerKey": {
+      "correctAnswers": [1]
+    }
+  },
+  {
+    "id": 387,
+    "type": "code-analysis",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие строки вызовут ошибку в JavaScript?",
+      "answers": ["const worker = new Worker();", "console.log(worker);", "const count = 0;", "console.log(count);"]
+    },
+    "answerKey": {
+      "correctAnswers": [0]
+    }
+  },
+  {
+    "id": 388,
+    "type": "multiple-choice",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 2,
+    "content": {
+      "question": "Какие API позволяют хранить данные в браузере?",
+      "answers": ["localStorage", "sessionStorage", "IndexedDB", "setTimeout"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
+    }
+  },
+  {
+    "id": 389,
+    "type": "multiple-choice",
+    "category": "Web & Browser APIs",
+    "complexity": "junior",
+    "time": 3,
+    "content": {
+      "question": "Какие API можно использовать для наблюдения за состоянием страницы или элементов?",
+      "answers": ["IntersectionObserver", "MutationObserver", "ResizeObserver", "PromiseObserver"]
+    },
+    "answerKey": {
+      "correctAnswers": [0, 1, 2]
     }
   }
 ]
