@@ -10,7 +10,13 @@ const { isDark, toggle } = useTheme();
     @click="toggle"
     aria-label="Toggle theme"
   >
-    <Transition name="theme-icon" mode="out-in">
+    <Transition
+      mode="out-in"
+      enter-active-class="transition-[opacity,transform] duration-200 ease-out"
+      enter-from-class="opacity-0 -rotate-90 scale-50"
+      leave-active-class="transition-[opacity,transform] duration-200 ease-out"
+      leave-to-class="opacity-0 rotate-90 scale-50"
+    >
       <i
         v-if="isDark"
         key="moon"
@@ -20,22 +26,3 @@ const { isDark, toggle } = useTheme();
     </Transition>
   </button>
 </template>
-
-<style scoped>
-.theme-icon-enter-active,
-.theme-icon-leave-active {
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
-}
-
-.theme-icon-enter-from {
-  opacity: 0;
-  transform: rotate(-90deg) scale(0.5);
-}
-
-.theme-icon-leave-to {
-  opacity: 0;
-  transform: rotate(90deg) scale(0.5);
-}
-</style>
