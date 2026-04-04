@@ -19,15 +19,6 @@ const emit = defineEmits<{
   (e: 'restart'): void;
 }>();
 
-const completionLabel = computed(() =>
-  new Intl.DateTimeFormat('ru-RU', {
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    month: 'long',
-  }).format(new Date(props.summary.completedAt)),
-);
-
 const maxScore = computed(() => props.summary.totalQuestions * 10);
 const progressPercent = computed(() => {
   if (maxScore.value === 0) return 0;
@@ -35,11 +26,21 @@ const progressPercent = computed(() => {
   return Math.min(100, Math.round((props.summary.totalScore / maxScore.value) * 100));
 });
 
-const progressToneClass = computed(() => {
-  if (progressPercent.value < 40) return 'summary-progress--low';
-  if (progressPercent.value < 70) return 'summary-progress--medium';
+const progressTone = computed(() => {
+  if (progressPercent.value < 40) return 'low';
+  if (progressPercent.value < 70) return 'medium';
 
-  return 'summary-progress--high';
+  return 'high';
+});
+
+const progressToneClass = computed(() => `summary-progress--${progressTone.value}`);
+
+const feedbackText = computed(() => {
+  if (progressTone.value === 'low')
+    return 'Ничего страшного — каждая попытка делает тебя сильнее. Повтори темы и попробуй ещё раз.';
+  if (progressTone.value === 'medium') return 'Ты на верном пути! Ещё немного практики, и результат будет ещё лучше.';
+
+  return 'Отличная работа! Так держать, продолжай в том же духе.';
 });
 
 function formatScore(score: number) {
@@ -66,7 +67,7 @@ function formatScore(score: number) {
             >
               <div class="space-y-3">
                 <p class="text-sm font-semibold text-emerald-950 dark:text-emerald-100">Результат сохранён</p>
-                <p class="text-sm text-emerald-800 dark:text-emerald-200">Попытка завершена {{ completionLabel }}.</p>
+                <p class="text-sm text-emerald-800 dark:text-emerald-200">{{ feedbackText }}</p>
               </div>
             </Message>
 
