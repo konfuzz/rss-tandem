@@ -49,15 +49,35 @@
 * **Backend:** Node.js с интеграцией OpenAI API для анализа ответов, SQLite для хранения данных.
 * **State Management:** Pinia.
 
+
+---
+## 💪 Чем гордимся
+
+**Ключевые достижения:**
+
+Результативность в сжатые сроки: За короткий цикл разработки реализовано полнофункциональное масштабируемое приложение.
+
+Адаптивность и антихрупкость: Когда на критическом этапе (4-я неделя) команда сократилась на треть, мы успешно перераспределили нагрузку и завершили проект вдвоем, не потеряв в качестве.
+
+Быстрое освоение стека: Весь проект реализован на базе новых для команды инструментов, что подтверждает нашу способность к быстрому обучению и внедрению технологий «с колес».
+
+**Сильные стороны:**
+
+Высокий уровень личной ответственности и вовлеченности.
+
+Умение эффективно действовать и принимать решения в условиях неопределенности и дефицита ресурсов.
+
+Навык доведения сложных продуктов до финального релиза в строгом соответствии с дедлайнами.
+
 ---
 
 ## 👥 Команда проекта
 
-| Разработчик | Роль | GitHub |
-| :--- | :--- | :--- |
-| **Andrei Pushchayenka** | Fullstack Developer, Team Lead | [@konfuzz](https://github.com/konfuzz) |
-| **Yuriy Barinov** | Fontend Developer | [@bariydev](https://github.com/bariydev) |
-| **Ekaterina Golosova** | Frontend Developer | [@roguestone](https://github.com/roguestone) |
+| Разработчик | Роль | GitHub | Diary
+| :--- | :--- | :--- | :--- |
+| **Andrei Pushchayenka** | Fullstack Developer, Team Lead | [@konfuzz](https://github.com/konfuzz) | [Link](https://github.com/konfuzz/rss-tandem/tree/main/development-notes/konfuzz) |
+| **Yuriy Barinov** | Fontend Developer | [@bariydev](https://github.com/bariydev) | [Link](https://github.com/konfuzz/rss-tandem/tree/main/development-notes/bariydev) |
+| **Ekaterina Golosova** | Frontend Developer | [@roguestone](https://github.com/roguestone) | [Link](https://github.com/konfuzz/rss-tandem/tree/main/development-notes/roguestone) |
 
 ---
 
@@ -69,7 +89,15 @@
 * 📅 [27 марта 2026](/meeting-notes/meeting-2026-03-27.md)
 
 ### 📺 Видеопрезентации
+* 🎥 [Демонстрация работы приложения, Week 7 Checkpoint](https://www.youtube.com/watch?v=cR69Lja8EEs)
 * 🎥 [Week 5 Checkpoint Video](https://link.storjshare.io/raw/jvfvlz4gh3e3mec62us7qxmepn5a/screenshots/chrome_2026-03-22_19-51-41.mp4)
+
+### 📄 Kanban Board
+[Link](https://github.com/users/konfuzz/projects/2/views/1)
+![](https://link.storjshare.io/raw/jvfvlz4gh3e3mec62us7qxmepn5a/screenshots/firefox_2026-04-06_22-25-53.jpg)
+
+### 📄 Лучшие PR
+[PR 1](https://github.com/konfuzz/rss-tandem/pull/23) | [PR 2](https://github.com/konfuzz/rss-tandem/pull/47) | [PR 3](https://github.com/konfuzz/rss-tandem/pull/46) | [PR 4](https://github.com/konfuzz/rss-tandem/pull/39) | 
 
 ---
 
