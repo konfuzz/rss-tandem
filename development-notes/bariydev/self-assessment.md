@@ -1,6 +1,6 @@
 # Self-assessment — Yuriy Barinov ([@bariydev](https://github.com/bariydev))
 
-**PR:**
+**PR:** [Link](https://github.com/konfuzz/rss-tandem/pull/63)
 
 **Репозиторий:** [konfuzz/rss-tandem](https://github.com/konfuzz/rss-tandem)
 
