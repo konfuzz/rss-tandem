@@ -53,7 +53,7 @@ export function buildQuizSummary({
 export function calculateQuizStats(answers: QuizRound[]): QuizStats {
   const answeredQuestions = answers.length;
   const totalDuration = answers.reduce((acc, curr) => acc + curr.time, 0);
-  const totalScore = answers.reduce((acc, curr) => acc + curr.score, 0);
+  const totalScore = Math.round(answers.reduce((acc, curr) => acc + curr.score, 0) * 10) / 10;
   const categoriesMap = new Map<string, { count: number; totalScore: number }>();
 
   answers.forEach((answer) => {

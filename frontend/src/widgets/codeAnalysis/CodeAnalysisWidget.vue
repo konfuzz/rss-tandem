@@ -27,10 +27,11 @@ const emit = defineEmits<{
   (e: 'validated', valid: boolean): void;
 }>();
 
-const status = ref<'fail' | 'playing' | 'showing_answer' | 'success'>('playing');
+const status = ref<'fail' | 'partial' | 'playing' | 'showing_answer' | 'success'>('playing');
 const selectedLines = ref<number[]>([]);
 const userSelectedLines = ref<number[]>([]);
 const correctLineIndices = ref<number[]>([]);
+const previousStatus = ref<'fail' | 'partial'>('fail');
 const isSubmitting = ref(false);
 const notice = ref<null | { severity: NoticeSeverity; text: string }>(null);
 
@@ -61,8 +62,8 @@ function getCodeClasses(index: number) {
   const isCorrectVisible =
     (status.value === 'success' && isSelected && isCorrect) ||
     (status.value === 'showing_answer' && isCorrect) ||
-    (status.value === 'fail' && isSelected && isCorrect);
-  const isWrongVisible = status.value === 'fail' && isSelected && !isCorrect;
+    ((status.value === 'fail' || status.value === 'partial') && isSelected && isCorrect);
+  const isWrongVisible = (status.value === 'fail' || status.value === 'partial') && isSelected && !isCorrect;
 
   return [
     'ca-code text-zinc-700 dark:text-zinc-200',
@@ -78,8 +79,8 @@ function getGutterClasses(index: number) {
   const isCorrectVisible =
     (status.value === 'success' && isSelected && isCorrect) ||
     (status.value === 'showing_answer' && isCorrect) ||
-    (status.value === 'fail' && isSelected && isCorrect);
-  const isWrongVisible = status.value === 'fail' && isSelected && !isCorrect;
+    ((status.value === 'fail' || status.value === 'partial') && isSelected && isCorrect);
+  const isWrongVisible = (status.value === 'fail' || status.value === 'partial') && isSelected && !isCorrect;
 
   return [
     'ca-gutter border-zinc-200 text-zinc-400 dark:border-zinc-700/60 dark:text-zinc-500',
@@ -99,8 +100,8 @@ function getLineClasses(index: number) {
   const isCorrectVisible =
     (status.value === 'success' && isSelected && isCorrect) ||
     (status.value === 'showing_answer' && isCorrect) ||
-    (status.value === 'fail' && isSelected && isCorrect);
-  const isWrongVisible = status.value === 'fail' && isSelected && !isCorrect;
+    ((status.value === 'fail' || status.value === 'partial') && isSelected && isCorrect);
+  const isWrongVisible = (status.value === 'fail' || status.value === 'partial') && isSelected && !isCorrect;
 
   return [
     'ca-line group/line',
@@ -142,7 +143,7 @@ function showAnswer() {
     }
 
     selectedLines.value = [...userSelectedLines.value];
-    status.value = 'fail';
+    status.value = previousStatus.value;
     clearNotice();
     emit('validated', true);
     return;
@@ -225,7 +226,10 @@ async function validate() {
 
     userSelectedLines.value = [...selectedLines.value];
     correctLineIndices.value = Array.isArray(data.correctAnswer) ? [...data.correctAnswer] : [];
-    status.value = score === 10 ? 'success' : 'fail';
+    const hasAnyCorrect = selectedLines.value.some((idx) => correctLineIndices.value.includes(idx));
+    const resolvedStatus = score === 10 ? 'success' : hasAnyCorrect ? 'partial' : 'fail';
+    status.value = resolvedStatus;
+    if (resolvedStatus === 'fail' || resolvedStatus === 'partial') previousStatus.value = resolvedStatus;
 
     emit('result', { score, success: score === 10 });
     quizState.recordAnswer(props.questionId, props.category, score);
@@ -284,6 +288,16 @@ defineExpose({ validate });
     </Message>
 
     <Message
+      v-else-if="status === 'partial'"
+      severity="warn"
+      :closable="false"
+      icon="pi pi-exclamation-circle"
+      class="shadow-sm"
+    >
+      Ответ частично верный.
+    </Message>
+
+    <Message
       v-else-if="status === 'fail'"
       severity="error"
       :closable="false"
@@ -327,7 +341,7 @@ defineExpose({ validate });
 
     <div class="flex items-center justify-start pt-1">
       <Button
-        v-if="status === 'fail' || status === 'showing_answer'"
+        v-if="status === 'fail' || status === 'partial' || status === 'showing_answer'"
         :label="answerActionLabel"
         :icon="status === 'showing_answer' ? 'pi pi-undo' : 'pi pi-eye'"
         severity="secondary"

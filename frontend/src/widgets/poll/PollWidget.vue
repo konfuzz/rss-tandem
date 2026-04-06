@@ -60,7 +60,7 @@ function getOptionClasses(index: number) {
   const isWrongAnswerVisible = status.value === 'fail' && isSelected;
 
   return [
-    'poll-option min-h-16 cursor-pointer rounded-md border-2 text-zinc-900 shadow-sm transition-all duration-200 dark:text-zinc-100',
+    'grid grid-cols-[2rem_minmax(0,1fr)] items-center gap-x-6 px-6 py-4 min-h-16 cursor-pointer rounded-md border-2 text-zinc-900 shadow-sm transition-all duration-200 dark:text-zinc-100',
     'border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-900/40',
     !isFinished.value &&
       'hover:-translate-y-0.5 hover:border-zinc-300 hover:bg-zinc-50 hover:shadow-md dark:hover:border-zinc-500 dark:hover:bg-zinc-900/65',
@@ -253,7 +253,7 @@ defineExpose({ validate });
         :class="getOptionClasses(index)"
         @click="selectAnswer(index)"
       >
-        <div class="poll-option-radio">
+        <div class="flex w-8 items-center justify-center">
           <RadioButton
             :input-id="`poll-answer-${index}`"
             :model-value="selectedAnswer"
@@ -286,20 +286,3 @@ defineExpose({ validate });
     </div>
   </div>
 </template>
-
-<style scoped>
-.poll-option {
-  display: grid;
-  grid-template-columns: 2rem minmax(0, 1fr);
-  align-items: center;
-  column-gap: 1.5rem;
-  padding: 1rem 1.5rem;
-}
-
-.poll-option-radio {
-  display: flex;
-  width: 2rem;
-  align-items: center;
-  justify-content: center;
-}
-</style>

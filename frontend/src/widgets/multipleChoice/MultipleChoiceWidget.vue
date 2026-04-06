@@ -28,10 +28,11 @@ const emit = defineEmits<{
   (e: 'validated', valid: boolean): void;
 }>();
 
-const status = ref<'fail' | 'playing' | 'showing_answer' | 'success'>('playing');
+const status = ref<'fail' | 'partial' | 'playing' | 'showing_answer' | 'success'>('playing');
 const selectedAnswers = ref<number[]>([]);
 const userSelectedAnswers = ref<number[]>([]);
 const correctAnswerIndices = ref<number[]>([]);
+const previousStatus = ref<'fail' | 'partial'>('fail');
 const isSubmitting = ref(false);
 const notice = ref<null | { severity: NoticeSeverity; text: string }>(null);
 
@@ -57,11 +58,11 @@ function getOptionClasses(index: number) {
   const isCorrectAnswerVisible =
     (status.value === 'success' && isSelected && isCorrect) ||
     (status.value === 'showing_answer' && isCorrect) ||
-    (status.value === 'fail' && isSelected && isCorrect);
-  const isWrongAnswerVisible = status.value === 'fail' && isSelected && !isCorrect;
+    ((status.value === 'fail' || status.value === 'partial') && isSelected && isCorrect);
+  const isWrongAnswerVisible = (status.value === 'fail' || status.value === 'partial') && isSelected && !isCorrect;
 
   return [
-    'multiple-choice-option min-h-16 cursor-pointer rounded-md border-2 text-zinc-900 shadow-sm transition-all duration-200 dark:text-zinc-100',
+    'grid grid-cols-[2rem_minmax(0,1fr)] items-center gap-x-6 px-6 py-4 min-h-16 cursor-pointer rounded-md border-2 text-zinc-900 shadow-sm transition-all duration-200 dark:text-zinc-100',
     'border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-900/40',
     !isFinished.value &&
       'hover:-translate-y-0.5 hover:border-zinc-300 hover:bg-zinc-50 hover:shadow-md dark:hover:border-zinc-500 dark:hover:bg-zinc-900/65',
@@ -98,7 +99,7 @@ function showAnswer() {
     }
 
     selectedAnswers.value = [...userSelectedAnswers.value];
-    status.value = 'fail';
+    status.value = previousStatus.value;
     clearNotice();
     emit('validated', true);
     return;
@@ -181,7 +182,10 @@ async function validate() {
 
     userSelectedAnswers.value = [...selectedAnswers.value];
     correctAnswerIndices.value = Array.isArray(data.correctAnswer) ? [...data.correctAnswer] : [];
-    status.value = score === 10 ? 'success' : 'fail';
+    const hasAnyCorrect = selectedAnswers.value.some((idx) => correctAnswerIndices.value.includes(idx));
+    const resolvedStatus = score === 10 ? 'success' : hasAnyCorrect ? 'partial' : 'fail';
+    status.value = resolvedStatus;
+    if (resolvedStatus === 'fail' || resolvedStatus === 'partial') previousStatus.value = resolvedStatus;
 
     emit('result', { score, success: score === 10 });
     quizState.recordAnswer(props.questionId, props.category, score);
@@ -237,6 +241,16 @@ defineExpose({ validate });
     </Message>
 
     <Message
+      v-else-if="status === 'partial'"
+      severity="warn"
+      :closable="false"
+      icon="pi pi-exclamation-circle"
+      class="shadow-sm"
+    >
+      Ответ частично верный.
+    </Message>
+
+    <Message
       v-else-if="status === 'fail'"
       severity="error"
       :closable="false"
@@ -252,7 +266,7 @@ defineExpose({ validate });
 
     <div v-if="hasRenderableTask" class="grid gap-3">
       <label v-for="(answer, index) in answers" :key="`${index}-${answer}`" :class="getOptionClasses(index)">
-        <div class="multiple-choice-option-check">
+        <div class="flex w-8 items-center justify-center">
           <Checkbox
             :binary="true"
             :input-id="`multiple-choice-answer-${index}`"
@@ -273,7 +287,7 @@ defineExpose({ validate });
 
     <div class="flex items-center justify-start pt-1">
       <Button
-        v-if="status === 'fail' || status === 'showing_answer'"
+        v-if="status === 'fail' || status === 'partial' || status === 'showing_answer'"
         :label="answerActionLabel"
         :icon="status === 'showing_answer' ? 'pi pi-undo' : 'pi pi-eye'"
         severity="secondary"
@@ -284,20 +298,3 @@ defineExpose({ validate });
     </div>
   </div>
 </template>
-
-<style scoped>
-.multiple-choice-option {
-  display: grid;
-  grid-template-columns: 2rem minmax(0, 1fr);
-  align-items: center;
-  column-gap: 1.5rem;
-  padding: 1rem 1.5rem;
-}
-
-.multiple-choice-option-check {
-  display: flex;
-  width: 2rem;
-  align-items: center;
-  justify-content: center;
-}
-</style>

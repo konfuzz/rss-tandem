@@ -499,7 +499,6 @@ const showAnswer = () => {
       <!-- Constructor -->
       <div
         class="flex min-h-20 items-center justify-center overflow-x-auto rounded-2xl p-8 transition-all duration-500 md:p-6"
-        :class="{ 'animating-answer': status === 'showing_answer' }"
       >
         <div v-if="root" class="flex items-center">
           <MethodNode
@@ -580,28 +579,3 @@ const showAnswer = () => {
     </div>
   </div>
 </template>
-
-<style scoped>
-/* Show Answer Animation */
-.animating-answer :deep(.method-node) {
-  animation: slide-up-fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-/* Stagger the inner components slightly */
-.animating-answer :deep(.method-node .method-node) {
-  animation-delay: 0.1s;
-}
-.animating-answer :deep(.method-node .method-node .method-node) {
-  animation-delay: 0.2s;
-}
-
-@keyframes slide-up-fade {
-  from {
-    opacity: 0;
-    transform: translateY(12px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-</style>

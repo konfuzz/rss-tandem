@@ -3466,12 +3466,20 @@
     "complexity": "junior",
     "time": 5,
     "content": {
-      "question": "Соберите метод Object.defineProperty правильно",
+      "question": "Соберите вызов Object.assign правильно",
       "initialCode": {
-        "label": "defineProperty",
+        "label": "assign",
         "isContainer": true
       },
       "answers": [
+        {
+          "label": "target",
+          "isContainer": false
+        },
+        {
+          "label": "source",
+          "isContainer": false
+        },
         {
           "label": "obj",
           "isContainer": false
@@ -3481,61 +3489,32 @@
           "isContainer": false
         },
         {
-          "label": "descriptor",
-          "isContainer": true
+          "label": "key",
+          "isContainer": false
         },
         {
           "label": "value",
           "isContainer": false
         },
         {
-          "label": "writable",
+          "label": "descriptor",
           "isContainer": false
         },
         {
-          "label": "enumerable",
-          "isContainer": false
-        },
-        {
-          "label": "configurable",
-          "isContainer": false
-        },
-        {
-          "label": "currentValue",
-          "isContainer": false
-        },
-        {
-          "label": "separator",
-          "isContainer": false
+          "label": "callbackFn",
+          "isContainer": true
         }
       ]
     },
     "answerKey": {
       "correctStructure": {
-        "label": "defineProperty",
+        "label": "assign",
         "children": [
           {
-            "label": "obj"
+            "label": "target"
           },
           {
-            "label": "prop"
-          },
-          {
-            "label": "descriptor",
-            "children": [
-              {
-                "label": "value"
-              },
-              {
-                "label": "writable"
-              },
-              {
-                "label": "enumerable"
-              },
-              {
-                "label": "configurable"
-              }
-            ]
+            "label": "source"
           }
         ]
       }
