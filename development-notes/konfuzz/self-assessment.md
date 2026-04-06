@@ -1,0 +1,60 @@
+# Self-assessment: Konfuzz (rss-tandem)
+
+[PR Link](https://github.com/konfuzz/rss-tandem/pull/65)
+
+## 1. Таблица реализованных фич
+
+| Фича | Ссылка на код | Баллы |
+| :--- | :--- | :--- |
+| **Complex Component:** AI Interviewer Widget | [link](https://github.com/konfuzz/rss-tandem/blob/main/frontend/src/widgets/ai-interviewer/Ai-interviewer.vue) | +25 |
+| **Сложный бэкенд-сервис:** AI Interviewer Backend | [link](https://github.com/konfuzz/rss-tandem/blob/main/backend/src/routes/ai.ts) | +30 |
+| **Rich UI Screen:** Dashboard (логика квиза и состояния) | [link](https://github.com/konfuzz/rss-tandem/blob/main/frontend/src/views/DashboardView.vue) | +20 |
+| **Rich UI Screen:** Главная страница приложения | [link](https://github.com/konfuzz/rss-tandem/blob/main/frontend/src/views/HomepageView.vue) | +20 |
+| **Сложный бэкенд-сервис:** Алгоритм взвешенного выбора вопросов | [link](https://github.com/konfuzz/rss-tandem/blob/main/backend/src/routes/start.ts) | +30 |
+| **Сложный бэкенд-сервис:** выдача статистики по пользователю | [link](https://github.com/konfuzz/rss-tandem/blob/main/backend/src/routes/stats.ts) | +30 |
+| **Сложный бэкенд-сервис:** формирование лидерборда | [link](https://github.com/konfuzz/rss-tandem/blob/main/backend/src/routes/leaders.ts) | +30 |
+| **Custom Backend:** Node.js/Express с локальной БД (SQLite + Drizzle ORM) | [link](https://github.com/konfuzz/rss-tandem/blob/main/backend/src) | +30 |
+| **Custom Auth:** Собственная авторизация (JWT + bcrypt + middleware) без BaaS | [link](https://github.com/konfuzz/rss-tandem/blob/main/backend/src/index.ts) | +20 |
+| **Backend Framework:** Использование Express | [link](https://github.com/konfuzz/rss-tandem/blob/main/backend/src/index.ts) | +10 |
+| **AI Chat UI:** Интерфейс AI-интервьюера | [link](https://github.com/konfuzz/rss-tandem/blob/main/frontend/src/widgets/ai-interviewer/Ai-interviewer.vue) | +20 |
+| **AI Streaming:** Посимвольный вывод ответа | [link](https://github.com/konfuzz/rss-tandem/blob/main/frontend/src/widgets/ai-interviewer/Ai-interviewer.vue) | +10 |
+| **Prompt Engineering:** Документация и итерации промптов для AI | [link](https://github.com/konfuzz/rss-tandem/blob/main/development-notes/konfuzz) | +15 |
+| **Tool Use:** Function Calling для получения оценки (rate_answer) | [link](https://github.com/konfuzz/rss-tandem/blob/main/backend/src/routes/ai.ts) | +15 |
+| **State Manager:** Pinia (Store для квиза и состояния пользователя) | [link](https://github.com/konfuzz/rss-tandem/blob/main/frontend/src/stores/) | +10 |
+| **Vue:** Использование Vue 3 | Весь фронтенд | +5 |
+| **Responsive:** Адаптация под мобильные устройства (от 320px) | Весь фронтенд | +5 |
+| **Итого:** | | **325** |
+
+---
+
+## 2. Описание работы
+
+В рамках проекта я взял на себя ответственность за создание бэкэнда приложения на nodejs/express/sqlite/drizzleORM, разработку интерактивного компонента «AI-интервьюер», главной страницы приложения, интерактивного дашборда с пользовательской статистикой, страниц логина и регистрации пользователя, а также реализовал деплой приложения на VPS. Помимо этого занимался организацией процесса разработки в команде, изготовлением прототипов интерфейса, продумал общую концепцию, функционал и архитектуру приложения.
+
+### Процесс и технологии
+- **Frontend:** Vue 3 (Composition API), Pinia для управления состоянием, PrimeVue как база компонентов, Tailwind CSS для стилизации. 
+- **Backend:** Node.js (Express), в качестве ORM использовал Drizzle для работы с БД SQLite. Регистрация и авторизация выполнены при помощи jwt (`jose`) + bcrypt + middleware.
+- **AI Интеграция:** Для AI-интервьюера был реализован стриминг ответов, а также внедрил Function Calling для того, чтобы модель не просто выдавала текст, но и возвращала структурированную оценку ответа пользователя.
+
+---
+
+## 3. Личные Feature Components
+
+### 1. Виджет «AI-интервьюер»
+Это компонент-чат, который заменяет классические тесты на «живое» общение, имитируя диалог с настоящим интервьюером. Что было сделано: бэкэнд-компонент, реализующий обращение к API OpenRouter для получения ответа модели и обработка чанков ответа на фронте, function calling для получения оценки ответа в структурированном виде, вёрстка интерфейса, логика скрытия полей ввода, обработка ошибок и повторных попыток при сбое бэкенда.
+
+**Сложности:**
+Одной из самых больших проблем стала нестабильность ответов LLM и кэширование токенов провайдерами, из-за чего модель могла "зацикливаться" или выдавать галлюцинации. Решил это через:
+1. Тщательный **Prompt Engineering** (четкая структура ограничений).
+2. Динамическое изменение системного сообщения (добавление уникального UUID в каждый запрос).
+
+Также было непросто подобрать подходящую по соотношению цена/качество/скорость модель и добиться от неё гарантированного вызова функции вместе с текстовым ответом. В итоге, в качестве страховки была реализована **Retry-система** на бэкенде: если модель не вызывает функцию оценки в первом стриме, бэкенд делает повторный уточняющий запрос.
+
+### 2. Алгоритм взвешенного случайного выбора (Backend)
+Механизм формирования выборки вопросов для квиза. Именно он делает квиз адаптивным и гарантирует, что пользователь не будет постоянно видеть одни и те же вопросы и будет чаще сталкиваться с темами, в которых у него есть пробелы в знаниях.
+
+**Проблема**: простой механизм случайного выбора не обеспечивает разнообразие вопросов по категориям и типам в несбалансированной базе вопросов.
+
+**Решение:** Математическая логика расчета весов на основе 4-х факторов: тип вопроса, категория, частота показов пользователю и прошлые результаты (оценки). Реализация алгоритма взвешенного выбора и системы ограничений, гарантирующей обязательное наличие вопросов разных типов и категорий в каждом квизе.
+
+**Сложности:** алгоритм оказался крепким орешком, пришлось сильно напрягать мозги.
