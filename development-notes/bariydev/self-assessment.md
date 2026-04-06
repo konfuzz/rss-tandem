@@ -7,16 +7,17 @@
 ## 1. Таблица фич
 
 | Фича | Реализация | PR | Баллы |
-| ------------------------ | ---------- | --- | ----- |
+| - | - | - | - |
 | **Complex Component** (+25 × 4) | **Poll + Multiple choice** — одна линейка похожих виджетов выбора (один / несколько вариантов); **Code analysis**; **Method Builder**; **Экран итогов (Summary)** | [#39](https://github.com/konfuzz/rss-tandem/pull/39) (виджеты), [#33](https://github.com/konfuzz/rss-tandem/pull/33) (Method Builder), [#46](https://github.com/konfuzz/rss-tandem/pull/46) (summary) | **100** |
+| **Rich UI Screen** (+20) | Лидерборд | [#53](https://github.com/konfuzz/rss-tandem/pull/53) | **20** |
 | **Drag & Drop** (+10) | Перетаскивание и сборка метода в Method Builder | [#33](https://github.com/konfuzz/rss-tandem/pull/33) | **10** |
-| **Leaderboard** (+5, Game) | Таблица лидеров | [#53](https://github.com/konfuzz/rss-tandem/pull/53) | **5** |
+| **Leaderboard** (+5) | Таблица лидеров | [#53](https://github.com/konfuzz/rss-tandem/pull/53) | **5** |
 | **Responsive** (+5) | - | - | **5** |
 | **Theme Switcher** (+10) | Светлая/тёмная тема | [#43](https://github.com/konfuzz/rss-tandem/pull/43) | **10** |
 | **Vue** (+5) | Vue 3 в перечисленных компонентах | - | **5** |
 | **State Manager** (+10) | Pinia (`useQuizStore` и др.) в виджетах и итогах | - | **10** |
 
-**Сумма:** 100 + 10 + 5 + 5 + 10 + 5 + 10 = **145**  
+**Сумма:** 100 + 20 + 10 + 5 + 5 + 10 + 5 + 10 = **165**  
 
 ## 2. Описание работы
 
