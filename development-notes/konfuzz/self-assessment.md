@@ -1,24 +1,26 @@
 # Self-assessment: Konfuzz (rss-tandem)
 
+[PR Link](https://github.com/konfuzz/rss-tandem/pull/65)
+
 ## 1. Таблица реализованных фич
 
 | Фича | Ссылка на код | Баллы |
 | :--- | :--- | :--- |
-| **Complex Component:** AI Interviewer Widget | [link](/frontend/src/widgets/ai-interviewer/Ai-interviewer.vue) | +25 |
-| **Сложный бэкенд-сервис:** AI Interviewer Backend | [link](/backend/src/routes/ai.ts) | +30 |
-| **Rich UI Screen:** Dashboard (логика квиза и состояния) | [link](/frontend/src/views/DashboardView.vue) | +20 |
-| **Rich UI Screen:** Главная страница приложения | [link](/frontend/src/views/HomepageView.vue) | +20 |
-| **Сложный бэкенд-сервис:** Алгоритм взвешенного выбора вопросов | [link](/backend/src/routes/start.ts) | +30 |
-| **Сложный бэкенд-сервис:** выдача статистики по пользователю | [link](/backend/src/routes/stats.ts) | +30 |
-| **Сложный бэкенд-сервис:** формирование лидерборда | [link](/backend/src/routes/leaders.ts) | +30 |
-| **Custom Backend:** Node.js/Express с локальной БД (SQLite + Drizzle ORM) | [link](/backend/src) | +30 |
-| **Custom Auth:** Собственная авторизация (JWT + bcrypt + middleware) без BaaS | [link](/backend/src/index.ts) | +20 |
-| **Backend Framework:** Использование Express | [link](/backend/src/index.ts) | +10 |
-| **AI Chat UI:** Интерфейс AI-интервьюера | [link](/frontend/src/widgets/ai-interviewer/Ai-interviewer.vue) | +20 |
-| **AI Streaming:** Посимвольный вывод ответа | [link](/frontend/src/widgets/ai-interviewer/Ai-interviewer.vue) | +10 |
-| **Prompt Engineering:** Документация и итерации промптов для AI | [link](/development-notes/konfuzz) | +15 |
-| **Tool Use:** Function Calling для получения оценки (rate_answer) | [link](./backend/src/routes/ai.ts) | +15 |
-| **State Manager:** Pinia (Store для квиза и состояния пользователя) | [link](./frontend/src/stores/quiz.ts) | +10 |
+| **Complex Component:** AI Interviewer Widget | [link](https://github.com/konfuzz/rss-tandem/blob/main/frontend/src/widgets/ai-interviewer/Ai-interviewer.vue) | +25 |
+| **Сложный бэкенд-сервис:** AI Interviewer Backend | [link](https://github.com/konfuzz/rss-tandem/blob/main/backend/src/routes/ai.ts) | +30 |
+| **Rich UI Screen:** Dashboard (логика квиза и состояния) | [link](https://github.com/konfuzz/rss-tandem/blob/main/frontend/src/views/DashboardView.vue) | +20 |
+| **Rich UI Screen:** Главная страница приложения | [link](https://github.com/konfuzz/rss-tandem/blob/main/frontend/src/views/HomepageView.vue) | +20 |
+| **Сложный бэкенд-сервис:** Алгоритм взвешенного выбора вопросов | [link](https://github.com/konfuzz/rss-tandem/blob/main/backend/src/routes/start.ts) | +30 |
+| **Сложный бэкенд-сервис:** выдача статистики по пользователю | [link](https://github.com/konfuzz/rss-tandem/blob/main/backend/src/routes/stats.ts) | +30 |
+| **Сложный бэкенд-сервис:** формирование лидерборда | [link](https://github.com/konfuzz/rss-tandem/blob/main/backend/src/routes/leaders.ts) | +30 |
+| **Custom Backend:** Node.js/Express с локальной БД (SQLite + Drizzle ORM) | [link](https://github.com/konfuzz/rss-tandem/blob/main/backend/src) | +30 |
+| **Custom Auth:** Собственная авторизация (JWT + bcrypt + middleware) без BaaS | [link](https://github.com/konfuzz/rss-tandem/blob/main/backend/src/index.ts) | +20 |
+| **Backend Framework:** Использование Express | [link](https://github.com/konfuzz/rss-tandem/blob/main/backend/src/index.ts) | +10 |
+| **AI Chat UI:** Интерфейс AI-интервьюера | [link](https://github.com/konfuzz/rss-tandem/blob/main/frontend/src/widgets/ai-interviewer/Ai-interviewer.vue) | +20 |
+| **AI Streaming:** Посимвольный вывод ответа | [link](https://github.com/konfuzz/rss-tandem/blob/main/frontend/src/widgets/ai-interviewer/Ai-interviewer.vue) | +10 |
+| **Prompt Engineering:** Документация и итерации промптов для AI | [link](https://github.com/konfuzz/rss-tandem/blob/main/development-notes/konfuzz) | +15 |
+| **Tool Use:** Function Calling для получения оценки (rate_answer) | [link](https://github.com/konfuzz/rss-tandem/blob/main/backend/src/routes/ai.ts) | +15 |
+| **State Manager:** Pinia (Store для квиза и состояния пользователя) | [link](https://github.com/konfuzz/rss-tandem/blob/main/frontend/src/stores/) | +10 |
 | **Vue:** Использование Vue 3 | Весь фронтенд | +5 |
 | **Responsive:** Адаптация под мобильные устройства (от 320px) | Весь фронтенд | +5 |
 | **Итого:** | | **325** |
