@@ -9,8 +9,20 @@ const MultipleKeySchema = z.object({
   correctAnswers: z.array(z.number()),
 });
 
+interface DragDropNode {
+  children?: DragDropNode[];
+  label: string;
+}
+
+const DragDropNodeSchema: z.ZodType<DragDropNode> = z.lazy(() =>
+  z.object({
+    children: z.array(DragDropNodeSchema).optional(),
+    label: z.string(),
+  }),
+);
+
 const DragDropKeySchema = z.object({
-  correctStructure: z.record(z.string(), z.any()),
+  correctStructure: DragDropNodeSchema,
 });
 
 export const QuestionSchema = z.discriminatedUnion('type', [
