@@ -120,7 +120,7 @@ function onValidated(valid: boolean) {
 
 <template>
   <div class="flex min-h-screen items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
-    <Card class="w-full max-w-[1200px] rounded-2xl shadow-xl">
+    <Card class="w-full max-w-300 rounded-2xl shadow-xl">
       <template #title>
         <div class="flex items-center justify-between">
           <h2 class="text-xl font-semibold">Вопрос №{{ currentIndex + 1 }}</h2>
@@ -154,22 +154,3 @@ function onValidated(valid: boolean) {
     </Card>
   </div>
 </template>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
-}
-
-.fade-enter-from {
-  opacity: 0;
-  transform: translateX(15px);
-}
-
-.fade-leave-to {
-  opacity: 0;
-  transform: translateX(-15px);
-}
-</style>
