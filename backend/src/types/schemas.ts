@@ -9,8 +9,20 @@ const MultipleKeySchema = z.object({
   correctAnswers: z.array(z.number()),
 });
 
+interface DragDropNode {
+  children?: DragDropNode[];
+  label: string;
+}
+
+const DragDropNodeSchema: z.ZodType<DragDropNode> = z.lazy(() =>
+  z.object({
+    children: z.array(DragDropNodeSchema).optional(),
+    label: z.string(),
+  }),
+);
+
 const DragDropKeySchema = z.object({
-  correctStructure: z.record(z.string(), z.any()),
+  correctStructure: DragDropNodeSchema,
 });
 
 export const QuestionSchema = z.discriminatedUnion('type', [
@@ -47,7 +59,10 @@ export const RegisterSchema = z.object({
   username: z
     .string()
     .min(3, 'Юзернейм должен быть не короче 3 символов')
-    .max(20, 'Слишком длинный юзернейм')
+    .max(20, 'Слишком длинный юзернейм (максимум 20 символов)')
     .trim()
-    .regex(/^[a-zA-Z0-9_]+$/, 'Можно использовать только буквы, цифры и подчеркивание'),
+    .regex(
+      /^[a-zA-Z0-9_]+$/,
+      'Юзернейм должен содержать только буквы английского алфавита, цифры и нижнее подчеркивание',
+    ),
 });

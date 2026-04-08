@@ -8,6 +8,33 @@ const team = [
   { github: 'https://github.com/bariydev', name: 'Yuriy Barinov' },
   { github: 'https://github.com/roguestone', name: 'Ekaterina Golosova' },
 ];
+
+const widgets = [
+  {
+    alt: 'Виджет Выбор ответа',
+    description: 'Интерактивные вопросы с выбором правильного ответа и пояснениями.',
+    img: '/poll.webp',
+    title: 'Выбор ответа',
+  },
+  {
+    alt: 'Виджет Анализ кода',
+    description: 'Найдите ошибки в коде в режиме реального времени.',
+    img: '/code.webp',
+    title: 'Анализ кода',
+  },
+  {
+    alt: 'Виджет Конструктор методов',
+    description: 'Оттачивайте знания синтаксиса при помощи drag-and-drop конструктора методов.',
+    img: '/builder.webp',
+    title: 'Конструктор методов',
+  },
+  {
+    alt: 'Виджет AI-интервьюер',
+    description: 'Отвечайте на вопросы и получайте оценку и фидбэк от AI-интервьюера.',
+    img: '/ai.webp',
+    title: 'AI-интервьюер',
+  },
+];
 </script>
 
 <template>
@@ -60,53 +87,22 @@ const team = [
 
         <div class="mb-20 grid grid-cols-1 gap-8 md:grid-cols-2">
           <div
+            v-for="widget in widgets"
+            :key="widget.title"
             class="group rounded-3xl border border-zinc-100 bg-white p-8 transition-all duration-300 hover:border-emerald-500/30 hover:shadow-2xl dark:border-zinc-700/50 dark:bg-zinc-800/50"
           >
             <div
-              class="mb-6 flex h-48 w-full items-center justify-center rounded-2xl border-2 border-dashed border-zinc-200 transition-colors group-hover:bg-zinc-200 dark:border-zinc-700 dark:group-hover:bg-zinc-700"
+              class="h-max-80 mb-6 flex w-full items-center justify-center rounded-2xl border-2 border-dashed border-zinc-200 transition-colors group-hover:bg-zinc-200 dark:border-zinc-700 dark:group-hover:bg-zinc-700"
             >
-              <img src="/polls.webp" alt="Виджет Выбор ответа" class="h-full w-full object-contain" />
+              <img :src="widget.img" :alt="widget.alt" class="h-full w-full rounded-3xl object-contain" />
             </div>
-            <h3 class="mb-3 text-xl font-bold text-zinc-800 dark:text-zinc-100">Выбор ответа</h3>
+
+            <h3 class="mb-3 text-xl font-bold text-zinc-800 dark:text-zinc-100">
+              {{ widget.title }}
+            </h3>
+
             <p class="text-zinc-600 dark:text-zinc-400">
-              Интерактивные вопросы с выбором правильного ответа и пояснениями.
-            </p>
-          </div>
-          <div
-            class="group rounded-3xl border border-zinc-100 bg-white p-8 transition-all duration-300 hover:border-emerald-500/30 hover:shadow-2xl dark:border-zinc-700/50 dark:bg-zinc-800/50"
-          >
-            <div
-              class="mb-6 flex h-48 w-full items-center justify-center rounded-2xl border-2 border-dashed border-zinc-200 transition-colors group-hover:bg-zinc-200 dark:border-zinc-700 dark:group-hover:bg-zinc-700"
-            >
-              <img src="/code-analysis.webp" alt="Виджет Анализ кода" class="h-full w-full object-contain" />
-            </div>
-            <h3 class="mb-3 text-xl font-bold text-zinc-800 dark:text-zinc-100">Анализ кода</h3>
-            <p class="text-zinc-600 dark:text-zinc-400">Найдите ошибки в коде в режиме реального времени.</p>
-          </div>
-          <div
-            class="group rounded-3xl border border-zinc-100 bg-white p-8 transition-all duration-300 hover:border-emerald-500/30 hover:shadow-2xl dark:border-zinc-700/50 dark:bg-zinc-800/50"
-          >
-            <div
-              class="mb-6 flex h-48 w-full items-center justify-center rounded-2xl border-2 border-dashed border-zinc-200 transition-colors group-hover:bg-zinc-200 dark:border-zinc-700 dark:group-hover:bg-zinc-700"
-            >
-              <img src="/method-builder.webp" alt="Виджет Конструктор методов" class="h-full w-full object-contain" />
-            </div>
-            <h3 class="mb-3 text-xl font-bold text-zinc-800 dark:text-zinc-100">Конструктор методов</h3>
-            <p class="text-zinc-600 dark:text-zinc-400">
-              Оттачивайте знания синтаксиса при помощи drag-and-drop конструктора методов.
-            </p>
-          </div>
-          <div
-            class="group rounded-3xl border border-zinc-100 bg-white p-8 transition-all duration-300 hover:border-emerald-500/30 hover:shadow-2xl dark:border-zinc-700/50 dark:bg-zinc-800/50"
-          >
-            <div
-              class="mb-6 flex h-48 w-full items-center justify-center rounded-2xl border-2 border-dashed border-zinc-200 transition-colors group-hover:bg-zinc-200 dark:border-zinc-700 dark:group-hover:bg-zinc-700"
-            >
-              <img src="/ai-reviewer.webp" alt="Виджет AI-интервьюер" class="h-full w-full object-contain" />
-            </div>
-            <h3 class="mb-3 text-xl font-bold text-zinc-800 dark:text-zinc-100">AI-интервьюер</h3>
-            <p class="text-zinc-600 dark:text-zinc-400">
-              Отвечайте на вопросы и получайте оценку и фидбэк от AI-интервьюера.
+              {{ widget.description }}
             </p>
           </div>
         </div>
