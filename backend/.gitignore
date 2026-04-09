@@ -19,6 +19,11 @@ dist-ssr
 .env.local
 .env.*.local
 
+# Database and Migrations
+sqlite.db
+drizzle/
+**/drizzle/_meta/*
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
