@@ -1,5 +1,6 @@
 import { eq } from 'drizzle-orm';
 import { Request, Response } from 'express';
+import { isDeepStrictEqual } from 'node:util';
 
 import { db } from '../db/index.js';
 import { questions as questionsTable } from '../db/schema.js';
@@ -52,7 +53,7 @@ export async function submitAnswer(req: Request, res: Response) {
     }
 
     case 'drag-n-drop':
-      if (JSON.stringify(answer) === JSON.stringify(q.answerKey.correctStructure)) {
+      if (isDeepStrictEqual(answer, q.answerKey.correctStructure)) {
         score = 10;
       }
       correct = q.answerKey.correctStructure;
