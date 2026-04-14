@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { MenuItem } from 'primevue/menuitem';
-
 import Card from 'primevue/card';
 import Column from 'primevue/column';
 import DataTable from 'primevue/datatable';
@@ -21,6 +19,7 @@ interface FinishedLeaderItem {
   username: string;
   value: number;
 }
+
 type LeaderboardMetric = 'avgScore' | 'finished' | 'maxStreak';
 
 interface LeaderboardTableRow {
@@ -30,6 +29,7 @@ interface LeaderboardTableRow {
   username: string;
   value: string;
 }
+
 interface LeadersResponse {
   avgScore: AverageLeaderItem[];
   finished: FinishedLeaderItem[];
@@ -39,7 +39,6 @@ interface LeadersResponse {
 interface MetricTab {
   key: LeaderboardMetric;
   label: string;
-  menuLabel?: string;
 }
 
 interface StreakLeaderItem {
@@ -65,53 +64,20 @@ const emptyTableMessage = 'Лидерборд пока пуст';
 const metricTabs: MetricTab[] = [
   { key: 'maxStreak', label: 'Стрик' },
   { key: 'finished', label: 'Квизы' },
-  { key: 'avgScore', label: 'Средний балл', menuLabel: 'Ср. балл' },
+  { key: 'avgScore', label: 'Ср. балл' },
 ];
-const defaultTab = metricTabs[0]!;
-const tabMenuItems: MenuItem[] = metricTabs.map((tab) => ({ label: tab.menuLabel ?? tab.label }));
-
-const cardPt = {
-  body: { class: 'bg-transparent p-0' },
-  caption: { class: 'px-3 pt-3 sm:px-4 sm:pt-4 md:px-6 md:pt-6' },
-  content: { class: 'px-3 pb-3 pt-0 sm:px-4 sm:pb-4 md:px-6 md:pb-6' },
-  root: {
-    class:
-      'overflow-hidden rounded-[2rem] border border-zinc-200/80 bg-white/95 shadow-xl shadow-zinc-200/40 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/80 dark:shadow-black/20',
-  },
-  title: { class: 'm-0' },
-};
 
 const tabMenuPt = {
-  activeBar: { class: 'h-1 rounded-full bg-emerald-500' },
   item: { class: 'flex-1 basis-0' },
-  itemLink: (options: { context: { index: number }; state: { d_activeIndex: number } }) => ({
-    class: [
-      'min-w-0 justify-center border-0 bg-transparent px-2 py-3 text-center text-xs leading-none whitespace-nowrap transition-colors sm:px-4 sm:py-4 sm:text-sm',
-      options.state.d_activeIndex === options.context.index
-        ? 'text-zinc-950 dark:text-white'
-        : 'text-zinc-500 dark:text-zinc-400',
-    ],
-  }),
-  root: { class: 'bg-transparent' },
-  tablist: { class: 'flex w-full border-b border-zinc-200 bg-transparent dark:border-zinc-800' },
+  itemLink: { class: 'justify-center text-xs whitespace-nowrap' },
 };
 
 const dataTablePt = {
-  root: { class: 'bg-transparent text-zinc-900 dark:text-zinc-100' },
-  tableContainer: { class: 'rounded-xl bg-white dark:bg-zinc-900/60 sm:rounded-2xl' },
-  tbody: { class: 'bg-white dark:bg-zinc-900/50' },
-  thead: { class: 'bg-zinc-50 dark:bg-zinc-900/90' },
+  tableContainer: { class: 'rounded-xl sm:rounded-2xl' },
 };
 
-const columnPt = {
-  bodyCell: { class: 'border-b border-zinc-200 bg-transparent px-3 py-3 sm:px-4 sm:py-4 dark:border-zinc-800' },
-  headerCell: {
-    class:
-      'border-b border-zinc-200 bg-zinc-50 px-3 py-3 text-zinc-500 whitespace-nowrap sm:px-4 sm:py-4 dark:border-zinc-800 dark:bg-zinc-900/90 dark:text-zinc-400',
-  },
-};
+const activeTabLabel = computed(() => metricTabs.find((tab) => tab.key === activeMetric.value)?.label ?? 'Стрик');
 
-const activeTab = computed<MetricTab>(() => metricTabs.find((tab) => tab.key === activeMetric.value) ?? defaultTab);
 const activeTabIndex = computed(() =>
   Math.max(
     metricTabs.findIndex((tab) => tab.key === activeMetric.value),
@@ -161,10 +127,6 @@ function formatMetricValue(metric: LeaderboardMetric, value: number): string {
   }
 
   return value.toString();
-}
-
-function getRowClass(row: LeaderboardTableRow) {
-  return row.isCurrentUser ? 'bg-emerald-50/80 dark:bg-emerald-500/10' : '';
 }
 
 function getRowsForMetric(metric: LeaderboardMetric): Array<{ username: string; value: number }> {
@@ -269,7 +231,7 @@ async function loadLeaders() {
 <template>
   <div class="min-h-screen bg-zinc-50 px-4 py-8 sm:px-6 sm:py-10 dark:bg-zinc-950">
     <div class="mx-auto w-full max-w-6xl">
-      <Card :pt="cardPt">
+      <Card>
         <template #title>
           <h1
             class="text-center text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl dark:text-white"
@@ -280,17 +242,11 @@ async function loadLeaders() {
 
         <template #content>
           <div class="flex flex-col gap-5 sm:gap-6">
-            <TabMenu
-              :model="tabMenuItems"
-              :activeIndex="activeTabIndex"
-              :pt="tabMenuPt"
-              @tab-change="handleTabChange"
-            />
+            <TabMenu :model="metricTabs" :activeIndex="activeTabIndex" :pt="tabMenuPt" @tab-change="handleTabChange" />
 
             <DataTable
               :value="tableRows"
               dataKey="rowKey"
-              :rowClass="getRowClass"
               :pt="dataTablePt"
               :loading="isLoading"
               scrollable
@@ -304,13 +260,13 @@ async function loadLeaders() {
                 </div>
               </template>
 
-              <Column field="rank" header="Место" :style="{ width: '4.75rem' }" :pt="columnPt">
+              <Column field="rank" header="Место" :style="{ width: '4.75rem' }">
                 <template #body="{ data }">
                   <span class="text-base font-bold text-zinc-900 sm:text-lg dark:text-white">#{{ data.rank }}</span>
                 </template>
               </Column>
 
-              <Column field="username" header="Участник" :pt="columnPt">
+              <Column field="username" header="Участник">
                 <template #body="{ data }">
                   <div class="flex min-w-0 items-center gap-2">
                     <span class="font-semibold break-all text-zinc-900 dark:text-white">{{ data.username }}</span>
@@ -324,12 +280,7 @@ async function loadLeaders() {
                 </template>
               </Column>
 
-              <Column
-                field="value"
-                :header="activeTab.menuLabel ?? activeTab.label"
-                :style="{ width: '7.5rem' }"
-                :pt="columnPt"
-              >
+              <Column field="value" :header="activeTabLabel" :style="{ width: '7.5rem' }">
                 <template #body="{ data }">
                   <span class="text-sm font-bold text-zinc-900 sm:text-base dark:text-white">
                     {{ data.value }}
