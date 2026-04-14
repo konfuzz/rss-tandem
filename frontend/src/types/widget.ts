@@ -1,10 +1,4 @@
-export type questionType =
-  | 'ai-interviewer'
-  | 'basic-poll'
-  | 'code-analysis'
-  | 'drag-n-drop'
-  | 'example'
-  | 'multiple-choice';
+export type questionType = 'ai-interviewer' | 'basic-poll' | 'code-analysis' | 'drag-n-drop' | 'multiple-choice';
 
 export interface QuizTask {
   answers?: string[];
