@@ -1,6 +1,8 @@
 import { Request, Response } from 'express';
 import OpenAI from 'openai';
 
+import { AIReviewSchema } from '../types/schemas.js';
+
 const openai = new OpenAI({
   apiKey: process.env.OPENROUTER_API_KEY,
   baseURL: 'https://openrouter.ai/api/v1',
@@ -31,7 +33,13 @@ interface AIParams {
 }
 
 export async function aiReview(req: Request, res: Response) {
-  const { question, studentAnswer } = req.body;
+  const result = AIReviewSchema.safeParse(req.body);
+
+  if (!result.success) {
+    return res.status(400).json({ error: 'Неверный формат данных' });
+  }
+
+  const { question, studentAnswer } = result.data;
 
   if (!process.env.OPENROUTER_API_KEY) {
     res.setHeader('Content-Type', 'text/event-stream');

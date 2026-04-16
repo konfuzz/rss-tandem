@@ -66,3 +66,23 @@ export const RegisterSchema = z.object({
       'Юзернейм должен содержать только буквы английского алфавита, цифры и нижнее подчеркивание',
     ),
 });
+export const LoginSchema = z.object({
+  password: z.string().min(1, 'Пароль обязателен'),
+  username: z.string().min(1, 'Юзернейм обязателен'),
+});
+
+export type LoginRequest = z.infer<typeof LoginSchema>;
+
+export const SubmitAnswerSchema = z.object({
+  answer: z.unknown(),
+  questionId: z.number(),
+});
+
+export const QuizStartSchema = z.object({
+  complexity: z.enum(['junior', 'middle', 'senior']).default('junior'),
+});
+
+export const AIReviewSchema = z.object({
+  question: z.string(),
+  studentAnswer: z.string(),
+});

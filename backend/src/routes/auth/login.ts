@@ -5,12 +5,22 @@ import { SignJWT } from 'jose';
 
 import { db } from '../../db/index.js';
 import { users } from '../../db/schema.js';
+import { LoginSchema } from '../../types/schemas.js';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 const secret = new TextEncoder().encode(JWT_SECRET);
 
 export async function login(req: Request, res: Response) {
-  const { password, username } = req.body;
+  const result = LoginSchema.safeParse(req.body);
+
+  if (!result.success) {
+    return res.status(400).json({
+      error: result.error.issues[0].message,
+      success: false,
+    });
+  }
+
+  const { password, username } = result.data;
 
   try {
     const [user] = await db.select().from(users).where(eq(users.username, username));

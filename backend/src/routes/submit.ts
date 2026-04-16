@@ -4,10 +4,16 @@ import { isDeepStrictEqual } from 'node:util';
 
 import { db } from '../db/index.js';
 import { questions as questionsTable } from '../db/schema.js';
-import { QuestionSchema } from '../types/schemas.js';
+import { QuestionSchema, SubmitAnswerSchema } from '../types/schemas.js';
 
 export async function submitAnswer(req: Request, res: Response) {
-  const { answer, questionId }: { answer: unknown; questionId: number } = req.body;
+  const result = SubmitAnswerSchema.safeParse(req.body);
+
+  if (!result.success) {
+    return res.status(400).json({ error: 'Неверный формат данных' });
+  }
+
+  const { answer, questionId } = result.data;
 
   const [row] = await db.select().from(questionsTable).where(eq(questionsTable.id, questionId));
 

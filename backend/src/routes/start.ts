@@ -3,7 +3,7 @@ import { Response } from 'express';
 
 import { db } from '../db/index.js';
 import { questions as questionsTable, quizResults } from '../db/schema.js';
-import { AuthRequest, QuizDetail } from '../types/schemas.js';
+import { AuthRequest, QuizDetail, QuizStartSchema } from '../types/schemas.js';
 
 interface Question {
   category: string;
@@ -25,7 +25,13 @@ export async function quizStart(req: AuthRequest, res: Response) {
       return res.status(401).json({ error: 'Пользователь не авторизован' });
     }
 
-    const complexity = typeof req.query.complexity === 'string' ? req.query.complexity : 'junior';
+    const result = QuizStartSchema.safeParse(req.query);
+
+    if (!result.success) {
+      return res.status(400).json({ error: 'Неверный параметр сложности' });
+    }
+
+    const { complexity } = result.data;
 
     const allQuestions = (await db
       .select({
