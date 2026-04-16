@@ -12,7 +12,6 @@ export interface QuizStats {
   averageScore: number;
   categories: QuizSummaryCategory[];
   perfectAnswers: number;
-  totalDuration: number;
   totalScore: number;
 }
 
@@ -26,12 +25,13 @@ interface BuildQuizSummaryOptions {
 export function buildFinishQuizPayload(
   answers: QuizRound[],
   complexity: string,
-  stats: Pick<QuizStats, 'totalDuration' | 'totalScore'>,
+  stats: Pick<QuizStats, 'totalScore'>,
 ): FinishQuizPayload {
   return {
     answers,
     complexity,
-    totalDuration: stats.totalDuration,
+    // Frontend widgets do not measure answer time yet, so keep the backend contract stable with an explicit zero.
+    totalDuration: 0,
     totalScore: stats.totalScore,
   };
 }
@@ -52,7 +52,6 @@ export function buildQuizSummary({
 
 export function calculateQuizStats(answers: QuizRound[]): QuizStats {
   const answeredQuestions = answers.length;
-  const totalDuration = answers.reduce((acc, curr) => acc + curr.time, 0);
   const totalScore = Math.round(answers.reduce((acc, curr) => acc + curr.score, 0) * 10) / 10;
   const categoriesMap = new Map<string, { count: number; totalScore: number }>();
 
@@ -76,7 +75,6 @@ export function calculateQuizStats(answers: QuizRound[]): QuizStats {
       name,
     })),
     perfectAnswers: answers.filter((answer) => answer.score === 10).length,
-    totalDuration,
     totalScore,
   };
 }

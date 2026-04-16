@@ -318,8 +318,8 @@ const onBankClick = () => {
 
 const buildCleanAnswer = (node: NodeItem): Record<string, unknown> => {
   const result: Record<string, unknown> = { label: node.label };
-  if (node.children && node.children.length > 0) {
-    result.children = node.children.map(buildCleanAnswer);
+  if (node.isContainer) {
+    result.children = (node.children ?? []).map(buildCleanAnswer);
   }
   return result;
 };

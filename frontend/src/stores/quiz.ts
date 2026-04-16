@@ -10,7 +10,6 @@ export interface QuizResultSummary {
   completedAt: string;
   perfectAnswers: number;
   resultId: null | number;
-  totalDuration: number;
   totalQuestions: number;
   totalScore: number;
 }
